@@ -33,3 +33,6 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
     * executa a malha de controle especifica e pega dados ao mesmo tempo
     * Transforma dados (velocidade (rad/s) e posição(°))
     * envia dados (pacote de dados)
+
+## Links e Referências
+* https://www.pythonguis.com/tutorials/plotting-pyqtgraph/ (graficos no pyqt5)
