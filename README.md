@@ -43,5 +43,8 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
     * Transforma dados (velocidade (rad/s) e posição(°))
     * envia dados (pacote de dados)
 
+## Comando pyqt5
+* pyuic5 "[name].ui" -o "[name].py" -x
+
 ## Links e Referências
 * https://www.pythonguis.com/tutorials/plotting-pyqtgraph/ (graficos no pyqt5)
