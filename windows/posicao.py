@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'posicao.ui'
+# Form implementation generated from reading ui file 'Posicao.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Posicao(object):
     def setupUi(self, Posicao):
         Posicao.setObjectName("Posicao")
-        Posicao.resize(451, 396)
+        Posicao.resize(451, 401)
         self.Kp = QtWidgets.QDoubleSpinBox(Posicao)
         self.Kp.setGeometry(QtCore.QRect(70, 170, 62, 22))
         self.Kp.setObjectName("Kp")

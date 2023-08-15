@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'menu.ui'
+# Form implementation generated from reading ui file 'Menu.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -11,11 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Menu(object):
     def setupUi(self, Menu):
         Menu.setObjectName("Menu")
-        Menu.resize(400, 300)
+        Menu.resize(451, 401)
         Menu.setWindowOpacity(1.0)
         Menu.setAutoFillBackground(False)
         self.label = QtWidgets.QLabel(Menu)
-        self.label.setGeometry(QtCore.QRect(10, 10, 381, 151))
+        self.label.setGeometry(QtCore.QRect(30, 40, 381, 151))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.label.setFont(font)
@@ -25,7 +25,7 @@ class Ui_Menu(object):
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.splitter = QtWidgets.QSplitter(Menu)
-        self.splitter.setGeometry(QtCore.QRect(120, 180, 154, 90))
+        self.splitter.setGeometry(QtCore.QRect(150, 210, 154, 90))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -68,7 +68,8 @@ class Ui_Menu(object):
         self.Posicao.setText(_translate("Menu", "Posição"))
         self.Velocidade.setText(_translate("Menu", "Velocidade"))
 
-def main():
+
+if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Menu = QtWidgets.QDialog()
@@ -77,5 +78,3 @@ def main():
     Menu.show()
     sys.exit(app.exec_())
 
-if __name__ == "__main__":
-    main()
