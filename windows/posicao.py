@@ -11,21 +11,26 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Posicao(object):
     def setupUi(self, Posicao):
         Posicao.setObjectName("Posicao")
-        Posicao.resize(451, 401)
+        Posicao.resize(451, 400)
         self.Kp = QtWidgets.QDoubleSpinBox(Posicao)
         self.Kp.setGeometry(QtCore.QRect(70, 170, 62, 22))
+        self.Kp.setDecimals(3)
+        self.Kp.setSingleStep(0.001)
         self.Kp.setObjectName("Kp")
         self.Ki = QtWidgets.QDoubleSpinBox(Posicao)
         self.Ki.setGeometry(QtCore.QRect(70, 200, 62, 22))
+        self.Ki.setDecimals(3)
+        self.Ki.setSingleStep(0.001)
         self.Ki.setObjectName("Ki")
         self.Kd = QtWidgets.QDoubleSpinBox(Posicao)
         self.Kd.setGeometry(QtCore.QRect(70, 230, 61, 22))
+        self.Kd.setDecimals(3)
+        self.Kd.setSingleStep(0.001)
         self.Kd.setObjectName("Kd")
-        self.GraficoAtual = QtWidgets.QGraphicsView(Posicao)
-        self.GraficoAtual.setGeometry(QtCore.QRect(150, 10, 291, 161))
-        self.GraficoAtual.setObjectName("GraficoAtual")
         self.Setpoint = QtWidgets.QSpinBox(Posicao)
         self.Setpoint.setGeometry(QtCore.QRect(70, 140, 61, 22))
+        self.Setpoint.setMinimum(-255)
+        self.Setpoint.setMaximum(255)
         self.Setpoint.setObjectName("Setpoint")
         self.Simular = QtWidgets.QPushButton(Posicao)
         self.Simular.setGeometry(QtCore.QRect(10, 300, 121, 41))
@@ -33,9 +38,6 @@ class Ui_Posicao(object):
         font.setPointSize(15)
         self.Simular.setFont(font)
         self.Simular.setObjectName("Simular")
-        self.GraficoAnterior = QtWidgets.QGraphicsView(Posicao)
-        self.GraficoAnterior.setGeometry(QtCore.QRect(150, 210, 291, 161))
-        self.GraficoAnterior.setObjectName("GraficoAnterior")
         self.label = QtWidgets.QLabel(Posicao)
         self.label.setGeometry(QtCore.QRect(10, 140, 47, 13))
         self.label.setObjectName("label")
@@ -81,6 +83,12 @@ class Ui_Posicao(object):
         self.label_5.setLineWidth(1)
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
+        self.GraficoAtual = PlotWidget(Posicao)
+        self.GraficoAtual.setGeometry(QtCore.QRect(150, 10, 291, 161))
+        self.GraficoAtual.setObjectName("GraficoAtual")
+        self.GraficoAnterior = PlotWidget(Posicao)
+        self.GraficoAnterior.setGeometry(QtCore.QRect(150, 210, 291, 161))
+        self.GraficoAnterior.setObjectName("GraficoAnterior")
 
         self.retranslateUi(Posicao)
         QtCore.QMetaObject.connectSlotsByName(Posicao)
@@ -98,6 +106,7 @@ class Ui_Posicao(object):
         self.InfoAnterior.setText(_translate("Posicao", "TextLabel"))
         self.label_5.setText(_translate("Posicao", "Posição"))
 
+from pyqtgraph import PlotWidget
 
 if __name__ == "__main__":
     import sys
