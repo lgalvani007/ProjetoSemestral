@@ -26,7 +26,7 @@ class Ui_Velocidade(object):
         self.Kd.setGeometry(QtCore.QRect(70, 230, 61, 22))
         self.Kd.setDecimals(3)
         self.Kd.setSingleStep(0.001)
-        self.Kd.setProperty("value", 0.01)
+        self.Kd.setProperty("value", 0.0)
         self.Kd.setObjectName("Kd")
         self.Setpoint = QtWidgets.QSpinBox(Velocidade)
         self.Setpoint.setGeometry(QtCore.QRect(70, 140, 61, 22))

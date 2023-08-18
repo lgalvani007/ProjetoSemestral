@@ -43,6 +43,14 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
     * Transforma dados (velocidade (rad/s) e posição(°))
     * envia dados (pacote de dados)
 
+## Tasks
+* Testar encoder (testEncoder)
+    * Ver quantos pulsos tem uma volta
+    * Ver a função getVelocity e getPosition
+    * Implementar no MotorControl
+    * Implemntar os dois PIDs 
+    * Atualizar sendMensage()
+
 ## Comando pyqt5
 * pyuic5 "[name].ui" -o "[name].py" -x
 

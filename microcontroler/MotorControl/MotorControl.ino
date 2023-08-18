@@ -1,13 +1,18 @@
+#define ENCODER_OPTIMIZE_INTERRUPTS
+#include <Encoder.h>
+
 #define PWM 6
 #define DIRA 4
 #define DIRB 5
 #define ENCA 2
 #define ENCB 3
 
+Encoder motor(ENCA, ENCB);
+
 int type = 2, setPoint, kp_aux, ki_aux, kd_aux;
 float kp, ki, kd;
 
-const int simulationTime = 1000;
+const int simulationTime = 10000;
 const int deltaT = 100;
 int EncoderPulse[simulationTime/deltaT];
 int Velocity[simulationTime/deltaT];
@@ -35,7 +40,7 @@ void loop() {
 
 void initialize(){
   for(int index = 0; index < simulationTime/deltaT; index++){
-    Time[index] = deltaT*index;
+    Time[index] = deltaT/1000.0*index;
   }
 }
 
@@ -87,4 +92,12 @@ void dataConverter(){
   else{ //velocidade
     
   }
+}
+
+void getVelocity(){
+  
+}
+
+void getPosition(){
+  
 }
