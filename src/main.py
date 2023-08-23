@@ -189,7 +189,7 @@ def criaArraySetpoint(tamanho, conteudo):
 if __name__ == "__main__":
     import sys
     global porta_serial
-    porta_serial = serial.Serial('COM4', 9600)
+    porta_serial = serial.Serial('COM6', 9600)
     app = QtWidgets.QApplication(sys.argv)
     c = controller()
     c.abre_menu()

@@ -16,10 +16,11 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
         * Janela de seleção
             * Controle de velocidade
                 * Kp, Ki, Kd, SETPOINT, espaço para valores
-                * Gráficos (3 ou 5)
+                * Gráficos (2)
+                * -12 a 12 -> -600 a 600 RPM
             * Controle de posição
                 * Kp, Ki, Kd, SETPOINT, espaço para valores
-                * Gráficos (3 ou 5)
+                * Gráficos (2)
         * Botão para simulação
             * Envia pacote de dados (SETPOINT, Kp, Ki, Kd, tipo de controle(V ou P))
         * Recebe informações e exibe (Velocidades/Posições, tempo)
@@ -45,8 +46,8 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
 
 ## Tasks
 * Testar encoder (testEncoder)
-    * Ver quantos pulsos tem uma volta
-    * Ver a função getVelocity e getPosition
+    * Ver quantos pulsos tem uma volta - 1200
+    * Ver a função getVelocity e getPosition - ok
     * Implementar no MotorControl
     * Implemntar os dois PIDs 
     * Atualizar sendMensage()
@@ -55,4 +56,4 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
 * pyuic5 "[name].ui" -o "[name].py" -x
 
 ## Links e Referências
-* https://www.pythonguis.com/tutorials/plotting-pyqtgraph/ (graficos no pyqt5)
+*   (graficos no pyqt5)
