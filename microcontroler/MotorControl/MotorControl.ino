@@ -9,22 +9,15 @@
 
 Encoder motor(ENCA, ENCB);
 
-int type = 2, setPoint, kp_aux, ki_aux, kd_aux;
-float kp, ki, kd;
-
-const int simulationTime = 10000;
-const int deltaT = 100;
-int EncoderPulse[simulationTime/deltaT];
-int Velocity[simulationTime/deltaT];
-int Position[simulationTime/deltaT];
-float Time[simulationTime/deltaT];
+const int simulationTime = 2000;
+const int deltaT = 10;
+int Data[simulationTime/deltaT];
+int Time[simulationTime/deltaT];
+unsigned long tSimPastEncoder = 0;
 
 unsigned long tPast = 0;
-long lastPulse = 0;
-int vel_RPM = 0;
-int positionAngular = 0;
-float velPulse_ms = 0;
-int nPulseTurn = 1200;
+int lastPulse = 0;
+long nPulseTurn = 1200;
 
 void setup() {
   Serial.begin(9600);
@@ -35,82 +28,106 @@ void setup() {
 }
 
 void loop() {
+  int type = 2;
+  long setPoint;
+  float kp, ki, kd;
+
   while(!Serial.available()){
-    digitalWrite(13,LOW);
+    digitalWrite(13,HIGH);
   }
-  readMensage();
-  PID();
-  dataConverter();
-  delay(1000);
-  sendMensage();
+  readMensage(&type, &setPoint, &kp, &ki, &kd);
+  PID(type,setPoint,kp,ki,kd);
+  sendMensage(type);
 }
 
 void initialize(){
   for(int index = 0; index < simulationTime/deltaT; index++){
-    Time[index] = deltaT/1000.0*index;
+    Time[index] = deltaT*index;
   }
 }
 
-void readMensage(){
+void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
+  int kp_aux, ki_aux, kd_aux;
   String mensage = Serial.readStringUntil('\n');
-  sscanf(mensage.c_str(), "%d,%d,%d,%d,%d", &type, &setPoint, &kp_aux, &ki_aux, &kd_aux);
-  kp = kp_aux/1000.0;
-  ki = ki_aux/1000.0;
-  kd = kd_aux/1000.0;
+  sscanf(mensage.c_str(), "%d,%d,%d,%d,%d", TYPE, SETPOINT, &kp_aux, &ki_aux, &kd_aux);
+  *KP = kp_aux/1000.0;
+  *KI = ki_aux/1000.0;
+  *KD = kd_aux/1000.0;
 }
 
-void sendMensage(){
-  for (int i = 0; i < simulationTime/deltaT; i++) {
-    Serial.print(Time[i]);//Data
-    Serial.print(",");
-    Serial.print(Time[i]);
-    if (i < simulationTime/deltaT - 1) {
-      Serial.print(",");
+void sendMensage(int TYPE){
+  for (int index = 0; index < simulationTime/deltaT; index++) {
+    Serial.print(Data[index]);//Posicao
+    Serial.print(F(","));
+    Serial.print(Time[index]);
+    if (index < simulationTime/deltaT - 1) {
+      Serial.print(F(","));
     }
   }
-  Serial.print("\n");
+  Serial.print(F("\n"));
 }
 
 void moveMotor(int me){
   if(me>0){
+    me = constrain(me,25,255);
     digitalWrite(DIRA,HIGH);
     digitalWrite(DIRB,LOW);
   }
-  else{
+  if(me < 0){
     digitalWrite(DIRA,LOW);
     digitalWrite(DIRB,HIGH);
+    me = constrain(me,-255,-25);
   }
   analogWrite(PWM,abs(me));
 }
 
-void PID(){
-  if(type == 0){ //posicao
-  
-  }
-  else{ //velocidade
-    
-  }
-}
-
-void dataConverter(){
-  if(type == 0){ //posicao
-  
-  }
-  else{ //velocidade
-    
-  }
+void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
+  int index_encoder = 0;
+  float error = 0, error_anterior = 0;
+  float error_integrativo = 0;
+  int correction = 0;
+  int lastPos = 0;
+  int pos = 0;
+  float vel = 0;
+  float lastVel = 0;
+  motor.write(0);
+  lastPulse = 0;
+  while(index_encoder < simulationTime/deltaT){
+    if(millis() - tSimPastEncoder > deltaT){
+      if(TYPE == 0){
+        pos = getPosition();
+        error = SETPOINT - pos;
+        correction = KP * error + KI * error_integrativo - KD * (pos - lastPos);
+        error_integrativo += error;
+        error_anterior = error;
+        lastPos = pos;
+        Data[index_encoder] = pos;
+      }
+      else{
+        vel = getVelocity();
+        error = SETPOINT*nPulseTurn/60000.0 - vel;
+        correction += KP * error + KI * error_integrativo - KD * (vel - lastVel);
+        error_integrativo += error;
+        error_anterior = error;
+        lastVel = vel;
+        Data[index_encoder] = int(vel * 60000 / nPulseTurn);
+      }
+      correction = constrain(correction,-255,255);
+      moveMotor(correction);
+      tSimPastEncoder = millis();
+      index_encoder++;
+    }
+  }    
+  moveMotor(0);
 }
 
 float getVelocity(){
-  unsigned long tNow = millis();
-  long newPulse = motor.read();
-  float velPulse_ms = (newPulse - lastPulse)/float(tNow - tPast);
-  lastPulse = newPulse;
-  tPast = tNow; 
+  float velPulse_ms = (motor.read() - lastPulse)/float(millis() - tPast);
+  lastPulse = motor.read();
+  tPast = millis(); 
   return velPulse_ms;
-//  return vel_RPM = velPulse_ms * 60000.0 / nPulseTurn;
 }
 
 int getPosition(){
-  return positionAngular = motor.read() * 360.0 / nPulseTurn;
+  return motor.read() * 360.0 / nPulseTurn;
 }

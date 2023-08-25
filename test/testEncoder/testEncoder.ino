@@ -24,7 +24,8 @@ void setup(){
 }
 
 void loop(){
-  Serial.println(getVelocity());
+  Serial.println(getPosition());
+
 }
 
 float getVelocity(){

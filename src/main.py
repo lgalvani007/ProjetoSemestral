@@ -6,8 +6,32 @@ from PyQt5 import QtWidgets, QtCore
 import serial
 import pyqtgraph as pg
 
+class ComunicacaoSerial:
+    def __init__(self, porta, velocidade):
+        self.porta_serial = serial.Serial(porta, velocidade)
+
+    def enviarSerial(self, TYPE, SETPOINT, KP, KI, KD):
+        mensagem = f"{TYPE},{SETPOINT},{KP},{KI},{KD}\n"
+        print(mensagem)
+        self.porta_serial.write(mensagem.encode())
+        print("Mensagem enviada com sucesso!")
+    
+    def lerSerial(self):
+        mensagem = " "
+        while(mensagem == " "):
+            mensagem = self.porta_serial.readline().decode()
+        if(mensagem != b''.decode()):
+            dados = mensagem.split(",")
+            data = [float(dados[i]) for i in range(0, len(dados), 2)]
+            time = [float(dados[i])/1000.0 for i in range(1, len(dados), 2)]
+        return time, data
+        
+    def fechaPorta(self):
+        self.porta_serial.close()
+
 class controller():
-    def __init__(self):
+    def __init__(self, Serial):
+        self.serial = Serial
         self.Dialog_posicao = QtWidgets.QDialog()
         self.ui_posicao = Posicao.Ui_Posicao()
         self.ui_posicao.setupUi(self.Dialog_posicao)
@@ -81,10 +105,10 @@ class controller():
         self.ui_velocidade.GraficoAnterior.setBackground('w')
         self.ui_posicao.GraficoAtual.setBackground('w')
         self.ui_posicao.GraficoAnterior.setBackground('w')
-        self.ui_velocidade.GraficoAtual.addLegend(offset = 1)
-        self.ui_velocidade.GraficoAnterior.addLegend(offset = 1)
-        self.ui_posicao.GraficoAtual.addLegend(offset = 1)
-        self.ui_posicao.GraficoAnterior.addLegend(offset = 1)
+        self.ui_velocidade.GraficoAtual.addLegend()
+        self.ui_velocidade.GraficoAnterior.addLegend()
+        self.ui_posicao.GraficoAtual.addLegend()
+        self.ui_posicao.GraficoAnterior.addLegend()
         
     def abre_menu(self):
         self.Dialog_menu.show()
@@ -108,16 +132,16 @@ class controller():
         self.kp_atual_posicao = round(self.ui_posicao.Kp.value() * 1000)
         self.ki_atual_posicao = round(self.ui_posicao.Ki.value() * 1000)
         self.kd_atual_posicao = round(self.ui_posicao.Kd.value() * 1000)
-        enviarSerial(self.tipo_atual_posicao, self.setpoint_atual_posicao, self.kp_atual_posicao, self.ki_atual_posicao, self.kd_atual_posicao)
-        lerSerial()
+        self.serial.enviarSerial(self.tipo_atual_posicao, self.setpoint_atual_posicao, self.kp_atual_posicao, self.ki_atual_posicao, self.kd_atual_posicao)
+        Time, Data = self.serial.lerSerial()
         if(self.nPosicao > 0):
             self.ui_posicao.GraficoAnterior.clear()
             self.ui_posicao.GraficoAnterior.plot(self.time_anterior_posicao, self.data_anterior_posicao, name = "velocidade", pen = self.pen_data)
             self.ui_posicao.GraficoAnterior.plot(self.time_anterior_posicao, self.data_setpoint_anterior_posicao, name = "setPoint", pen = self.pen_setpoint)
             self.ui_posicao.InfoAnterior.setText(f"SetPoint: {self.setpoint_anterior_posicao}, Kp: {self.kp_anterior_posicao}, Ki: {self.ki_anterior_posicao}, Kd: {self.kd_anterior_posicao}")
-        self.data_atual_posicao = data
-        self.time_atual_posicao = time
-        self.data_setpoint_atual_posicao = criaArraySetpoint(len(self.data_atual_posicao), self.setpoint_atual_posicao)
+        self.data_atual_posicao = Data
+        self.time_atual_posicao = Time
+        self.data_setpoint_atual_posicao = [self.setpoint_atual_posicao] * len(self.data_atual_posicao)
         self.ui_posicao.GraficoAtual.clear()
         self.ui_posicao.GraficoAtual.plot(self.time_atual_posicao, self.data_atual_posicao, name = "velocidade", pen = self.pen_data)
         self.ui_posicao.GraficoAtual.plot(self.time_atual_posicao, self.data_setpoint_atual_posicao, name = "setPoint", pen = self.pen_setpoint)
@@ -132,16 +156,16 @@ class controller():
         self.kp_atual_velocidade = round(self.ui_velocidade.Kp.value() * 1000)
         self.ki_atual_velocidade = round(self.ui_velocidade.Ki.value() * 1000)
         self.kd_atual_velocidade = round(self.ui_velocidade.Kd.value() * 1000)
-        enviarSerial(self.tipo_atual_velocidade, self.setpoint_atual_velocidade, self.kp_atual_velocidade, self.ki_atual_velocidade, self.kd_atual_velocidade)
-        lerSerial()
+        self.serial.enviarSerial(self.tipo_atual_velocidade, self.setpoint_atual_velocidade, self.kp_atual_velocidade, self.ki_atual_velocidade, self.kd_atual_velocidade)
+        Time, Data = self.serial.lerSerial()
         if(self.nVelocidade > 0):
             self.ui_velocidade.GraficoAnterior.clear()
             self.ui_velocidade.GraficoAnterior.plot(self.time_anterior_velocidade, self.data_anterior_velocidade, name = "velocidade", pen = self.pen_data)
             self.ui_velocidade.GraficoAnterior.plot(self.time_anterior_velocidade, self.data_setpoint_anterior_velocidade, name = "setPoint", pen = self.pen_setpoint)
             self.ui_velocidade.InfoAnterior.setText(f"SetPoint: {self.setpoint_anterior_velocidade}, Kp: {self.kp_anterior_velocidade}, Ki: {self.ki_anterior_velocidade}, Kd: {self.kd_anterior_velocidade}")
-        self.data_atual_velocidade = data
-        self.time_atual_velocidade = time
-        self.data_setpoint_atual_velocidade = criaArraySetpoint(len(self.data_atual_velocidade), self.setpoint_atual_velocidade)
+        self.data_atual_velocidade = Data
+        self.time_atual_velocidade = Time
+        self.data_setpoint_atual_velocidade = [self.setpoint_atual_velocidade] * len(self.data_atual_velocidade)
         self.ui_velocidade.GraficoAtual.clear()
         self.ui_velocidade.GraficoAtual.plot(self.time_atual_velocidade, self.data_atual_velocidade, name = "velocidade", pen = self.pen_data)
         self.ui_velocidade.GraficoAtual.plot(self.time_atual_velocidade, self.data_setpoint_atual_velocidade, name = "setPoint", pen = self.pen_setpoint)  
@@ -165,36 +189,15 @@ class controller():
         self.kp_anterior_posicao = self.kp_atual_posicao/1000
         self.ki_anterior_posicao = self.ki_atual_posicao/1000
         self.kd_anterior_posicao = self.kd_atual_posicao/1000
-        
-        
-def enviarSerial(TYPE, SETPOINT, KP, KI, KD):
-    mensagem = f"{TYPE},{SETPOINT},{KP},{KI},{KD}\n"
-    porta_serial.write(mensagem.encode())
-    print("Mensagem enviada com sucesso!")
-    
-        
-def lerSerial():
-    global time, data
-    mensagem = " "
-    while(mensagem == " "):
-        mensagem = porta_serial.readline().decode()
-    if(mensagem != b''.decode()):
-        dados = mensagem.split(",")
-        time = [float(dados[i]) for i in range(0, len(dados), 2)]
-        data = [float(dados[i]) for i in range(1, len(dados), 2)]
-
-def criaArraySetpoint(tamanho, conteudo):
-    return [conteudo] * tamanho
 
 if __name__ == "__main__":
     import sys
-    global porta_serial
-    porta_serial = serial.Serial('COM6', 9600)
+    minha_comunicacao = ComunicacaoSerial('COM6', 9600)
     app = QtWidgets.QApplication(sys.argv)
-    c = controller()
+    c = controller(minha_comunicacao)
     c.abre_menu()
     app.exec_()
-    porta_serial.close()
+    minha_comunicacao.fechaPorta()
     sys.exit()
     
     
