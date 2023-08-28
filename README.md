@@ -37,8 +37,9 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
         Vermelho|M-
         Amarelo|ENC A
         Branco|ENC B
-        Azul| +5V
+        Azul|+5V
         Verde|GND
+        * teste
     * While (enquanto não receber pacote de informações)
     * executa a malha de controle especifica e pega dados ao mesmo tempo
     * Transforma dados (velocidade (rad/s) e posição(°))

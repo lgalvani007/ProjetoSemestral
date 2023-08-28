@@ -12,8 +12,8 @@ class ComunicacaoSerial:
 
     def enviarSerial(self, TYPE, SETPOINT, KP, KI, KD):
         mensagem = f"{TYPE},{SETPOINT},{KP},{KI},{KD}\n"
-        print(mensagem)
         self.porta_serial.write(mensagem.encode())
+        print(mensagem.encode())
         print("Mensagem enviada com sucesso!")
     
     def lerSerial(self):
