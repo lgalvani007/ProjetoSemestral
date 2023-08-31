@@ -94,11 +94,13 @@ class controller():
         self.ui_posicao.Voltar.clicked.connect(self.abre_menu)
         self.ui_posicao.InfoAtual.setText("Atual")
         self.ui_posicao.InfoAnterior.setText("Anterior")
+        self.ui_posicao.Status.setText("Pronto!")
         self.ui_posicao.Simular.clicked.connect(self.simulaPosicao)
         
         self.ui_velocidade.Voltar.clicked.connect(self.abre_menu)
         self.ui_velocidade.InfoAtual.setText("Atual")
         self.ui_velocidade.InfoAnterior.setText("Anterior")
+        self.ui_velocidade.Status.setText("Pronto!")
         self.ui_velocidade.Simular.clicked.connect(self.simulaVelocidade)
         
         self.ui_velocidade.GraficoAtual.setBackground('w')
@@ -126,6 +128,8 @@ class controller():
         self.Dialog_menu.close()
         
     def simulaPosicao(self):
+        self.ui_posicao.Status.setText('Simulando...')
+        self.ui_posicao.Status.repaint()
         self.atualizaPosicao()
         self.tipo_atual_posicao = 0
         self.setpoint_atual_posicao = self.ui_posicao.Setpoint.value()
@@ -147,9 +151,12 @@ class controller():
         self.ui_posicao.GraficoAtual.plot(self.time_atual_posicao, self.data_setpoint_atual_posicao, name = "setPoint", pen = self.pen_setpoint)
         self.ui_posicao.InfoAtual.setText(f"SetPoint: {self.setpoint_atual_posicao}, Kp: {self.kp_atual_posicao/1000}, Ki: {self.ki_atual_posicao/1000}, Kd: {self.kd_atual_posicao/1000}")
         self.nPosicao += 1
+        self.ui_posicao.Status.setText('Pronto!')
         
     
     def simulaVelocidade(self):
+        self.ui_velocidade.Status.setText('Simulando...')
+        self.ui_velocidade.Status.repaint()
         self.atualizaVelocidade()
         self.tipo_atual_velocidade = 1
         self.setpoint_atual_velocidade = self.ui_velocidade.Setpoint.value()
@@ -171,6 +178,7 @@ class controller():
         self.ui_velocidade.GraficoAtual.plot(self.time_atual_velocidade, self.data_setpoint_atual_velocidade, name = "setPoint", pen = self.pen_setpoint)  
         self.ui_velocidade.InfoAtual.setText(f"SetPoint: {self.setpoint_atual_velocidade}, Kp: {self.kp_atual_velocidade/1000}, Ki: {self.ki_atual_velocidade/1000}, Kd: {self.kd_atual_velocidade/1000}")
         self.nVelocidade += 1
+        self.ui_velocidade.Status.setText('Pronto!')
         
     def atualizaVelocidade(self):
         self.data_anterior_velocidade = self.data_atual_velocidade
