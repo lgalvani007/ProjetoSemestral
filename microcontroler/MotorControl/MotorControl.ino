@@ -32,9 +32,8 @@ void loop() {
   long setPoint;
   float kp, ki, kd;
 
-  while(!Serial.available()){
-    digitalWrite(13,LOW);
-  }
+  while(!Serial.available());
+  digitalWrite(13,LOW);
   readMensage(&type, &setPoint, &kp, &ki, &kd);
   if(kp == 0.5 && ki == 0 && kd == 5){
     digitalWrite(13,HIGH);
@@ -74,14 +73,17 @@ void moveMotor(int me){
   if(me>0){
     digitalWrite(DIRA,HIGH);
     digitalWrite(DIRB,LOW);
-    me = constrain(me,25,255);
+    me = constrain(me,0,255);
   }
   else if(me < 0){
     digitalWrite(DIRA,LOW);
     digitalWrite(DIRB,HIGH);
-    me = constrain(me,-255,-25);
+    me = constrain(me,-255,0);
   }
   analogWrite(PWM,abs(me));
+  if(abs(me) == 255){
+    digitalWrite(13,HIGH);
+  }
 }
 
 void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
@@ -99,13 +101,13 @@ void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
     if(millis() - tSimPastEncoder > deltaT){
       if(TYPE == 0){
         pos = getPosition();
-        error = float(SETPOINT - pos);
+        error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
         correction = KP * error + KI * error_integrativo - KD * float((pos - lastPos));
         error_integrativo += error;
-        error_integrativo = constrain(error_integrativo,-360.0,360.0);
+        error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
         error_anterior = error;
         lastPos = pos;
-        Data[index_encoder] = int(pos);
+        Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
       else{
         vel = getVelocity();
@@ -134,5 +136,6 @@ float getVelocity(){
 }
 
 long getPosition(){
-  return long(motor.read() * 360.0 / nPulseTurn);
+//  return long(motor.read() * 360.0 / nPulseTurn);
+  return long(motor.read());
 }
