@@ -27,7 +27,7 @@ class Ui_Menu(object):
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.splitter = QtWidgets.QSplitter(Menu)
-        self.splitter.setGeometry(QtCore.QRect(300, 350, 591, 301))
+        self.splitter.setGeometry(QtCore.QRect(310, 360, 591, 301))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -59,6 +59,13 @@ class Ui_Menu(object):
         sizePolicy.setHeightForWidth(self.Velocidade.sizePolicy().hasHeightForWidth())
         self.Velocidade.setSizePolicy(sizePolicy)
         self.Velocidade.setObjectName("Velocidade")
+        self.Controladores = QtWidgets.QPushButton(self.splitter)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Controladores.sizePolicy().hasHeightForWidth())
+        self.Controladores.setSizePolicy(sizePolicy)
+        self.Controladores.setObjectName("Controladores")
 
         self.retranslateUi(Menu)
         QtCore.QMetaObject.connectSlotsByName(Menu)
@@ -66,9 +73,10 @@ class Ui_Menu(object):
     def retranslateUi(self, Menu):
         _translate = QtCore.QCoreApplication.translate
         Menu.setWindowTitle(_translate("Menu", "Menu"))
-        self.label.setText(_translate("Menu", "Simulação de controle de posição e velocidade de um motor DC com parametros interativos"))
+        self.label.setText(_translate("Menu", "Simulação de controle de posição e velocidade de um motor DC com parametros interativos e pré-calculados"))
         self.Posicao.setText(_translate("Menu", "Posição"))
         self.Velocidade.setText(_translate("Menu", "Velocidade"))
+        self.Controladores.setText(_translate("Menu", "Controladores"))
 
 
 if __name__ == "__main__":

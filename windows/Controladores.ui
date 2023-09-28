@@ -10,86 +10,44 @@
     <height>840</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Velocidade</string>
+   <string>Controladores de posição</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QDoubleSpinBox" name="Kp">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>350</y>
-      <width>62</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="decimals">
-     <number>3</number>
-    </property>
-    <property name="singleStep">
-     <double>1.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Simular">
+   <widget class="QPushButton" name="avanco">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>480</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Simular</string>
-    </property>
-   </widget>
-   <widget class="PlotWidget" name="GraficoAnterior" native="true">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
       <y>400</y>
-      <width>1041</width>
-      <height>341</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Ki">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>380</y>
-      <width>62</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="decimals">
-     <number>3</number>
-    </property>
-    <property name="singleStep">
-     <double>1.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Voltar">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>230</y>
       <width>121</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>11</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Voltar</string>
+     <string>Avanço de fase</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>330</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Setpoint:</string>
     </property>
    </widget>
    <widget class="QLabel" name="InfoAtual">
@@ -110,6 +68,50 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="PlotWidget" name="GraficoAnterior" native="true">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>400</y>
+      <width>1041</width>
+      <height>341</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="Setpoint">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>330</y>
+      <width>61</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>-400</number>
+    </property>
+    <property name="maximum">
+     <number>400</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Voltar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Voltar</string>
+    </property>
+   </widget>
    <widget class="QLabel" name="InfoAnterior">
     <property name="geometry">
      <rect>
@@ -128,6 +130,33 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="text">
+     <string>Controladores</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <widget class="PlotWidget" name="GraficoAtual" native="true">
     <property name="geometry">
      <rect>
@@ -136,25 +165,6 @@
       <width>1041</width>
       <height>341</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="Kd">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>410</y>
-      <width>61</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="decimals">
-     <number>3</number>
-    </property>
-    <property name="singleStep">
-     <double>1.000000000000000</double>
-    </property>
-    <property name="value">
-     <double>0.000000000000000</double>
     </property>
    </widget>
    <widget class="Line" name="line">
@@ -176,99 +186,76 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QPushButton" name="Pmao">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>320</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Setpoint:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>350</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Kp:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>410</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Kd:</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="Setpoint">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>320</y>
-      <width>61</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="minimum">
-     <number>-700</number>
-    </property>
-    <property name="maximum">
-     <number>700</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>380</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ki:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>190</y>
+      <y>450</y>
       <width>121</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>18</pointsize>
+      <pointsize>11</pointsize>
      </font>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
+    <property name="text">
+     <string>P</string>
     </property>
-    <property name="lineWidth">
-     <number>1</number>
+   </widget>
+   <widget class="QPushButton" name="PDmao">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>500</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string>Velocidade</string>
+     <string>PD</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
+   </widget>
+   <widget class="QPushButton" name="PMatLab">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>550</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>P - MatLab</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PDMatLab">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>600</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>PD - MatLab</string>
     </property>
    </widget>
   </widget>
@@ -281,14 +268,14 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuArquivo">
     <property name="title">
      <string>Arquivo</string>
     </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionSalvar"/>
    </widget>
-   <addaction name="menuFile"/>
+   <addaction name="menuArquivo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="font">
@@ -297,18 +284,15 @@
     </font>
    </property>
   </widget>
-  <action name="actionOpen">
+  <action name="actionAbrir">
    <property name="text">
     <string>Abrir</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
    </property>
-   <property name="shortcutContext">
-    <enum>Qt::WindowShortcut</enum>
-   </property>
   </action>
-  <action name="actionSave">
+  <action name="actionSalvar">
    <property name="text">
     <string>Salvar</string>
    </property>

@@ -1,7 +1,7 @@
 import sys
 sys.path.append("C:/Users/Leonardo/Desktop/4 ano/Orientada a obeto/ProjetoSemestral/windows")
 
-import Menu, Posicao, Velocidade
+import Menu, Posicao, Velocidade, Controladores
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QFileDialog
 import serial
@@ -32,6 +32,7 @@ class ComunicacaoSerial:
 class controller():
     def __init__(self, Serial):
         self.serial = Serial
+
         self.Dialog_posicao = QtWidgets.QMainWindow()
         self.ui_posicao = Posicao.Ui_MainWindow()
         self.ui_posicao.setupUi(self.Dialog_posicao)
@@ -39,6 +40,10 @@ class controller():
         self.Dialog_velocidade = QtWidgets.QMainWindow()
         self.ui_velocidade = Velocidade.Ui_MainWindow()
         self.ui_velocidade.setupUi(self.Dialog_velocidade)
+
+        self.Dialog_controladores = QtWidgets.QMainWindow()
+        self.ui_controladores = Controladores.Ui_MainWindow()
+        self.ui_controladores.setupUi(self.Dialog_controladores)
 
         self.Dialog_menu = QtWidgets.QDialog()
         self.ui_menu = Menu.Ui_Menu()
@@ -68,6 +73,11 @@ class controller():
         self.ki_anterior_posicao = 0
         self.kd_anterior_posicao = 0
         
+        self.setpoint_atual_controladores = 0
+        self.setpoint_anterior_controladores = 0
+
+        self.controlador_atual = ''
+        self.controlador_anterior = ''
         
         self.time_atual_velocidade = []
         self.data_atual_velocidade = []
@@ -81,15 +91,26 @@ class controller():
         self.data_setpoint_atual_velocidade = []
         self.data_setpoint_anterior_posicao = []
         self.data_setpoint_anterior_velocidade = []
+
+        self.time_atual_controladores = []
+        self.data_atual_controladores = []
+        self.time_anterior_controladores = []
+        self.data_anterior_controladores = []
+        self.data_setpoint_atual_controladores = []
+        self.data_setpoint_atual_controladores = []
+        self.data_setpoint_anterior_controladores = []
+        self.data_setpoint_anterior_controladores = []
         
         self.nVelocidade = 0
         self.nPosicao = 0
+        self.nControladores = 0
         
         self.pen_data = pg.mkPen(color=(255, 0, 0), width=2)
         self.pen_setpoint = pg.mkPen(color=(0, 255, 0), width=2, style=QtCore.Qt.DashLine)
         
         self.ui_menu.Posicao.clicked.connect(self.abre_posicao)
         self.ui_menu.Velocidade.clicked.connect(self.abre_velocidade)
+        self.ui_menu.Controladores.clicked.connect(self.abre_controladores)
         
         self.ui_posicao.Voltar.clicked.connect(self.abre_menu)
         self.ui_posicao.InfoAtual.setText("Atual")
@@ -106,15 +127,29 @@ class controller():
         self.ui_velocidade.Simular.clicked.connect(self.simulaVelocidade)
         self.ui_velocidade.actionSave.triggered.connect(self.saveFileDialogVelocidade)
         self.ui_velocidade.actionOpen.triggered.connect(self.openFileDialogVelocidade)
+
+        self.ui_controladores.Voltar.clicked.connect(self.abre_menu)
+        self.ui_controladores.InfoAtual.setText("Atual")
+        self.ui_controladores.InfoAnterior.setText("Anterior")
+        self.ui_controladores.statusbar.showMessage('Pronto!')
+        self.ui_controladores.avanco.clicked.connect(self.simulaControladores)
+        self.ui_controladores.Pmao.clicked.connect(self.simulaControladores)
+        self.ui_controladores.PDmao.clicked.connect(self.simulaControladores)
+        self.ui_controladores.PMatLab.clicked.connect(self.simulaControladores)
+        self.ui_controladores.PDMatLab.clicked.connect(self.simulaControladores)
         
         self.ui_velocidade.GraficoAtual.setBackground('w')
         self.ui_velocidade.GraficoAnterior.setBackground('w')
         self.ui_posicao.GraficoAtual.setBackground('w')
         self.ui_posicao.GraficoAnterior.setBackground('w')
+        self.ui_controladores.GraficoAtual.setBackground('w')
+        self.ui_controladores.GraficoAnterior.setBackground('w')
         self.ui_velocidade.GraficoAtual.addLegend()
         self.ui_velocidade.GraficoAnterior.addLegend()
         self.ui_posicao.GraficoAtual.addLegend()
         self.ui_posicao.GraficoAnterior.addLegend()
+        self.ui_controladores.GraficoAtual.addLegend()
+        self.ui_controladores.GraficoAnterior.addLegend()
 
         self.desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 
@@ -186,14 +221,23 @@ class controller():
         self.Dialog_menu.show()
         self.Dialog_velocidade.close()
         self.Dialog_posicao.close()
+        self.Dialog_controladores.close()
     
     def abre_velocidade(self):
         self.Dialog_velocidade.show()
         self.Dialog_posicao.close()
         self.Dialog_menu.close()
+        self.Dialog_controladores.close()
     
     def abre_posicao(self):
         self.Dialog_posicao.show()
+        self.Dialog_velocidade.close()
+        self.Dialog_menu.close()
+        self.Dialog_controladores.close()
+
+    def abre_controladores(self):
+        self.Dialog_controladores.show()
+        self.Dialog_posicao.close()
         self.Dialog_velocidade.close()
         self.Dialog_menu.close()
         
@@ -249,6 +293,43 @@ class controller():
         self.ui_velocidade.InfoAtual.setText(f"SetPoint: {self.setpoint_atual_velocidade}, Kp: {self.kp_atual_velocidade/1000}, Ki: {self.ki_atual_velocidade/1000}, Kd: {self.kd_atual_velocidade/1000}")
         self.nVelocidade += 1
         self.ui_velocidade.statusbar.showMessage('Pronto!')
+
+    def simulaControladores(self):
+        self.ui_controladores.statusbar.showMessage('Simulando...')
+        self.ui_controladores.statusbar.repaint()
+        self.atualizaControladores()
+        sender = self.Dialog_controladores.sender()
+        self.controlador_atual = sender.text()
+        if(self.controlador_atual == "Avanço de fase"):
+            self.tipo_atual_controladores = 2
+        elif(self.controlador_atual == "P"):
+            self.tipo_atual_controladores = 3
+        elif(self.controlador_atual == "PD"):
+            self.tipo_atual_controladores = 4
+        elif(self.controlador_atual == "P - MatLab"):
+            self.tipo_atual_controladores = 5
+        elif(self.controlador_atual == "PD - MatLab"):
+            self.tipo_atual_controladores = 6
+        self.setpoint_atual_controladores = self.ui_controladores.Setpoint.value()
+        self.serial.enviarSerial(self.tipo_atual_controladores, self.setpoint_atual_controladores, 0, 0, 0)
+        Time, Data = self.serial.lerSerial()
+
+        if(self.nControladores > 0):
+            self.ui_controladores.GraficoAnterior.clear()
+            self.ui_controladores.GraficoAnterior.plot(self.time_anterior_controladores, self.data_anterior_controladores, name = "Posição", pen = self.pen_data)
+            self.ui_controladores.GraficoAnterior.plot(self.time_anterior_controladores, self.data_setpoint_anterior_controladores, name = "setPoint", pen = self.pen_setpoint)
+            self.ui_controladores.InfoAnterior.setText(f"SetPoint: {self.setpoint_anterior_controladores}, Controlador: {self.controlador_anterior}")
+
+        self.data_atual_controladores = Data
+        self.time_atual_controladores = Time
+        self.data_setpoint_atual_controladores = [self.setpoint_atual_controladores] * len(self.data_atual_controladores)
+        self.ui_controladores.GraficoAtual.clear()
+        self.ui_controladores.GraficoAtual.plot(self.time_atual_controladores, self.data_atual_controladores, name = "Posição", pen = self.pen_data)
+        self.ui_controladores.GraficoAtual.plot(self.time_atual_controladores, self.data_setpoint_atual_controladores, name = "setPoint", pen = self.pen_setpoint)  
+        self.ui_controladores.InfoAtual.setText(f"SetPoint: {self.setpoint_atual_controladores}, Controlador: {self.controlador_atual}")
+        self.nControladores += 1
+
+        self.ui_controladores.statusbar.showMessage('Pronto!')
         
     def atualizaVelocidade(self):
         self.data_anterior_velocidade = self.data_atual_velocidade
@@ -267,6 +348,13 @@ class controller():
         self.kp_anterior_posicao = self.kp_atual_posicao/1000
         self.ki_anterior_posicao = self.ki_atual_posicao/1000
         self.kd_anterior_posicao = self.kd_atual_posicao/1000
+
+    def atualizaControladores(self):
+        self.data_anterior_controladores = self.data_atual_controladores
+        self.time_anterior_controladores = self.time_atual_controladores
+        self.data_setpoint_anterior_controladores = self.data_setpoint_atual_controladores
+        self.setpoint_anterior_controladores = self.setpoint_atual_controladores
+        self.controlador_anterior = self.controlador_atual
 
 if __name__ == "__main__":
     import sys

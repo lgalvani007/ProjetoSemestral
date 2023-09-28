@@ -35,9 +35,6 @@ void loop() {
   while(!Serial.available());
   digitalWrite(13,LOW);
   readMensage(&type, &setPoint, &kp, &ki, &kd);
-  if(kp == 0.5 && ki == 0 && kd == 5){
-    digitalWrite(13,HIGH);
-  }
   PID(type,setPoint,kp,ki,kd);
   sendMensage(type);
 }
@@ -73,12 +70,12 @@ void moveMotor(int me){
   if(me>0){
     digitalWrite(DIRA,HIGH);
     digitalWrite(DIRB,LOW);
-    me = constrain(me,0,255);
+    me = constrain(me,1,255);
   }
   else if(me < 0){
     digitalWrite(DIRA,LOW);
     digitalWrite(DIRB,HIGH);
-    me = constrain(me,-255,0);
+    me = constrain(me,-255,-1);
   }
   analogWrite(PWM,abs(me));
   if(abs(me) == 255){
@@ -109,7 +106,7 @@ void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
         lastPos = pos;
         Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
-      else{
+      else if(TYPE == 1){
         vel = getVelocity();
         error = float(SETPOINT*nPulseTurn/60000.0) - vel;
         correction += KP * error + KI * error_integrativo - KD * (vel - lastVel);
@@ -118,6 +115,44 @@ void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
         error_anterior = error;
         lastVel = vel;
         Data[index_encoder] = int(vel * 60000 / nPulseTurn);
+      }
+      else if(TYPE == 2){
+        //Avanço de fase 10ms
+        pos = getPosition();
+        error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
+        correction = 54.26*error - 52.83*error_anterior + 0.9649*correction;
+        error_anterior = error;
+        Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
+      }
+      else if(TYPE == 3){
+        //P mao 10ms
+        pos = getPosition();
+        error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
+        correction = 1.035*error;
+        Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
+      }
+      else if(TYPE == 4){
+        //PD mao 10ms
+        pos = getPosition();
+        error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
+        correction = 17.43*error - 16.77*error_anterior - correction;
+        error_anterior = error;
+        Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
+      }
+      else if(TYPE == 5){
+        //P MatLab 10ms
+        pos = getPosition();
+        error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
+        correction = 33*error;
+        Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
+      }
+      else if(TYPE == 6){
+        //PD MatLab 10ms
+        pos = getPosition();
+        error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
+        correction = 2688*error - 2568*error_anterior - correction;
+        error_anterior = error;
+        Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
       correction = constrain(correction,-255,255);
       moveMotor(int(correction));

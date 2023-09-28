@@ -88,10 +88,10 @@
      </rect>
     </property>
     <property name="minimum">
-     <number>0</number>
+     <number>-400</number>
     </property>
     <property name="maximum">
-     <number>359</number>
+     <number>400</number>
     </property>
    </widget>
    <widget class="QPushButton" name="Voltar">
@@ -196,7 +196,7 @@
      <number>3</number>
     </property>
     <property name="singleStep">
-     <double>0.001000000000000</double>
+     <double>1.000000000000000</double>
     </property>
    </widget>
    <widget class="PlotWidget" name="GraficoAtual" native="true">
@@ -222,7 +222,7 @@
      <number>3</number>
     </property>
     <property name="singleStep">
-     <double>0.001000000000000</double>
+     <double>1.000000000000000</double>
     </property>
    </widget>
    <widget class="QDoubleSpinBox" name="Kd">
@@ -238,7 +238,7 @@
      <number>3</number>
     </property>
     <property name="singleStep">
-     <double>0.001000000000000</double>
+     <double>1.000000000000000</double>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -280,7 +280,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArquivo">

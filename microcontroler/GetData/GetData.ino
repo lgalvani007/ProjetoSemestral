@@ -11,7 +11,7 @@ Encoder motor(ENCA, ENCB);
 
 const int simulationTime = 2000;
 const int deltaT = 10;
-float Data[simulationTime/deltaT];
+long Data[simulationTime/deltaT];
 int Time[simulationTime/deltaT];
 unsigned long tSimPastEncoder = 0;
 
@@ -28,11 +28,13 @@ void setup() {
 }
 
 void loop() {
-  while(!Serial.available());
-  int velocity = 255;
-  motorStep(velocity);
-  sendMensage();
-  while(1);
+  while(!Serial.available()){
+  }
+  int velocity = Serial.parseInt();
+  if(velocity != 0){
+    motorStep(velocity);
+    sendMensage();
+  }
 }
 
 void initialize(){
@@ -70,7 +72,7 @@ void motorStep(int velocity){
   motor.write(0);
   while(index_encoder < simulationTime/deltaT){
     if(millis() - tSimPastEncoder > deltaT){
-      Data[index_encoder] = getVelocity();
+      Data[index_encoder] = motor.read();
       tSimPastEncoder = millis();
       index_encoder++;
     }
