@@ -85,9 +85,9 @@ void moveMotor(int me){
 
 void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
   int index_encoder = 0;
-  float error = 0, error_anterior = 0;
+  float error = 0, error_anterior = 0, error_anterior_anterior = 0;
   float error_integrativo = 0;
-  float correction = 0;
+  float correction = 0, correction_anterior = 0, correction_anterior_anterior = 0 ;
   long lastPos = 0;
   long pos = 0;
   float vel = 0;
@@ -143,18 +143,22 @@ void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
         //P MatLab 10ms
         pos = getPosition();
         error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
-        correction = 33*error;
+        correction = 211.2*error - 421.7*error_anterior + 210.5*error_anterior_anterior + correction_anterior ;
+        error_anterior = error;
+        error_anterior_anterior = error_anterior;
+        correction_anterior = correction;
+        correction_anterior_anterior = correction_anterior;
         Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
       else if(TYPE == 6){
         //PD MatLab 10ms
         pos = getPosition();
         error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
-        correction = 2688*error - 2568*error_anterior - correction;
+        correction = 0.2397*error - 0.2235*error_anterior + 0.8902*correction;
         error_anterior = error;
         Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
-      correction = constrain(correction,-255,255);
+      correction = constrain(correction,-255.0,255.0);
       moveMotor(int(correction));
       tSimPastEncoder = millis();
       index_encoder++;

@@ -53,6 +53,9 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
     * Implemntar os dois PIDs 
     * Atualizar sendMensage()
 
+## Modelo
+* Gm = tf(47.57,[0.1033 1 0])
+
 ## Comando pyqt5
 * pyuic5 "[name].ui" -o "[name].py" -x
 
