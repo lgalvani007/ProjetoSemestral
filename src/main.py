@@ -358,7 +358,7 @@ class controller():
 
 if __name__ == "__main__":
     import sys
-    minha_comunicacao = ComunicacaoSerial('COM6', 9600)
+    minha_comunicacao = ComunicacaoSerial('COM4', 9600)
     app = QtWidgets.QApplication(sys.argv)
     c = controller(minha_comunicacao)
     c.abre_menu()

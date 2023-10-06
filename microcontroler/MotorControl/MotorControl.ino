@@ -128,14 +128,14 @@ void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
         //P mao 10ms
         pos = getPosition();
         error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
-        correction = 1.035*error;
+        correction = 0.09*error;
         Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
       else if(TYPE == 4){
         //PD mao 10ms
         pos = getPosition();
         error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
-        correction = 17.43*error - 16.77*error_anterior - correction;
+        correction = 2.205*error - 2.001*error_anterior - correction;
         error_anterior = error;
         Data[index_encoder] = int(pos*360.0/float(nPulseTurn));
       }
@@ -143,7 +143,7 @@ void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
         //P MatLab 10ms
         pos = getPosition();
         error = float(long(SETPOINT*nPulseTurn/360.0) - pos);
-        correction = 211.2*error - 421.7*error_anterior + 210.5*error_anterior_anterior + correction_anterior ;
+        correction = 0.06834*error - 0.0683*error_anterior - 0*error_anterior_anterior + 1*correction_anterior + 0*correction_anterior_anterior;
         error_anterior = error;
         error_anterior_anterior = error_anterior;
         correction_anterior = correction;
