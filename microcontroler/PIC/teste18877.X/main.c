@@ -50,15 +50,25 @@
                          Main application
  */
 void moveMotor(int);
+void sendMensage();
+void initialize();
+void readMensage();
+
+#define simulationTime 2000
+#define  deltaT 10
+int Data[simulationTime/deltaT];
+int Time[simulationTime/deltaT];
+unsigned long tSimPastEncoder = 0;
+
+unsigned long tPast = 0;
+long lastPulse = 0;
+long nPulseTurn = 1200;
 
 void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
     
-    unsigned char receivedString[30];
-    int value[5];
-
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
@@ -75,32 +85,15 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     //PWM6_Initialize();
     moveMotor(0);
+    initialize();
     while (1)
     {
-        int i = 0;
-        while(1){
-            if(EUSART_is_rx_ready()){
-                unsigned char receivedChar = EUSART_Read();
-                if(receivedChar == '\n' || receivedChar == '\r'){
-                    receivedString[i] = '\0';
-                    break;
-                }
-                else{
-                    receivedString[i] = receivedChar;
-                    i++;
-                }
-            }
-        }
-        printf("%s\n", receivedString);
-        char *token;
-        token = strtok(receivedString,",");
-        int j = 0;
-        while(token != NULL){
-            value[j] = atoi(token);
-            printf("%d\n", value[j]);
-            token = strtok(NULL,",");
-        }
-        receivedString[0] = '\0';
+        int type = 2;
+        long setPoint;
+        float kp, ki, kd;
+        readMensage(&type, &setPoint, &kp, &ki, &kd);
+        printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
+        sendMensage();
     }
 }
 
@@ -114,6 +107,59 @@ void moveMotor(int m){
         B_SetHigh();
     }
     PWM6_LoadDutyValue(abs(m));
+}
+
+void initialize(){
+    for(int index = 0; index < simulationTime/deltaT; index++){
+        Time[index] = deltaT*index;
+        Data[index] = deltaT*index;
+    }
+}
+
+void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
+    int i = 0;
+    unsigned char receivedString[30];
+    int value[5];
+    while(1){
+        if(EUSART_is_rx_ready()){
+            unsigned char receivedChar = EUSART_Read();
+            if(receivedChar == '\n' || receivedChar == '\r'){
+                receivedString[i] = '\0';
+                break;
+            }
+            else{
+                receivedString[i] = receivedChar;
+                i++;
+            }
+        }
+    }
+    printf("%s\n", receivedString);
+    char *token;
+    token = strtok(receivedString,",");
+    int j = 0;
+    while(token != NULL){
+        value[j] = atoi(token);
+        printf("%d\n", value[j]);
+        token = strtok(NULL,",");
+    }
+    *TYPE = value[0];
+    *SETPOINT = value[1];
+    *KP = value[2]/1000.0;
+    *KI = value[3]/1000.0;
+    *KD = value[4]/1000.0;
+    receivedString[0] = '\0';
+}
+
+void sendMensage(){
+    for (int index = 0; index < simulationTime/deltaT; index++) {
+        printf("%i",Data[index]);//Posicao
+        printf(",");
+        printf("%i",Time[index]);
+        if (index < simulationTime/deltaT - 1) {
+          printf(",");
+        }
+    }
+    printf("\n");
 }
 /**
  End of File

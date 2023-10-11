@@ -21240,42 +21240,35 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 
 
 void moveMotor(int);
+void sendMensage();
+void initialize();
+void readMensage();
+
+
+
+int Data[2000/10];
+int Time[2000/10];
+unsigned long tSimPastEncoder = 0;
+
+unsigned long tPast = 0;
+long lastPulse = 0;
+long nPulseTurn = 1200;
 
 void main(void)
 {
 
     SYSTEM_Initialize();
-
-    unsigned char receivedString[30];
-    int value[5];
-# 77 "main.c"
+# 87 "main.c"
     moveMotor(0);
+    initialize();
     while (1)
     {
-        int i = 0;
-        while(1){
-            if(EUSART_is_rx_ready()){
-                unsigned char receivedChar = EUSART_Read();
-                if(receivedChar == '\n' || receivedChar == '\r'){
-                    receivedString[i] = '\0';
-                    break;
-                }
-                else{
-                    receivedString[i] = receivedChar;
-                    i++;
-                }
-            }
-        }
-        printf("%s\n", receivedString);
-        char *token;
-        token = strtok(receivedString,",");
-        int j = 0;
-        while(token != ((void*)0)){
-            value[j] = atoi(token);
-            printf("%d\n", value[j]);
-            token = strtok(((void*)0),",");
-        }
-        receivedString[0] = '\0';
+        int type = 2;
+        long setPoint;
+        float kp, ki, kd;
+        readMensage(&type, &setPoint, &kp, &ki, &kd);
+        printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
+        sendMensage();
     }
 }
 
@@ -21289,4 +21282,57 @@ void moveMotor(int m){
         do { LATCbits.LATC3 = 1; } while(0);
     }
     PWM6_LoadDutyValue(abs(m));
+}
+
+void initialize(){
+    for(int index = 0; index < 2000/10; index++){
+        Time[index] = 10*index;
+        Data[index] = 10*index;
+    }
+}
+
+void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
+    int i = 0;
+    unsigned char receivedString[30];
+    int value[5];
+    while(1){
+        if(EUSART_is_rx_ready()){
+            unsigned char receivedChar = EUSART_Read();
+            if(receivedChar == '\n' || receivedChar == '\r'){
+                receivedString[i] = '\0';
+                break;
+            }
+            else{
+                receivedString[i] = receivedChar;
+                i++;
+            }
+        }
+    }
+    printf("%s\n", receivedString);
+    char *token;
+    token = strtok(receivedString,",");
+    int j = 0;
+    while(token != ((void*)0)){
+        value[j] = atoi(token);
+        printf("%d\n", value[j]);
+        token = strtok(((void*)0),",");
+    }
+    *TYPE = value[0];
+    *SETPOINT = value[1];
+    *KP = value[2]/1000.0;
+    *KI = value[3]/1000.0;
+    *KD = value[4]/1000.0;
+    receivedString[0] = '\0';
+}
+
+void sendMensage(){
+    for (int index = 0; index < 2000/10; index++) {
+        printf("%i",Data[index]);
+        printf(",");
+        printf("%i",Time[index]);
+        if (index < 2000/10 - 1) {
+          printf(",");
+        }
+    }
+    printf("\n");
 }

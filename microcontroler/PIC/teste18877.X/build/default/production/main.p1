@@ -6,21 +6,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52 main.c
 [; ;main.c: 52: void moveMotor(int);
 [v _moveMotor `(v ~T0 @X0 0 ef1`i ]
-"207 ./mcc_generated_files/eusart.h
-[; ;./mcc_generated_files/eusart.h: 207: _Bool EUSART_is_rx_ready(void);
-[v _EUSART_is_rx_ready `(a ~T0 @X0 0 ef ]
-"322
-[; ;./mcc_generated_files/eusart.h: 322: uint8_t EUSART_Read(void);
-[v _EUSART_Read `(uc ~T0 @X0 0 ef ]
+"54
+[; ;main.c: 54: void initialize();
+[v _initialize `(v ~T0 @X0 0 e? ]
+"55
+[; ;main.c: 55: void readMensage();
+[v _readMensage `(v ~T0 @X0 0 e? ]
 "117 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h: 117: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"52 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h: 52: char *strtok (char *restrict, const char *restrict);
-[v _strtok `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
-"23 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h: 23: int atoi (const char *);
-[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
+"53 main.c
+[; ;main.c: 53: void sendMensage();
+[v _sendMensage `(v ~T0 @X0 0 e? ]
 "1148 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 1148:     struct {
 [s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -49,6 +46,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "78 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h: 78: int abs (int);
 [v _abs `(i ~T0 @X0 0 ef1`i ]
+"207 ./mcc_generated_files/eusart.h
+[; ;./mcc_generated_files/eusart.h: 207: _Bool EUSART_is_rx_ready(void);
+[v _EUSART_is_rx_ready `(a ~T0 @X0 0 ef ]
+"322
+[; ;./mcc_generated_files/eusart.h: 322: uint8_t EUSART_Read(void);
+[v _EUSART_Read `(uc ~T0 @X0 0 ef ]
+"52 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h: 52: char *strtok (char *restrict, const char *restrict);
+[v _strtok `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"23 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h: 23: int atoi (const char *);
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1684,197 +1693,368 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36300
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 36300: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
+"59 main.c
+[; ;main.c: 59: int Data[2000/10];
+[v _Data `i ~T0 @X0 -> 200 `i e ]
+"60
+[; ;main.c: 60: int Time[2000/10];
+[v _Time `i ~T0 @X0 -> 200 `i e ]
+"61
+[; ;main.c: 61: unsigned long tSimPastEncoder = 0;
+[v _tSimPastEncoder `ul ~T0 @X0 1 e ]
+[i _tSimPastEncoder
+-> -> -> 0 `i `l `ul
+]
+"63
+[; ;main.c: 63: unsigned long tPast = 0;
+[v _tPast `ul ~T0 @X0 1 e ]
+[i _tPast
+-> -> -> 0 `i `l `ul
+]
+"64
+[; ;main.c: 64: long lastPulse = 0;
+[v _lastPulse `l ~T0 @X0 1 e ]
+[i _lastPulse
+-> -> 0 `i `l
+]
+"65
+[; ;main.c: 65: long nPulseTurn = 1200;
+[v _nPulseTurn `l ~T0 @X0 1 e ]
+[i _nPulseTurn
+-> -> 1200 `i `l
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"54 main.c
-[; ;main.c: 54: void main(void)
+"67
+[; ;main.c: 67: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"55
-[; ;main.c: 55: {
+"68
+[; ;main.c: 68: {
 {
 [e :U _main ]
 [f ]
-"57
-[; ;main.c: 57:     SYSTEM_Initialize();
+"70
+[; ;main.c: 70:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"59
-[; ;main.c: 59:     unsigned char receivedString[30];
-[v _receivedString `uc ~T0 @X0 -> 30 `i a ]
-"60
-[; ;main.c: 60:     int value[5];
-[v _value `i ~T0 @X0 -> 5 `i a ]
-"77
-[; ;main.c: 77:     moveMotor(0);
-[e ( _moveMotor (1 -> 0 `i ]
-"78
-[; ;main.c: 78:     while (1)
-[e :U 1620 ]
-"79
-[; ;main.c: 79:     {
-{
-"80
-[; ;main.c: 80:         int i = 0;
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-"81
-[; ;main.c: 81:         while(1){
-[e :U 1623 ]
-{
-"82
-[; ;main.c: 82:             if(EUSART_is_rx_ready()){
-[e $ ! != -> ( _EUSART_is_rx_ready ..  `i -> 0 `i 1625  ]
-{
-"83
-[; ;main.c: 83:                 unsigned char receivedChar = EUSART_Read();
-[v _receivedChar `uc ~T0 @X0 1 a ]
-[e = _receivedChar ( _EUSART_Read ..  ]
-"84
-[; ;main.c: 84:                 if(receivedChar == '\n' || receivedChar == '\r'){
-[e $ ! || == -> _receivedChar `ui -> 10 `ui == -> _receivedChar `ui -> 13 `ui 1626  ]
-{
-"85
-[; ;main.c: 85:                     receivedString[i] = '\0';
-[e = *U + &U _receivedString * -> -> _i `ui `ux -> -> # *U &U _receivedString `ui `ux -> -> 0 `ui `uc ]
-"86
-[; ;main.c: 86:                     break;
-[e $U 1624  ]
 "87
-[; ;main.c: 87:                 }
-}
-[e $U 1627  ]
+[; ;main.c: 87:     moveMotor(0);
+[e ( _moveMotor (1 -> 0 `i ]
 "88
-[; ;main.c: 88:                 else{
-[e :U 1626 ]
-{
+[; ;main.c: 88:     initialize();
+[e ( _initialize ..  ]
 "89
-[; ;main.c: 89:                     receivedString[i] = receivedChar;
-[e = *U + &U _receivedString * -> -> _i `ui `ux -> -> # *U &U _receivedString `ui `ux _receivedChar ]
+[; ;main.c: 89:     while (1)
+[e :U 1620 ]
 "90
-[; ;main.c: 90:                     i++;
-[e ++ _i -> 1 `i ]
-"91
-[; ;main.c: 91:                 }
-}
-[e :U 1627 ]
-"92
-[; ;main.c: 92:             }
-}
-[e :U 1625 ]
-"93
-[; ;main.c: 93:         }
-}
-[e :U 1622 ]
-[e $U 1623  ]
-[e :U 1624 ]
-"94
-[; ;main.c: 94:         printf("%s\n", receivedString);
-[e ( _printf , (. :s 1C &U _receivedString ]
-"95
-[; ;main.c: 95:         char *token;
-[v _token `*uc ~T0 @X0 1 a ]
-"96
-[; ;main.c: 96:         token = strtok(receivedString,",");
-[e = _token ( _strtok (2 , -> &U _receivedString `*uc :s 2C ]
-"97
-[; ;main.c: 97:         int j = 0;
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-"98
-[; ;main.c: 98:         while(token != ((void*)0)){
-[e $U 1628  ]
-[e :U 1629 ]
+[; ;main.c: 90:     {
 {
-"99
-[; ;main.c: 99:             value[j] = atoi(token);
-[e = *U + &U _value * -> -> _j `ui `ux -> -> # *U &U _value `ui `ux ( _atoi (1 -> _token `*Cuc ]
-"100
-[; ;main.c: 100:             printf("%d\n", value[j]);
-[e ( _printf , (. :s 3C *U + &U _value * -> -> _j `ui `ux -> -> # *U &U _value `ui `ux ]
-"101
-[; ;main.c: 101:             token = strtok(((void*)0),",");
-[e = _token ( _strtok (2 , -> -> -> 0 `i `*v `*uc :s 4C ]
-"102
-[; ;main.c: 102:         }
-}
-[e :U 1628 ]
-"98
-[; ;main.c: 98:         while(token != ((void*)0)){
-[e $ != _token -> -> -> 0 `i `*v `*uc 1629  ]
-[e :U 1630 ]
-"103
-[; ;main.c: 103:         receivedString[0] = '\0';
-[e = *U + &U _receivedString * -> -> -> 0 `i `ui `ux -> -> # *U &U _receivedString `ui `ux -> -> 0 `ui `uc ]
-"104
-[; ;main.c: 104:     }
+"91
+[; ;main.c: 91:         int type = 2;
+[v _type `i ~T0 @X0 1 a ]
+[e = _type -> 2 `i ]
+"92
+[; ;main.c: 92:         long setPoint;
+[v _setPoint `l ~T0 @X0 1 a ]
+"93
+[; ;main.c: 93:         float kp, ki, kd;
+[v _kp `f ~T0 @X0 1 a ]
+[v _ki `f ~T0 @X0 1 a ]
+[v _kd `f ~T0 @X0 1 a ]
+"94
+[; ;main.c: 94:         readMensage(&type, &setPoint, &kp, &ki, &kd);
+[e ( _readMensage , , , , &U _type &U _setPoint &U _kp &U _ki &U _kd ]
+"95
+[; ;main.c: 95:         printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
+[e ( _printf , , , , , (. :s 1C _type _setPoint -> _kp `d -> _ki `d -> _kd `d ]
+"96
+[; ;main.c: 96:         sendMensage();
+[e ( _sendMensage ..  ]
+"97
+[; ;main.c: 97:     }
 }
 [e :U 1619 ]
 [e $U 1620  ]
 [e :U 1621 ]
-"105
-[; ;main.c: 105: }
+"98
+[; ;main.c: 98: }
 [e :UE 1618 ]
 }
-"107
-[; ;main.c: 107: void moveMotor(int m){
+"100
+[; ;main.c: 100: void moveMotor(int m){
 [v _moveMotor `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _moveMotor ]
 [v _m `i ~T0 @X0 1 r1 ]
 [f ]
-"108
-[; ;main.c: 108:     if(m>0){
-[e $ ! > _m -> 0 `i 1632  ]
+"101
+[; ;main.c: 101:     if(m>0){
+[e $ ! > _m -> 0 `i 1623  ]
 {
-"109
-[; ;main.c: 109:         do { LATDbits.LATD0 = 1; } while(0);
-[e :U 1635 ]
+"102
+[; ;main.c: 102:         do { LATDbits.LATD0 = 1; } while(0);
+[e :U 1626 ]
 {
 [e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 }
-[e :U 1634 ]
-"110
-[; ;main.c: 110:         do { LATCbits.LATC3 = 0; } while(0);
-[e :U 1638 ]
+[e :U 1625 ]
+"103
+[; ;main.c: 103:         do { LATCbits.LATC3 = 0; } while(0);
+[e :U 1629 ]
 {
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 1637 ]
-"111
-[; ;main.c: 111:     }
+[e :U 1628 ]
+"104
+[; ;main.c: 104:     }
 }
-[e $U 1639  ]
-"112
-[; ;main.c: 112:     else if(m<0){
-[e :U 1632 ]
-[e $ ! < _m -> 0 `i 1640  ]
+[e $U 1630  ]
+"105
+[; ;main.c: 105:     else if(m<0){
+[e :U 1623 ]
+[e $ ! < _m -> 0 `i 1631  ]
 {
-"113
-[; ;main.c: 113:         do { LATDbits.LATD0 = 0; } while(0);
-[e :U 1643 ]
+"106
+[; ;main.c: 106:         do { LATDbits.LATD0 = 0; } while(0);
+[e :U 1634 ]
 {
 [e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 1642 ]
-"114
-[; ;main.c: 114:         do { LATCbits.LATC3 = 1; } while(0);
-[e :U 1646 ]
+[e :U 1633 ]
+"107
+[; ;main.c: 107:         do { LATCbits.LATC3 = 1; } while(0);
+[e :U 1637 ]
 {
 [e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 1645 ]
-"115
-[; ;main.c: 115:     }
+[e :U 1636 ]
+"108
+[; ;main.c: 108:     }
 }
-[e :U 1640 ]
-[e :U 1639 ]
-"116
-[; ;main.c: 116:     PWM6_LoadDutyValue(abs(m));
+[e :U 1631 ]
+[e :U 1630 ]
+"109
+[; ;main.c: 109:     PWM6_LoadDutyValue(abs(m));
 [e ( _PWM6_LoadDutyValue (1 -> ( _abs (1 _m `us ]
+"110
+[; ;main.c: 110: }
+[e :UE 1622 ]
+}
+"112
+[; ;main.c: 112: void initialize(){
+[v _initialize `(v ~T0 @X0 1 ef ]
+{
+[e :U _initialize ]
+[f ]
+"113
+[; ;main.c: 113:     for(int index = 0; index < 2000/10; index++){
+{
+[v _index `i ~T0 @X0 1 a ]
+[e = _index -> 0 `i ]
+[e $ < _index / -> 2000 `i -> 10 `i 1639  ]
+[e $U 1640  ]
+[e :U 1639 ]
+{
+"114
+[; ;main.c: 114:         Time[index] = 10*index;
+[e = *U + &U _Time * -> -> _index `ui `ux -> -> # *U &U _Time `ui `ux * -> 10 `i _index ]
+"115
+[; ;main.c: 115:         Data[index] = 10*index;
+[e = *U + &U _Data * -> -> _index `ui `ux -> -> # *U &U _Data `ui `ux * -> 10 `i _index ]
+"116
+[; ;main.c: 116:     }
+}
+[e ++ _index -> 1 `i ]
+[e $ < _index / -> 2000 `i -> 10 `i 1639  ]
+[e :U 1640 ]
+}
 "117
 [; ;main.c: 117: }
-[e :UE 1631 ]
+[e :UE 1638 ]
 }
-[p f _printf 8650880 ]
-[a 2C 44 0 ]
-[a 4C 44 0 ]
-[a 1C 37 115 10 0 ]
-[a 3C 37 100 10 0 ]
+"119
+[; ;main.c: 119: void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
+[v _readMensage `(v ~T0 @X0 1 ef5`*i`*l`*f`*f`*f ]
+{
+[e :U _readMensage ]
+[v _TYPE `*i ~T0 @X0 1 r1 ]
+[v _SETPOINT `*l ~T0 @X0 1 r2 ]
+[v _KP `*f ~T0 @X0 1 r3 ]
+[v _KI `*f ~T0 @X0 1 r4 ]
+[v _KD `*f ~T0 @X0 1 r5 ]
+[f ]
+"120
+[; ;main.c: 120:     int i = 0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+"121
+[; ;main.c: 121:     unsigned char receivedString[30];
+[v _receivedString `uc ~T0 @X0 -> 30 `i a ]
+"122
+[; ;main.c: 122:     int value[5];
+[v _value `i ~T0 @X0 -> 5 `i a ]
+"123
+[; ;main.c: 123:     while(1){
+[e :U 1644 ]
+{
+"124
+[; ;main.c: 124:         if(EUSART_is_rx_ready()){
+[e $ ! != -> ( _EUSART_is_rx_ready ..  `i -> 0 `i 1646  ]
+{
+"125
+[; ;main.c: 125:             unsigned char receivedChar = EUSART_Read();
+[v _receivedChar `uc ~T0 @X0 1 a ]
+[e = _receivedChar ( _EUSART_Read ..  ]
+"126
+[; ;main.c: 126:             if(receivedChar == '\n' || receivedChar == '\r'){
+[e $ ! || == -> _receivedChar `ui -> 10 `ui == -> _receivedChar `ui -> 13 `ui 1647  ]
+{
+"127
+[; ;main.c: 127:                 receivedString[i] = '\0';
+[e = *U + &U _receivedString * -> -> _i `ui `ux -> -> # *U &U _receivedString `ui `ux -> -> 0 `ui `uc ]
+"128
+[; ;main.c: 128:                 break;
+[e $U 1645  ]
+"129
+[; ;main.c: 129:             }
+}
+[e $U 1648  ]
+"130
+[; ;main.c: 130:             else{
+[e :U 1647 ]
+{
+"131
+[; ;main.c: 131:                 receivedString[i] = receivedChar;
+[e = *U + &U _receivedString * -> -> _i `ui `ux -> -> # *U &U _receivedString `ui `ux _receivedChar ]
+"132
+[; ;main.c: 132:                 i++;
+[e ++ _i -> 1 `i ]
+"133
+[; ;main.c: 133:             }
+}
+[e :U 1648 ]
+"134
+[; ;main.c: 134:         }
+}
+[e :U 1646 ]
+"135
+[; ;main.c: 135:     }
+}
+[e :U 1643 ]
+[e $U 1644  ]
+[e :U 1645 ]
+"136
+[; ;main.c: 136:     printf("%s\n", receivedString);
+[e ( _printf , (. :s 2C &U _receivedString ]
+"137
+[; ;main.c: 137:     char *token;
+[v _token `*uc ~T0 @X0 1 a ]
+"138
+[; ;main.c: 138:     token = strtok(receivedString,",");
+[e = _token ( _strtok (2 , -> &U _receivedString `*uc :s 3C ]
+"139
+[; ;main.c: 139:     int j = 0;
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+"140
+[; ;main.c: 140:     while(token != ((void*)0)){
+[e $U 1649  ]
+[e :U 1650 ]
+{
+"141
+[; ;main.c: 141:         value[j] = atoi(token);
+[e = *U + &U _value * -> -> _j `ui `ux -> -> # *U &U _value `ui `ux ( _atoi (1 -> _token `*Cuc ]
+"142
+[; ;main.c: 142:         printf("%d\n", value[j]);
+[e ( _printf , (. :s 4C *U + &U _value * -> -> _j `ui `ux -> -> # *U &U _value `ui `ux ]
+"143
+[; ;main.c: 143:         token = strtok(((void*)0),",");
+[e = _token ( _strtok (2 , -> -> -> 0 `i `*v `*uc :s 5C ]
+"144
+[; ;main.c: 144:     }
+}
+[e :U 1649 ]
+"140
+[; ;main.c: 140:     while(token != ((void*)0)){
+[e $ != _token -> -> -> 0 `i `*v `*uc 1650  ]
+[e :U 1651 ]
+"145
+[; ;main.c: 145:     *TYPE = value[0];
+[e = *U _TYPE *U + &U _value * -> -> -> 0 `i `ui `ux -> -> # *U &U _value `ui `ux ]
+"146
+[; ;main.c: 146:     *SETPOINT = value[1];
+[e = *U _SETPOINT -> *U + &U _value * -> -> -> 1 `i `ui `ux -> -> # *U &U _value `ui `ux `l ]
+"147
+[; ;main.c: 147:     *KP = value[2]/1000.0;
+[e = *U _KP -> / -> *U + &U _value * -> -> -> 2 `i `ui `ux -> -> # *U &U _value `ui `ux `d .1000.0 `f ]
+"148
+[; ;main.c: 148:     *KI = value[3]/1000.0;
+[e = *U _KI -> / -> *U + &U _value * -> -> -> 3 `i `ui `ux -> -> # *U &U _value `ui `ux `d .1000.0 `f ]
+"149
+[; ;main.c: 149:     *KD = value[4]/1000.0;
+[e = *U _KD -> / -> *U + &U _value * -> -> -> 4 `i `ui `ux -> -> # *U &U _value `ui `ux `d .1000.0 `f ]
+"150
+[; ;main.c: 150:     receivedString[0] = '\0';
+[e = *U + &U _receivedString * -> -> -> 0 `i `ui `ux -> -> # *U &U _receivedString `ui `ux -> -> 0 `ui `uc ]
+"151
+[; ;main.c: 151: }
+[e :UE 1642 ]
+}
+"153
+[; ;main.c: 153: void sendMensage(){
+[v _sendMensage `(v ~T0 @X0 1 ef ]
+{
+[e :U _sendMensage ]
+[f ]
+"154
+[; ;main.c: 154:     for (int index = 0; index < 2000/10; index++) {
+{
+[v _index `i ~T0 @X0 1 a ]
+[e = _index -> 0 `i ]
+[e $ < _index / -> 2000 `i -> 10 `i 1653  ]
+[e $U 1654  ]
+[e :U 1653 ]
+{
+"155
+[; ;main.c: 155:         printf("%i",Data[index]);
+[e ( _printf , (. :s 6C *U + &U _Data * -> -> _index `ui `ux -> -> # *U &U _Data `ui `ux ]
+"156
+[; ;main.c: 156:         printf(",");
+[e ( _printf :s 7C ]
+"157
+[; ;main.c: 157:         printf("%i",Time[index]);
+[e ( _printf , (. :s 8C *U + &U _Time * -> -> _index `ui `ux -> -> # *U &U _Time `ui `ux ]
+"158
+[; ;main.c: 158:         if (index < 2000/10 - 1) {
+[e $ ! < _index - / -> 2000 `i -> 10 `i -> 1 `i 1656  ]
+{
+"159
+[; ;main.c: 159:           printf(",");
+[e ( _printf :s 9C ]
+"160
+[; ;main.c: 160:         }
+}
+[e :U 1656 ]
+"161
+[; ;main.c: 161:     }
+}
+[e ++ _index -> 1 `i ]
+[e $ < _index / -> 2000 `i -> 10 `i 1653  ]
+[e :U 1654 ]
+}
+"162
+[; ;main.c: 162:     printf("\n");
+[e ( _printf :s 10C ]
+"163
+[; ;main.c: 163: }
+[e :UE 1652 ]
+}
+[p f _printf 8659072 ]
+[a 6C 37 105 0 ]
+[a 8C 37 105 0 ]
+[a 1C 37 105 44 37 108 44 37 102 44 37 102 44 37 102 0 ]
+[a 3C 44 0 ]
+[a 5C 44 0 ]
+[a 7C 44 0 ]
+[a 9C 44 0 ]
+[a 2C 37 115 10 0 ]
+[a 4C 37 100 10 0 ]
+[a 10C 10 0 ]
