@@ -53,6 +53,8 @@ void moveMotor(int);
 void sendMensage();
 void initialize();
 void readMensage();
+void ENCA_ISR(void);
+void ENCB_ISR(void);
 
 #define simulationTime 2000
 #define  deltaT 10
@@ -62,21 +64,24 @@ unsigned long tSimPastEncoder = 0;
 
 unsigned long tPast = 0;
 long lastPulse = 0;
-long nPulseTurn = 1200;
+long nPulseTurn = 600;
+
+long encoder = 0;
 
 void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    
+    IOCCF1_SetInterruptHandler(ENCA_ISR);
+    IOCCF2_SetInterruptHandler(ENCB_ISR);
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -86,14 +91,35 @@ void main(void)
     //PWM6_Initialize();
     moveMotor(0);
     initialize();
-    while (1)
-    {
-        int type = 2;
-        long setPoint;
-        float kp, ki, kd;
-        readMensage(&type, &setPoint, &kp, &ki, &kd);
-        printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
-        sendMensage();
+//    while (1)
+//    {
+//        int type = 2;
+//        long setPoint;
+//        float kp, ki, kd;
+//        readMensage(&type, &setPoint, &kp, &ki, &kd);
+//        printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
+//        sendMensage();
+//    }
+    while(1){
+        printf("%d\n", encoder);
+    }
+}
+
+void ENCA_ISR(void){
+    if (ENCB_GetValue() == 1) {
+        encoder++;
+    } 
+    else{
+        encoder--;
+    }
+}
+
+void ENCB_ISR(void){
+    if (ENCA_GetValue() == 0) {
+        encoder++;
+    } 
+    else{
+        encoder--;
     }
 }
 

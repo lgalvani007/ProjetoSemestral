@@ -20743,10 +20743,26 @@ extern __bank0 __bit __timeout;
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 166 "./mcc_generated_files/pin_manager.h"
+# 194 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 178 "./mcc_generated_files/pin_manager.h"
+# 206 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 219 "./mcc_generated_files/pin_manager.h"
+void IOCCF1_ISR(void);
+# 242 "./mcc_generated_files/pin_manager.h"
+void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 266 "./mcc_generated_files/pin_manager.h"
+extern void (*IOCCF1_InterruptHandler)(void);
+# 290 "./mcc_generated_files/pin_manager.h"
+void IOCCF1_DefaultInterruptHandler(void);
+# 303 "./mcc_generated_files/pin_manager.h"
+void IOCCF2_ISR(void);
+# 326 "./mcc_generated_files/pin_manager.h"
+void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
+# 350 "./mcc_generated_files/pin_manager.h"
+extern void (*IOCCF2_InterruptHandler)(void);
+# 374 "./mcc_generated_files/pin_manager.h"
+void IOCCF2_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 
@@ -20915,12 +20931,15 @@ char *tempnam(const char *, const char *);
 # 8 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\conio.h" 2 3
 # 54 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/interrupt_manager.h" 1
+# 55 "./mcc_generated_files/mcc.h" 2
+
 # 1 "./mcc_generated_files/pwm6.h" 1
 # 102 "./mcc_generated_files/pwm6.h"
  void PWM6_Initialize(void);
 # 129 "./mcc_generated_files/pwm6.h"
  void PWM6_LoadDutyValue(uint16_t dutyValue);
-# 55 "./mcc_generated_files/mcc.h" 2
+# 56 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr2.h" 1
 # 79 "./mcc_generated_files/tmr2.h"
@@ -21132,7 +21151,7 @@ void TMR2_Period8BitSet(uint8_t periodVal);
 void TMR2_LoadPeriodRegister(uint8_t periodVal);
 # 819 "./mcc_generated_files/tmr2.h"
 _Bool TMR2_HasOverflowOccured(void);
-# 56 "./mcc_generated_files/mcc.h" 2
+# 57 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/eusart.h" 1
 # 76 "./mcc_generated_files/eusart.h"
@@ -21165,12 +21184,12 @@ void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 398 "./mcc_generated_files/eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 57 "./mcc_generated_files/mcc.h" 2
-# 72 "./mcc_generated_files/mcc.h"
+# 58 "./mcc_generated_files/mcc.h" 2
+# 73 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 85 "./mcc_generated_files/mcc.h"
+# 86 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 98 "./mcc_generated_files/mcc.h"
+# 99 "./mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
 # 44 "main.c" 2
 
@@ -21243,6 +21262,8 @@ void moveMotor(int);
 void sendMensage();
 void initialize();
 void readMensage();
+void ENCA_ISR(void);
+void ENCB_ISR(void);
 
 
 
@@ -21254,21 +21275,52 @@ unsigned long tPast = 0;
 long lastPulse = 0;
 long nPulseTurn = 1200;
 
+long encoder = 0;
+
 void main(void)
 {
 
     SYSTEM_Initialize();
-# 87 "main.c"
+    IOCCF1_SetInterruptHandler(ENCA_ISR);
+    IOCCF2_SetInterruptHandler(ENCB_ISR);
+
+
+
+
+    (INTCONbits.GIE = 1);
+
+
+    (INTCONbits.PEIE = 1);
+
+
+
+
+
+
+
     moveMotor(0);
     initialize();
-    while (1)
-    {
-        int type = 2;
-        long setPoint;
-        float kp, ki, kd;
-        readMensage(&type, &setPoint, &kp, &ki, &kd);
-        printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
-        sendMensage();
+# 103 "main.c"
+    while(1){
+        printf("%d\n", encoder);
+    }
+}
+
+void ENCA_ISR(void){
+    if (PORTCbits.RC2 == 1) {
+        encoder++;
+    }
+    else{
+        encoder--;
+    }
+}
+
+void ENCB_ISR(void){
+    if (PORTCbits.RC1 == 0) {
+        encoder++;
+    }
+    else{
+        encoder--;
     }
 }
 
