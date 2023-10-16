@@ -53,6 +53,8 @@
 #include <stdbool.h>
 #include <conio.h>
 #include "interrupt_manager.h"
+#include "tmr3.h"
+#include "tmr1.h"
 #include "pwm6.h"
 #include "tmr2.h"
 #include "eusart.h"

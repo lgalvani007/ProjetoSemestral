@@ -56,6 +56,21 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     {
         PIN_MANAGER_IOC();
     }
+    else if(INTCONbits.PEIE == 1)
+    {
+        if(PIE4bits.TMR3IE == 1 && PIR4bits.TMR3IF == 1)
+        {
+            TMR3_ISR();
+        } 
+        else if(PIE4bits.TMR1IE == 1 && PIR4bits.TMR1IF == 1)
+        {
+            TMR1_ISR();
+        } 
+        else
+        {
+            //Unhandled Interrupt
+        }
+    }      
     else
     {
         //Unhandled Interrupt

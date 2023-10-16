@@ -22,6 +22,7 @@ class ComunicacaoSerial:
             mensagem = self.porta_serial.readline().decode()
         if(mensagem != b''.decode()):
             dados = mensagem.split(",")
+            print(dados)
             data = [float(dados[i]) for i in range(0, len(dados), 2)]
             time = [float(dados[i])/1000.0 for i in range(1, len(dados), 2)]
         return time, data
@@ -254,14 +255,14 @@ class controller():
         Time, Data = self.serial.lerSerial()
         if(self.nPosicao > 0):
             self.ui_posicao.GraficoAnterior.clear()
-            self.ui_posicao.GraficoAnterior.plot(self.time_anterior_posicao, self.data_anterior_posicao, name = "velocidade", pen = self.pen_data)
+            self.ui_posicao.GraficoAnterior.plot(self.time_anterior_posicao, self.data_anterior_posicao, name = "Posição", pen = self.pen_data)
             self.ui_posicao.GraficoAnterior.plot(self.time_anterior_posicao, self.data_setpoint_anterior_posicao, name = "setPoint", pen = self.pen_setpoint)
             self.ui_posicao.InfoAnterior.setText(f"SetPoint: {self.setpoint_anterior_posicao}, Kp: {self.kp_anterior_posicao}, Ki: {self.ki_anterior_posicao}, Kd: {self.kd_anterior_posicao}")
         self.data_atual_posicao = Data
         self.time_atual_posicao = Time
         self.data_setpoint_atual_posicao = [self.setpoint_atual_posicao] * len(self.data_atual_posicao)
         self.ui_posicao.GraficoAtual.clear()
-        self.ui_posicao.GraficoAtual.plot(self.time_atual_posicao, self.data_atual_posicao, name = "velocidade", pen = self.pen_data)
+        self.ui_posicao.GraficoAtual.plot(self.time_atual_posicao, self.data_atual_posicao, name = "Posição", pen = self.pen_data)
         self.ui_posicao.GraficoAtual.plot(self.time_atual_posicao, self.data_setpoint_atual_posicao, name = "setPoint", pen = self.pen_setpoint)
         self.ui_posicao.InfoAtual.setText(f"SetPoint: {self.setpoint_atual_posicao}, Kp: {self.kp_atual_posicao/1000}, Ki: {self.ki_atual_posicao/1000}, Kd: {self.kd_atual_posicao/1000}")
         self.nPosicao += 1
@@ -281,14 +282,14 @@ class controller():
         Time, Data = self.serial.lerSerial()
         if(self.nVelocidade > 0):
             self.ui_velocidade.GraficoAnterior.clear()
-            self.ui_velocidade.GraficoAnterior.plot(self.time_anterior_velocidade, self.data_anterior_velocidade, name = "velocidade", pen = self.pen_data)
+            self.ui_velocidade.GraficoAnterior.plot(self.time_anterior_velocidade, self.data_anterior_velocidade, name = "Velocidade", pen = self.pen_data)
             self.ui_velocidade.GraficoAnterior.plot(self.time_anterior_velocidade, self.data_setpoint_anterior_velocidade, name = "setPoint", pen = self.pen_setpoint)
             self.ui_velocidade.InfoAnterior.setText(f"SetPoint: {self.setpoint_anterior_velocidade}, Kp: {self.kp_anterior_velocidade}, Ki: {self.ki_anterior_velocidade}, Kd: {self.kd_anterior_velocidade}")
         self.data_atual_velocidade = Data
         self.time_atual_velocidade = Time
         self.data_setpoint_atual_velocidade = [self.setpoint_atual_velocidade] * len(self.data_atual_velocidade)
         self.ui_velocidade.GraficoAtual.clear()
-        self.ui_velocidade.GraficoAtual.plot(self.time_atual_velocidade, self.data_atual_velocidade, name = "velocidade", pen = self.pen_data)
+        self.ui_velocidade.GraficoAtual.plot(self.time_atual_velocidade, self.data_atual_velocidade, name = "Velocidade", pen = self.pen_data)
         self.ui_velocidade.GraficoAtual.plot(self.time_atual_velocidade, self.data_setpoint_atual_velocidade, name = "setPoint", pen = self.pen_setpoint)  
         self.ui_velocidade.InfoAtual.setText(f"SetPoint: {self.setpoint_atual_velocidade}, Kp: {self.kp_atual_velocidade/1000}, Ki: {self.ki_atual_velocidade/1000}, Kd: {self.kd_atual_velocidade/1000}")
         self.nVelocidade += 1
@@ -358,7 +359,7 @@ class controller():
 
 if __name__ == "__main__":
     import sys
-    minha_comunicacao = ComunicacaoSerial('COM6', 9600)
+    minha_comunicacao = ComunicacaoSerial('COM11', 9600)
     app = QtWidgets.QApplication(sys.argv)
     c = controller(minha_comunicacao)
     c.abre_menu()

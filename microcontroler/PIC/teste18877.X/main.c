@@ -50,11 +50,17 @@
                          Main application
  */
 void moveMotor(int);
-void sendMensage();
-void initialize();
-void readMensage();
+void sendMensage(void);
+void initialize(void);
+void readMensage(int *, long *, float *, float *, float *);
+void PID(int, long, float, float, float);
+float getVelocity(void);
+long getPosition(void);
+
 void ENCA_ISR(void);
 void ENCB_ISR(void);
+void TIMER_ISR(void);
+void VELOCITY_ISR(void);
 
 #define simulationTime 2000
 #define  deltaT 10
@@ -68,12 +74,29 @@ long nPulseTurn = 600;
 
 long encoder = 0;
 
+int type;
+long setPoint;
+float kp, ki, kd;
+
+int index_encoder = 0;
+float error = 0, error_anterior = 0, error_anterior_anterior = 0;
+float error_integrativo = 0;
+float correction = 0, correction_anterior = 0, correction_anterior_anterior = 0 ;
+long lastPos = 0;
+long pos = 0;
+float vel = 0;
+float lastVel = 0;
+
+float velPulse_ms = 0;
+
 void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
     IOCCF1_SetInterruptHandler(ENCA_ISR);
     IOCCF2_SetInterruptHandler(ENCB_ISR);
+    TMR1_SetInterruptHandler(TIMER_ISR);
+    TMR3_SetInterruptHandler(VELOCITY_ISR);
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
@@ -88,20 +111,40 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    //PWM6_Initialize();
+    TMR1_StopTimer();
+    TMR3_StopTimer();
     moveMotor(0);
     initialize();
-//    while (1)
-//    {
-//        int type = 2;
-//        long setPoint;
-//        float kp, ki, kd;
-//        readMensage(&type, &setPoint, &kp, &ki, &kd);
-//        printf("%i,%l,%f,%f,%f", type, setPoint, kp, ki, kd);
-//        sendMensage();
-//    }
-    while(1){
-        printf("%d\n", encoder);
+    while (1)
+    {
+        readMensage(&type, &setPoint, &kp, &ki, &kd);
+        TMR1_StartTimer();
+        TMR3_StartTimer();
+        moveMotor(100);
+        PID(type, setPoint, kp, ki, kd);
+        TMR1_StopTimer();
+        TMR3_StopTimer();
+        moveMotor(0);
+        sendMensage();
+    }
+}
+
+void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
+    encoder = 0;
+    lastPulse = 0;
+    index_encoder = 0;
+    velPulse_ms = 0;
+    while(index_encoder < simulationTime/deltaT){
+        if(TYPE == 1){
+            vel = getVelocity();
+            Data[index_encoder] = vel * 60000 / nPulseTurn;
+        }
+        else{
+            pos = getPosition();
+            Data[index_encoder] = pos * 360.0 / nPulseTurn;
+        }
+        index_encoder++;
+        __delay_ms(deltaT);
     }
 }
 
@@ -123,6 +166,15 @@ void ENCB_ISR(void){
     }
 }
 
+void TIMER_ISR(void){
+     LED_Toggle();
+}
+
+void VELOCITY_ISR(void){
+    velPulse_ms = (encoder - lastPulse)/10.0;
+    lastPulse = encoder;
+}
+
 void moveMotor(int m){
     if(m>0){
         A_SetHigh();
@@ -138,7 +190,6 @@ void moveMotor(int m){
 void initialize(){
     for(int index = 0; index < simulationTime/deltaT; index++){
         Time[index] = deltaT*index;
-        Data[index] = deltaT*index;
     }
 }
 
@@ -159,14 +210,13 @@ void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
             }
         }
     }
-    printf("%s\n", receivedString);
     char *token;
     token = strtok(receivedString,",");
     int j = 0;
     while(token != NULL){
         value[j] = atoi(token);
-        printf("%d\n", value[j]);
         token = strtok(NULL,",");
+        j++;
     }
     *TYPE = value[0];
     *SETPOINT = value[1];
@@ -186,6 +236,15 @@ void sendMensage(){
         }
     }
     printf("\n");
+}
+
+float getVelocity(){
+  return velPulse_ms;
+}
+
+long getPosition(){
+//  return long(motor.read() * 360.0 / nPulseTurn);
+  return encoder;
 }
 /**
  End of File

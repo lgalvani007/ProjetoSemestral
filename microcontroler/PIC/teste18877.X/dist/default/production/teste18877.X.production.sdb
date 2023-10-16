@@ -60,6 +60,8 @@ TMR2_CLC4_OUT 17
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 "1817
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputs.c
@@ -70,6 +72,9 @@ TMR2_CLC4_OUT 17
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
+[v i1___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strchr.c
 [v _strchr strchr `(*.25uc  1 e 2 0 ]
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strcspn.c
@@ -77,27 +82,42 @@ TMR2_CLC4_OUT 17
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strspn.c
 [v _strspn strspn `(ui  1 e 2 0 ]
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strtok.c
-[v _strtok strtok `(*.4uc  1 e 2 0 ]
+[v _strtok strtok `(*.5uc  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+[v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"71 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"92 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"108
+"132
+[v _PID PID `(v  1 e 1 0 ]
+"151
 [v _ENCA_ISR ENCA_ISR `(v  1 e 1 0 ]
-"117
+"160
 [v _ENCB_ISR ENCB_ISR `(v  1 e 1 0 ]
-"126
+"169
+[v _TIMER_ISR TIMER_ISR `(v  1 e 1 0 ]
+"173
+[v _VELOCITY_ISR VELOCITY_ISR `(v  1 e 1 0 ]
+"178
 [v _moveMotor moveMotor `(v  1 e 1 0 ]
-"138
+"190
 [v _initialize initialize `(v  1 e 1 0 ]
+"196
+[v _readMensage readMensage `(v  1 e 1 0 ]
+"229
+[v _sendMensage sendMensage `(v  1 e 1 0 ]
+"241
+[v _getVelocity getVelocity `(f  1 e 4 0 ]
+"245
+[v _getPosition getPosition `(l  1 e 4 0 ]
 "66 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
 "99
@@ -124,9 +144,9 @@ TMR2_CLC4_OUT 17
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 "50 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"60
+"62
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"74
+"76
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 "58 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -148,6 +168,20 @@ TMR2_CLC4_OUT 17
 [v _PWM6_Initialize PWM6_Initialize `(v  1 e 1 0 ]
 "74
 [v _PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
+"64 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+"99
+[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+"105
+[v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 1 0 ]
+"127
+[v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
+"164
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+"178
+[v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
+"182
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
 "62 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 "100
@@ -160,15 +194,29 @@ TMR2_CLC4_OUT 17
 [v _TMR2_Counter8BitSet TMR2_Counter8BitSet `(v  1 e 1 0 ]
 "147
 [v _TMR2_Period8BitSet TMR2_Period8BitSet `(v  1 e 1 0 ]
-[s S760 . 1 `uc 1 INTEDG 1 0 :1:0 
+"64 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr3.c
+[v _TMR3_Initialize TMR3_Initialize `(v  1 e 1 0 ]
+"99
+[v _TMR3_StartTimer TMR3_StartTimer `(v  1 e 1 0 ]
+"105
+[v _TMR3_StopTimer TMR3_StopTimer `(v  1 e 1 0 ]
+"127
+[v _TMR3_WriteTimer TMR3_WriteTimer `(v  1 e 1 0 ]
+"164
+[v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
+"178
+[v _TMR3_SetInterruptHandler TMR3_SetInterruptHandler `(v  1 e 1 0 ]
+"182
+[v _TMR3_DefaultInterruptHandler TMR3_DefaultInterruptHandler `(v  1 e 1 0 ]
+[s S745 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "370 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h
-[u S765 . 1 `S760 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES765  1 e 1 @11 ]
-[s S787 . 1 `uc 1 RC0 1 0 :1:0 
+[u S750 . 1 `S745 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES750  1 e 1 @11 ]
+[s S915 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -178,8 +226,8 @@ TMR2_CLC4_OUT 17
 `uc 1 RC7 1 0 :1:7 
 ]
 "531
-[u S796 . 1 `S787 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES796  1 e 1 @14 ]
+[u S924 . 1 `S915 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES924  1 e 1 @14 ]
 "676
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
 "738
@@ -196,7 +244,7 @@ TMR2_CLC4_OUT 17
 [v _LATB LATB `VEuc  1 e 1 @23 ]
 "1080
 [v _LATC LATC `VEuc  1 e 1 @24 ]
-[s S829 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S957 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -206,11 +254,11 @@ TMR2_CLC4_OUT 17
 `uc 1 LATC7 1 0 :1:7 
 ]
 "1097
-[u S838 . 1 `S829 1 . 1 0 ]
-[v _LATCbits LATCbits `VES838  1 e 1 @24 ]
+[u S966 . 1 `S957 1 . 1 0 ]
+[v _LATCbits LATCbits `VES966  1 e 1 @24 ]
 "1142
 [v _LATD LATD `VEuc  1 e 1 @25 ]
-[s S808 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S936 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -220,8 +268,8 @@ TMR2_CLC4_OUT 17
 `uc 1 LATD7 1 0 :1:7 
 ]
 "1159
-[u S817 . 1 `S808 1 . 1 0 ]
-[v _LATDbits LATDbits `VES817  1 e 1 @25 ]
+[u S945 . 1 `S936 1 . 1 0 ]
+[v _LATDbits LATDbits `VES945  1 e 1 @25 ]
 "1204
 [v _LATE LATE `VEuc  1 e 1 @26 ]
 "3764
@@ -234,7 +282,7 @@ TMR2_CLC4_OUT 17
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "4003
 [v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S144 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S152 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -244,11 +292,11 @@ TMR2_CLC4_OUT 17
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4029
-[u S153 . 1 `S144 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES153  1 e 1 @285 ]
+[u S161 . 1 `S152 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES161  1 e 1 @285 ]
 "4183
 [v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S123 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S131 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -258,24 +306,120 @@ TMR2_CLC4_OUT 17
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4209
-[u S132 . 1 `S123 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES132  1 e 1 @286 ]
+[u S140 . 1 `S131 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES140  1 e 1 @286 ]
 "4363
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
-[s S427 . 1 `uc 1 C5TSEL 1 0 :2:0 
+"6502
+[v _TMR1L TMR1L `VEuc  1 e 1 @524 ]
+"6672
+[v _TMR1H TMR1H `VEuc  1 e 1 @525 ]
+"6792
+[v _T1CON T1CON `VEuc  1 e 1 @526 ]
+[s S1130 . 1 `uc 1 ON 1 0 :1:0 
+`uc 1 RD16 1 0 :1:1 
+`uc 1 nSYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CKPS 1 0 :2:4 
+]
+"6823
+[s S1136 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 T1RD16 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S1143 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+]
+[s S1147 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RD161 1 0 :1:1 
+]
+[u S1150 . 1 `S1130 1 . 1 0 `S1136 1 . 1 0 `S1143 1 . 1 0 `S1147 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1150  1 e 1 @526 ]
+"6888
+[v _T1GCON T1GCON `VEuc  1 e 1 @527 ]
+[s S1176 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GVAL 1 0 :1:2 
+`uc 1 GGO_nDONE 1 0 :1:3 
+`uc 1 GSPM 1 0 :1:4 
+`uc 1 GTM 1 0 :1:5 
+`uc 1 GPOL 1 0 :1:6 
+`uc 1 GE 1 0 :1:7 
+]
+"6922
+[s S1184 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1GVAL 1 0 :1:2 
+`uc 1 T1GGO_nDONE 1 0 :1:3 
+`uc 1 T1GSPM 1 0 :1:4 
+`uc 1 T1GTM 1 0 :1:5 
+`uc 1 T1GPOL 1 0 :1:6 
+`uc 1 T1GE 1 0 :1:7 
+]
+[s S1192 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 T1GGO 1 0 :1:3 
+]
+[u S1195 . 1 `S1176 1 . 1 0 `S1184 1 . 1 0 `S1192 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES1195  1 e 1 @527 ]
+"7084
+[v _T1GATE T1GATE `VEuc  1 e 1 @528 ]
+"7250
+[v _T1CLK T1CLK `VEuc  1 e 1 @529 ]
+"7399
+[v _TMR3L TMR3L `VEuc  1 e 1 @530 ]
+"7569
+[v _TMR3H TMR3H `VEuc  1 e 1 @531 ]
+"7689
+[v _T3CON T3CON `VEuc  1 e 1 @532 ]
+"7720
+[s S1296 . 1 `uc 1 TMR3ON 1 0 :1:0 
+`uc 1 T3RD16 1 0 :1:1 
+`uc 1 nT3SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T3CKPS0 1 0 :1:4 
+`uc 1 T3CKPS1 1 0 :1:5 
+]
+[s S1307 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RD163 1 0 :1:1 
+]
+[u S1310 . 1 `S1130 1 . 1 0 `S1296 1 . 1 0 `S1143 1 . 1 0 `S1307 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES1310  1 e 1 @532 ]
+"7785
+[v _T3GCON T3GCON `VEuc  1 e 1 @533 ]
+"7819
+[s S1344 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T3GVAL 1 0 :1:2 
+`uc 1 T3GGO_nDONE 1 0 :1:3 
+`uc 1 T3GSPM 1 0 :1:4 
+`uc 1 T3GTM 1 0 :1:5 
+`uc 1 T3GPOL 1 0 :1:6 
+`uc 1 T3GE 1 0 :1:7 
+]
+[s S1352 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 T3GGO 1 0 :1:3 
+]
+[u S1355 . 1 `S1176 1 . 1 0 `S1344 1 . 1 0 `S1352 1 . 1 0 ]
+[v _T3GCONbits T3GCONbits `VES1355  1 e 1 @533 ]
+"7981
+[v _T3GATE T3GATE `VEuc  1 e 1 @534 ]
+"8147
+[v _T3CLK T3CLK `VEuc  1 e 1 @535 ]
+[s S435 . 1 `uc 1 C5TSEL 1 0 :2:0 
 `uc 1 P6TSEL 1 0 :2:2 
 `uc 1 P7TSEL 1 0 :2:4 
 ]
 "9294
-[s S431 . 1 `uc 1 C5TSEL0 1 0 :1:0 
+[s S439 . 1 `uc 1 C5TSEL0 1 0 :1:0 
 `uc 1 C5TSEL1 1 0 :1:1 
 `uc 1 P6TSEL0 1 0 :1:2 
 `uc 1 P6TSEL1 1 0 :1:3 
 `uc 1 P7TSEL0 1 0 :1:4 
 `uc 1 P7TSEL1 1 0 :1:5 
 ]
-[u S438 . 1 `S427 1 . 1 0 `S431 1 . 1 0 ]
-[v _CCPTMRS1bits CCPTMRS1bits `VES438  1 e 1 @543 ]
+[u S446 . 1 `S435 1 . 1 0 `S439 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES446  1 e 1 @543 ]
 "9344
 [v _T2TMR T2TMR `VEuc  1 e 1 @652 ]
 "9349
@@ -286,16 +430,16 @@ TMR2_CLC4_OUT 17
 [v _PR2 PR2 `VEuc  1 e 1 @653 ]
 "9420
 [v _T2CON T2CON `VEuc  1 e 1 @654 ]
-[s S611 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S619 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 CKPS 1 0 :3:4 
 `uc 1 ON 1 0 :1:7 
 ]
 "9456
-[s S615 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+[s S623 . 1 `uc 1 T2OUTPS 1 0 :4:0 
 `uc 1 T2CKPS 1 0 :3:4 
 `uc 1 T2ON 1 0 :1:7 
 ]
-[s S619 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+[s S627 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
 `uc 1 T2OUTPS1 1 0 :1:1 
 `uc 1 T2OUTPS2 1 0 :1:2 
 `uc 1 T2OUTPS3 1 0 :1:3 
@@ -303,7 +447,7 @@ TMR2_CLC4_OUT 17
 `uc 1 T2CKPS1 1 0 :1:5 
 `uc 1 T2CKPS2 1 0 :1:6 
 ]
-[s S627 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S635 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
@@ -312,73 +456,73 @@ TMR2_CLC4_OUT 17
 `uc 1 CKPS2 1 0 :1:6 
 `uc 1 TMR2ON 1 0 :1:7 
 ]
-[u S636 . 1 `S611 1 . 1 0 `S615 1 . 1 0 `S619 1 . 1 0 `S627 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES636  1 e 1 @654 ]
+[u S644 . 1 `S619 1 . 1 0 `S623 1 . 1 0 `S627 1 . 1 0 `S635 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES644  1 e 1 @654 ]
 "9566
 [v _T2HLT T2HLT `VEuc  1 e 1 @655 ]
-[s S504 . 1 `uc 1 MODE 1 0 :5:0 
+[s S512 . 1 `uc 1 MODE 1 0 :5:0 
 `uc 1 CKSYNC 1 0 :1:5 
 `uc 1 CKPOL 1 0 :1:6 
 `uc 1 PSYNC 1 0 :1:7 
 ]
 "9599
-[s S509 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S517 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 MODE3 1 0 :1:3 
 `uc 1 MODE4 1 0 :1:4 
 ]
-[s S515 . 1 `uc 1 T2MODE 1 0 :5:0 
+[s S523 . 1 `uc 1 T2MODE 1 0 :5:0 
 `uc 1 T2CKSYNC 1 0 :1:5 
 `uc 1 T2CKPOL 1 0 :1:6 
 `uc 1 T2PSYNC 1 0 :1:7 
 ]
-[s S520 . 1 `uc 1 T2MODE0 1 0 :1:0 
+[s S528 . 1 `uc 1 T2MODE0 1 0 :1:0 
 `uc 1 T2MODE1 1 0 :1:1 
 `uc 1 T2MODE2 1 0 :1:2 
 `uc 1 T2MODE3 1 0 :1:3 
 `uc 1 T2MODE4 1 0 :1:4 
 ]
-[u S526 . 1 `S504 1 . 1 0 `S509 1 . 1 0 `S515 1 . 1 0 `S520 1 . 1 0 ]
-[v _T2HLTbits T2HLTbits `VES526  1 e 1 @655 ]
+[u S534 . 1 `S512 1 . 1 0 `S517 1 . 1 0 `S523 1 . 1 0 `S528 1 . 1 0 ]
+[v _T2HLTbits T2HLTbits `VES534  1 e 1 @655 ]
 "9694
 [v _T2CLKCON T2CLKCON `VEuc  1 e 1 @656 ]
 "9852
 [v _T2RST T2RST `VEuc  1 e 1 @657 ]
-[s S573 . 1 `uc 1 RSEL 1 0 :5:0 
+[s S581 . 1 `uc 1 RSEL 1 0 :5:0 
 ]
 "9879
-[s S575 . 1 `uc 1 RSEL0 1 0 :1:0 
+[s S583 . 1 `uc 1 RSEL0 1 0 :1:0 
 `uc 1 RSEL1 1 0 :1:1 
 `uc 1 RSEL2 1 0 :1:2 
 `uc 1 RSEL3 1 0 :1:3 
 `uc 1 RSEL4 1 0 :1:4 
 ]
-[s S581 . 1 `uc 1 T2RSEL 1 0 :5:0 
+[s S589 . 1 `uc 1 T2RSEL 1 0 :5:0 
 ]
-[s S583 . 1 `uc 1 T2RSEL0 1 0 :1:0 
+[s S591 . 1 `uc 1 T2RSEL0 1 0 :1:0 
 `uc 1 T2RSEL1 1 0 :1:1 
 `uc 1 T2RSEL2 1 0 :1:2 
 `uc 1 T2RSEL3 1 0 :1:3 
 `uc 1 T2RSEL4 1 0 :1:4 
 ]
-[u S589 . 1 `S573 1 . 1 0 `S575 1 . 1 0 `S581 1 . 1 0 `S583 1 . 1 0 ]
-[v _T2RSTbits T2RSTbits `VES589  1 e 1 @657 ]
+[u S597 . 1 `S581 1 . 1 0 `S583 1 . 1 0 `S589 1 . 1 0 `S591 1 . 1 0 ]
+[v _T2RSTbits T2RSTbits `VES597  1 e 1 @657 ]
 "12316
 [v _PWM6DCL PWM6DCL `VEuc  1 e 1 @908 ]
 "12382
 [v _PWM6DCH PWM6DCH `VEuc  1 e 1 @909 ]
 "12552
 [v _PWM6CON PWM6CON `VEuc  1 e 1 @910 ]
-[s S723 . 1 `uc 1 INTF 1 0 :1:0 
+[s S731 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "21274
-[u S728 . 1 `S723 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES728  1 e 1 @1804 ]
-[s S106 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[u S736 . 1 `S731 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES736  1 e 1 @1804 ]
+[s S114 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -386,9 +530,9 @@ TMR2_CLC4_OUT 17
 `uc 1 RCIF 1 0 :1:5 
 ]
 "21381
-[u S113 . 1 `S106 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES113  1 e 1 @1807 ]
-[s S464 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S121 . 1 `S114 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES121  1 e 1 @1807 ]
+[s S472 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 TMR3IF 1 0 :1:2 
 `uc 1 TMR4IF 1 0 :1:3 
@@ -396,16 +540,26 @@ TMR2_CLC4_OUT 17
 `uc 1 TMR6IF 1 0 :1:5 
 ]
 "21431
-[u S471 . 1 `S464 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES471  1 e 1 @1808 ]
-[s S348 . 1 `uc 1 INTE 1 0 :1:0 
+[u S479 . 1 `S472 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES479  1 e 1 @1808 ]
+[s S356 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "21696
-[u S353 . 1 `S348 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES353  1 e 1 @1814 ]
+[u S361 . 1 `S356 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES361  1 e 1 @1814 ]
+[s S758 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 TMR3IE 1 0 :1:2 
+`uc 1 TMR4IE 1 0 :1:3 
+`uc 1 TMR5IE 1 0 :1:4 
+`uc 1 TMR6IE 1 0 :1:5 
+]
+"21853
+[u S765 . 1 `S758 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES765  1 e 1 @1818 ]
 "22105
 [v _PMD0 PMD0 `VEuc  1 e 1 @1942 ]
 "22162
@@ -464,7 +618,7 @@ TMR2_CLC4_OUT 17
 [v _SLRCONC SLRCONC `VEuc  1 e 1 @8017 ]
 "34981
 [v _INLVLC INLVLC `VEuc  1 e 1 @8018 ]
-[s S307 . 1 `uc 1 IOCCP0 1 0 :1:0 
+[s S315 . 1 `uc 1 IOCCP0 1 0 :1:0 
 `uc 1 IOCCP1 1 0 :1:1 
 `uc 1 IOCCP2 1 0 :1:2 
 `uc 1 IOCCP3 1 0 :1:3 
@@ -474,11 +628,11 @@ TMR2_CLC4_OUT 17
 `uc 1 IOCCP7 1 0 :1:7 
 ]
 "35060
-[u S316 . 1 `S307 1 . 1 0 ]
+[u S324 . 1 `S315 1 . 1 0 ]
 "35060
 "35060
-[v _IOCCPbits IOCCPbits `VES316  1 e 1 @8019 ]
-[s S286 . 1 `uc 1 IOCCN0 1 0 :1:0 
+[v _IOCCPbits IOCCPbits `VES324  1 e 1 @8019 ]
+[s S294 . 1 `uc 1 IOCCN0 1 0 :1:0 
 `uc 1 IOCCN1 1 0 :1:1 
 `uc 1 IOCCN2 1 0 :1:2 
 `uc 1 IOCCN3 1 0 :1:3 
@@ -488,11 +642,11 @@ TMR2_CLC4_OUT 17
 `uc 1 IOCCN7 1 0 :1:7 
 ]
 "35122
-[u S295 . 1 `S286 1 . 1 0 ]
+[u S303 . 1 `S294 1 . 1 0 ]
 "35122
 "35122
-[v _IOCCNbits IOCCNbits `VES295  1 e 1 @8020 ]
-[s S265 . 1 `uc 1 IOCCF0 1 0 :1:0 
+[v _IOCCNbits IOCCNbits `VES303  1 e 1 @8020 ]
+[s S273 . 1 `uc 1 IOCCF0 1 0 :1:0 
 `uc 1 IOCCF1 1 0 :1:1 
 `uc 1 IOCCF2 1 0 :1:2 
 `uc 1 IOCCF3 1 0 :1:3 
@@ -502,10 +656,10 @@ TMR2_CLC4_OUT 17
 `uc 1 IOCCF7 1 0 :1:7 
 ]
 "35184
-[u S274 . 1 `S265 1 . 1 0 ]
+[u S282 . 1 `S273 1 . 1 0 ]
 "35184
 "35184
-[v _IOCCFbits IOCCFbits `VES274  1 e 1 @8021 ]
+[v _IOCCFbits IOCCFbits `VES282  1 e 1 @8021 ]
 "35353
 [v _ANSELD ANSELD `VEuc  1 e 1 @8025 ]
 "35415
@@ -533,20 +687,38 @@ TMR2_CLC4_OUT 17
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"61 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"67 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _Data Data `[200]i  1 e 400 @11872 ]
-"62
+"68
 [v _Time Time `[200]i  1 e 400 @11472 ]
-"69
+"72
+[v _lastPulse lastPulse `l  1 e 4 0 ]
+"75
 [v _encoder encoder `l  1 e 4 0 ]
-[s S60 . 1 `uc 1 perr 1 0 :1:0 
+"77
+[v _type type `i  1 e 2 0 ]
+"78
+[v _setPoint setPoint `l  1 e 4 0 ]
+"79
+[v _kp kp `f  1 e 4 0 ]
+[v _ki ki `f  1 e 4 0 ]
+[v _kd kd `f  1 e 4 0 ]
+"81
+[v _index_encoder index_encoder `i  1 e 2 0 ]
+"86
+[v _pos pos `l  1 e 4 0 ]
+"87
+[v _vel vel `f  1 e 4 0 ]
+"90
+[v _velPulse_ms velPulse_ms `f  1 e 4 0 ]
+[s S68 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
 "52 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/eusart.c
-[u S65 . 1 `S60 1 . 1 0 `uc 1 status 1 0 ]
-[v _eusartRxLastError eusartRxLastError `VES65  1 e 1 0 ]
+[u S73 . 1 `S68 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusartRxLastError eusartRxLastError `VES73  1 e 1 0 ]
 "58
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 e 2 0 ]
 "59
@@ -557,59 +729,72 @@ TMR2_CLC4_OUT 17
 [v _IOCCF1_InterruptHandler IOCCF1_InterruptHandler `*.37(v  1 e 2 0 ]
 "55
 [v _IOCCF2_InterruptHandler IOCCF2_InterruptHandler `*.37(v  1 e 2 0 ]
-"71 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"57 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
+[v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
+"58
+[v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
+"57 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr3.c
+[v _timer3ReloadVal timer3ReloadVal `VEus  1 e 2 0 ]
+"58
+[v _TMR3_InterruptHandler TMR3_InterruptHandler `*.37(v  1 e 2 0 ]
+"92 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"106
+"130
+} 0
+"229
+[v _sendMensage sendMensage `(v  1 e 1 0 ]
+{
+"230
+[v sendMensage@index index `i  1 a 2 44 ]
+"239
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "8
-[v printf@ap ap `[1]*.4v  1 a 1 28 ]
+[v printf@ap ap `[1]*.4v  1 a 1 39 ]
 "5
-[v printf@fmt fmt `*.25DCuc  1 p 2 22 ]
+[v printf@fmt fmt `*.25DCuc  1 p 2 35 ]
 "13
 } 0
 "1817 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1820
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 12 ]
-[s S1406 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 33 ]
+[s S1880 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.39S1406  1 p 2 17 ]
-[v vfprintf@fmt fmt `*.25DCuc  1 p 2 19 ]
-[v vfprintf@ap ap `*.4*.4v  1 p 1 21 ]
+[v vfprintf@fp fp `*.39S1880  1 p 2 27 ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 29 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 31 ]
 "1840
 } 0
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-"1669
-[v vfpfcnvrt@cp_1449 cp `*.4uc  1 a 1 8 ]
-[u S1419 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1893 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1419  1 a 4 12 ]
+[v vfpfcnvrt@convarg convarg `S1893  1 a 4 22 ]
 "1179
-[v vfpfcnvrt@cp cp `*.25uc  1 a 2 9 ]
-[v vfpfcnvrt@c c `uc  1 a 1 16 ]
+[v vfpfcnvrt@cp cp `*.25uc  1 a 2 20 ]
+[v vfpfcnvrt@c c `uc  1 a 1 26 ]
 "1180
-[v vfpfcnvrt@done done `a  1 a 1 11 ]
-[s S1406 _IO_FILE 0 ]
+[v vfpfcnvrt@done done `a  1 a 1 19 ]
+[s S1880 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.39S1406  1 p 2 0 ]
-[v vfpfcnvrt@fmt fmt `*.1*.25uc  1 p 1 2 ]
-[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 3 ]
+[v vfpfcnvrt@fp fp `*.39S1880  1 p 2 11 ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 13 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 14 ]
 "1814
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S1385 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
-[s S1388 _IO_FILE 11 `S1385 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S1388  1 p 2 4 ]
+[u S1859 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+[s S1862 _IO_FILE 11 `S1859 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S1862  1 p 2 4 ]
 "24
 } 0
 "146 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/eusart.c
@@ -653,11 +838,104 @@ TMR2_CLC4_OUT 17
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"126 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"196 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+[v _readMensage readMensage `(v  1 e 1 0 ]
+{
+[v readMensage@TYPE TYPE `*.4i  1 a 1 wreg ]
+"202
+[v readMensage@receivedChar receivedChar `uc  1 a 1 46 ]
+"198
+[v readMensage@receivedString receivedString `[30]uc  1 a 30 0 ]
+"199
+[v readMensage@value value `[5]i  1 a 10 30 ]
+"197
+[v readMensage@i i `i  1 a 2 43 ]
+"215
+[v readMensage@j j `i  1 a 2 41 ]
+"213
+[v readMensage@token token `*.5uc  1 a 1 45 ]
+"196
+[v readMensage@TYPE TYPE `*.4i  1 a 1 wreg ]
+[v readMensage@SETPOINT SETPOINT `*.4l  1 p 1 66 ]
+[v readMensage@KP KP `*.4f  1 p 1 67 ]
+[v readMensage@KI KI `*.4f  1 p 1 68 ]
+[v readMensage@KD KD `*.5f  1 p 1 69 ]
+[v readMensage@TYPE TYPE `*.4i  1 a 1 40 ]
+"227
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strtok.c
+[v _strtok strtok `(*.5uc  1 e 2 0 ]
+{
+[v strtok@s s `*.5uc  1 a 1 wreg ]
+[v strtok@s s `*.5uc  1 a 1 wreg ]
+[v strtok@sep sep `*.25DCuc  1 p 2 14 ]
+"5
+[v strtok@p p `*.5uc  1 s 1 p ]
+[v strtok@s s `*.5uc  1 a 1 18 ]
+"13
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strspn.c
+[v _strspn strspn `(ui  1 e 2 0 ]
+{
+[v strspn@s s `*.5DCuc  1 a 1 wreg ]
+"5
+[v strspn@i i `ui  1 a 2 11 ]
+"3
+[v strspn@s s `*.5DCuc  1 a 1 wreg ]
+[v strspn@c c `*.25DCuc  1 p 2 7 ]
+"7
+[v strspn@s s `*.5DCuc  1 a 1 13 ]
+"13
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strcspn.c
+[v _strcspn strcspn `(ui  1 e 2 0 ]
+{
+[v strcspn@s s `*.5DCuc  1 a 1 wreg ]
+"5
+[v strcspn@i i `ui  1 a 2 11 ]
+"3
+[v strcspn@s s `*.5DCuc  1 a 1 wreg ]
+[v strcspn@c c `*.25DCuc  1 p 2 7 ]
+"7
+[v strcspn@s s `*.5DCuc  1 a 1 13 ]
+"13
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strchr.c
+[v _strchr strchr `(*.25uc  1 e 2 0 ]
+{
+[v strchr@s s `*.25DCuc  1 p 2 0 ]
+[v strchr@c c `i  1 p 2 2 ]
+"11
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+[v atoi@s s `*.5DCuc  1 a 1 wreg ]
+"7
+[v atoi@n n `i  1 a 2 11 ]
+"8
+[v atoi@neg neg `a  1 a 1 10 ]
+"5
+[v atoi@s s `*.5DCuc  1 a 1 wreg ]
+"7
+[v atoi@s s `*.5DCuc  1 a 1 13 ]
+"24
+} 0
+"99 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/eusart.c
+[v _EUSART_is_rx_ready EUSART_is_rx_ready `(a  1 e 1 0 ]
+{
+"102
+} 0
+"113
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+{
+"130
+} 0
+"178 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _moveMotor moveMotor `(v  1 e 1 0 ]
 {
-[v moveMotor@m m `i  1 p 2 2 ]
-"136
+[v moveMotor@m m `i  1 p 2 15 ]
+"188
 } 0
 "1 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -671,12 +949,12 @@ TMR2_CLC4_OUT 17
 [v PWM6_LoadDutyValue@dutyValue dutyValue `us  1 p 2 11 ]
 "81
 } 0
-"138 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"190 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _initialize initialize `(v  1 e 1 0 ]
 {
-"139
+"191
 [v initialize@index index `i  1 a 2 10 ]
-"143
+"194
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -688,25 +966,67 @@ TMR2_CLC4_OUT 17
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
+"105 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr3.c
+[v _TMR3_StopTimer TMR3_StopTimer `(v  1 e 1 0 ]
+{
+"109
+} 0
+"99
+[v _TMR3_StartTimer TMR3_StartTimer `(v  1 e 1 0 ]
+{
+"103
+} 0
+"105 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
+[v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 1 0 ]
+{
+"109
+} 0
+"99
+[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+{
+"103
+} 0
 "50 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"58
+"60
+} 0
+"64 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr3.c
+[v _TMR3_Initialize TMR3_Initialize `(v  1 e 1 0 ]
+{
+"97
+} 0
+"178
+[v _TMR3_SetInterruptHandler TMR3_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR3_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"180
 } 0
 "62 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 {
 "86
 } 0
+"64 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+{
+"97
+} 0
+"178
+[v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"180
+} 0
 "58 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pwm6.c
 [v _PWM6_Initialize PWM6_Initialize `(v  1 e 1 0 ]
 {
 "72
 } 0
-"74 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/mcc.c
+"76 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/mcc.c
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 {
-"88
+"90
 } 0
 "58 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -725,10 +1045,10 @@ TMR2_CLC4_OUT 17
 [v IOCCF1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "189
 } 0
-"60 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/mcc.c
+"62 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"72
+"74
 } 0
 "66 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -753,10 +1073,191 @@ TMR2_CLC4_OUT 17
 [v EUSART_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
 "176
 } 0
+"132 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+[v _PID PID `(v  1 e 1 0 ]
+{
+[v PID@TYPE TYPE `i  1 p 2 0 ]
+[v PID@SETPOINT SETPOINT `l  1 p 4 2 ]
+[v PID@KP KP `f  1 p 4 6 ]
+[v PID@KI KI `f  1 p 4 10 ]
+[v PID@KD KD `f  1 p 4 14 ]
+"149
+} 0
+"241
+[v _getVelocity getVelocity `(f  1 e 4 0 ]
+{
+"243
+} 0
+"245
+[v _getPosition getPosition `(l  1 e 4 0 ]
+{
+"248
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 75 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 74 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 66 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S1702 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S1707 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1710 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1702 1 fAsBytes 4 0 `S1707 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1710  1 a 4 34 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 29 ]
+[s S1779 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S1782 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1779 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1782  1 a 2 38 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 33 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 28 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 27 ]
+"8
+[v ___flmul@b b `d  1 p 4 14 ]
+[v ___flmul@a a `d  1 p 4 18 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `us  1 a 2 6 ]
+"5
+[v __Umul8_16@product product `us  1 a 2 4 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 60 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 53 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 58 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 65 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 64 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 57 ]
+"8
+[v ___fldiv@a a `d  1 p 4 40 ]
+[v ___fldiv@b b `d  1 p 4 44 ]
+"185
+} 0
 "52 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"63
+"78
+} 0
+"164 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr3.c
+[v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
+{
+"175
+} 0
+"182
+[v _TMR3_DefaultInterruptHandler TMR3_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"185
+} 0
+"173 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+[v _VELOCITY_ISR VELOCITY_ISR `(v  1 e 1 0 ]
+{
+"176
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
+[v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v i1___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v i1___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v i1___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v i1___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v i1___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v i1___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcdiv.c
+[v i1___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v i1___fldiv@grs grs `ul  1 a 4 20 ]
+"22
+[v i1___fldiv@rem rem `ul  1 a 4 13 ]
+"20
+[v i1___fldiv@new_exp new_exp `s  1 a 2 18 ]
+"19
+[v i1___fldiv@aexp aexp `uc  1 a 1 25 ]
+"18
+[v i1___fldiv@bexp bexp `uc  1 a 1 24 ]
+"16
+[v i1___fldiv@sign sign `uc  1 a 1 17 ]
+"8
+[v i1___fldiv@a a `d  1 p 4 0 ]
+[v i1___fldiv@b b `d  1 p 4 4 ]
+"185
+} 0
+"127 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr3.c
+[v _TMR3_WriteTimer TMR3_WriteTimer `(v  1 e 1 0 ]
+{
+[v TMR3_WriteTimer@timerVal timerVal `us  1 p 2 0 ]
+"147
+} 0
+"164 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+{
+"175
+} 0
+"127
+[v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
+{
+[v TMR1_WriteTimer@timerVal timerVal `us  1 p 2 0 ]
+"147
+} 0
+"169 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+[v _TIMER_ISR TIMER_ISR `(v  1 e 1 0 ]
+{
+"171
+} 0
+"182 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"185
 } 0
 "155 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
@@ -768,10 +1269,10 @@ TMR2_CLC4_OUT 17
 {
 "212
 } 0
-"117 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"160 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _ENCB_ISR ENCB_ISR `(v  1 e 1 0 ]
 {
-"124
+"167
 } 0
 "224 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _IOCCF2_DefaultInterruptHandler IOCCF2_DefaultInterruptHandler `(v  1 e 1 0 ]
@@ -783,10 +1284,10 @@ TMR2_CLC4_OUT 17
 {
 "182
 } 0
-"108 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"151 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _ENCA_ISR ENCA_ISR `(v  1 e 1 0 ]
 {
-"115
+"158
 } 0
 "194 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _IOCCF1_DefaultInterruptHandler IOCCF1_DefaultInterruptHandler `(v  1 e 1 0 ]
