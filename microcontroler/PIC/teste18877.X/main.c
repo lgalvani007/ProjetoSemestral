@@ -53,14 +53,13 @@ void moveMotor(int);
 void sendMensage(void);
 void initialize(void);
 void readMensage(int *, long *, float *, float *, float *);
-void PID(int, long, float, float, float);
+void PID(void);
 float getVelocity(void);
 long getPosition(void);
 
 void ENCA_ISR(void);
 void ENCB_ISR(void);
 void TIMER_ISR(void);
-void VELOCITY_ISR(void);
 
 #define simulationTime 2000
 #define  deltaT 10
@@ -96,7 +95,6 @@ void main(void)
     IOCCF1_SetInterruptHandler(ENCA_ISR);
     IOCCF2_SetInterruptHandler(ENCB_ISR);
     TMR1_SetInterruptHandler(TIMER_ISR);
-    TMR3_SetInterruptHandler(VELOCITY_ISR);
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
@@ -112,36 +110,33 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     TMR1_StopTimer();
-    TMR3_StopTimer();
     moveMotor(0);
     initialize();
     while (1)
     {
         readMensage(&type, &setPoint, &kp, &ki, &kd);
         TMR1_StartTimer();
-        TMR3_StartTimer();
         moveMotor(100);
-        PID(type, setPoint, kp, ki, kd);
+        PID();
         TMR1_StopTimer();
-        TMR3_StopTimer();
         moveMotor(0);
         sendMensage();
     }
 }
 
-void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
+void PID(){
     encoder = 0;
     lastPulse = 0;
     index_encoder = 0;
     velPulse_ms = 0;
     while(index_encoder < simulationTime/deltaT){
-        if(TYPE == 1){
+        if(type == 1){
             vel = getVelocity();
-            Data[index_encoder] = vel * 60000 / nPulseTurn;
+            Data[index_encoder] = vel * 60000.0 / (float) nPulseTurn;
         }
         else{
             pos = getPosition();
-            Data[index_encoder] = pos * 360.0 / nPulseTurn;
+            Data[index_encoder] = pos * 360.0 / (float) nPulseTurn;
         }
         index_encoder++;
         __delay_ms(deltaT);
@@ -167,11 +162,7 @@ void ENCB_ISR(void){
 }
 
 void TIMER_ISR(void){
-     LED_Toggle();
-}
-
-void VELOCITY_ISR(void){
-    velPulse_ms = (encoder - lastPulse)/10.0;
+    velPulse_ms = (encoder - lastPulse)/1.0;
     lastPulse = encoder;
 }
 
@@ -234,6 +225,7 @@ void sendMensage(){
         if (index < simulationTime/deltaT - 1) {
           printf(",");
         }
+        __delay_ms(5);
     }
     printf("\n");
 }

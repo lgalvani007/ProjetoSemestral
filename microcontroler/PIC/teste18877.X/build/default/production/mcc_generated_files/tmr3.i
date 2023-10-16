@@ -20757,14 +20757,8 @@ void TMR3_Reload(void);
 void TMR3_StartSinglePulseAcquisition(void);
 # 349 "mcc_generated_files/tmr3.h"
 uint8_t TMR3_CheckGateValueStatus(void);
-# 367 "mcc_generated_files/tmr3.h"
-void TMR3_ISR(void);
-# 385 "mcc_generated_files/tmr3.h"
- void TMR3_SetInterruptHandler(void (* InterruptHandler)(void));
-# 403 "mcc_generated_files/tmr3.h"
-extern void (*TMR3_InterruptHandler)(void);
-# 421 "mcc_generated_files/tmr3.h"
-void TMR3_DefaultInterruptHandler(void);
+# 387 "mcc_generated_files/tmr3.h"
+_Bool TMR3_HasOverflowOccured(void);
 # 52 "mcc_generated_files/tmr3.c" 2
 
 
@@ -20772,7 +20766,6 @@ void TMR3_DefaultInterruptHandler(void);
 
 
 volatile uint16_t timer3ReloadVal;
-void (*TMR3_InterruptHandler)(void);
 
 
 
@@ -20802,12 +20795,6 @@ void TMR3_Initialize(void)
 
 
     timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
-
-
-    PIE4bits.TMR3IE = 1;
-
-
-    TMR3_SetInterruptHandler(TMR3_DefaultInterruptHandler);
 
 
     T3CON = 0x01;
@@ -20878,25 +20865,8 @@ uint8_t TMR3_CheckGateValueStatus(void)
     return (T3GCONbits.T3GVAL);
 }
 
-void TMR3_ISR(void)
+_Bool TMR3_HasOverflowOccured(void)
 {
 
-
-    PIR4bits.TMR3IF = 0;
-    TMR3_WriteTimer(timer3ReloadVal);
-
-    if(TMR3_InterruptHandler)
-    {
-        TMR3_InterruptHandler();
-    }
-}
-
-
-void TMR3_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR3_InterruptHandler = InterruptHandler;
-}
-
-void TMR3_DefaultInterruptHandler(void){
-
-
+    return(PIR4bits.TMR3IF);
 }

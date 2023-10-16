@@ -22,7 +22,6 @@ class ComunicacaoSerial:
             mensagem = self.porta_serial.readline().decode()
         if(mensagem != b''.decode()):
             dados = mensagem.split(",")
-            print(dados)
             data = [float(dados[i]) for i in range(0, len(dados), 2)]
             time = [float(dados[i])/1000.0 for i in range(1, len(dados), 2)]
         return time, data

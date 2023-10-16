@@ -20951,15 +20951,16 @@ void TMR3_Reload(void);
 void TMR3_StartSinglePulseAcquisition(void);
 # 349 "mcc_generated_files/tmr3.h"
 uint8_t TMR3_CheckGateValueStatus(void);
-# 367 "mcc_generated_files/tmr3.h"
-void TMR3_ISR(void);
-# 385 "mcc_generated_files/tmr3.h"
- void TMR3_SetInterruptHandler(void (* InterruptHandler)(void));
-# 403 "mcc_generated_files/tmr3.h"
-extern void (*TMR3_InterruptHandler)(void);
-# 421 "mcc_generated_files/tmr3.h"
-void TMR3_DefaultInterruptHandler(void);
+# 387 "mcc_generated_files/tmr3.h"
+_Bool TMR3_HasOverflowOccured(void);
 # 56 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/pwm6.h" 1
+# 102 "mcc_generated_files/pwm6.h"
+ void PWM6_Initialize(void);
+# 129 "mcc_generated_files/pwm6.h"
+ void PWM6_LoadDutyValue(uint16_t dutyValue);
+# 57 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/tmr1.h" 1
 # 100 "mcc_generated_files/tmr1.h"
@@ -20986,13 +20987,6 @@ void TMR1_ISR(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 421 "mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 57 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/pwm6.h" 1
-# 102 "mcc_generated_files/pwm6.h"
- void PWM6_Initialize(void);
-# 129 "mcc_generated_files/pwm6.h"
- void PWM6_LoadDutyValue(uint16_t dutyValue);
 # 58 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/tmr2.h" 1

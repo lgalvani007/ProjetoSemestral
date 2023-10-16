@@ -20951,15 +20951,16 @@ void TMR3_Reload(void);
 void TMR3_StartSinglePulseAcquisition(void);
 # 349 "./mcc_generated_files/tmr3.h"
 uint8_t TMR3_CheckGateValueStatus(void);
-# 367 "./mcc_generated_files/tmr3.h"
-void TMR3_ISR(void);
-# 385 "./mcc_generated_files/tmr3.h"
- void TMR3_SetInterruptHandler(void (* InterruptHandler)(void));
-# 403 "./mcc_generated_files/tmr3.h"
-extern void (*TMR3_InterruptHandler)(void);
-# 421 "./mcc_generated_files/tmr3.h"
-void TMR3_DefaultInterruptHandler(void);
+# 387 "./mcc_generated_files/tmr3.h"
+_Bool TMR3_HasOverflowOccured(void);
 # 56 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/pwm6.h" 1
+# 102 "./mcc_generated_files/pwm6.h"
+ void PWM6_Initialize(void);
+# 129 "./mcc_generated_files/pwm6.h"
+ void PWM6_LoadDutyValue(uint16_t dutyValue);
+# 57 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr1.h" 1
 # 100 "./mcc_generated_files/tmr1.h"
@@ -20986,13 +20987,6 @@ void TMR1_ISR(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 421 "./mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 57 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pwm6.h" 1
-# 102 "./mcc_generated_files/pwm6.h"
- void PWM6_Initialize(void);
-# 129 "./mcc_generated_files/pwm6.h"
- void PWM6_LoadDutyValue(uint16_t dutyValue);
 # 58 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr2.h" 1
@@ -21316,14 +21310,13 @@ void moveMotor(int);
 void sendMensage(void);
 void initialize(void);
 void readMensage(int *, long *, float *, float *, float *);
-void PID(int, long, float, float, float);
+void PID(void);
 float getVelocity(void);
 long getPosition(void);
 
 void ENCA_ISR(void);
 void ENCB_ISR(void);
 void TIMER_ISR(void);
-void VELOCITY_ISR(void);
 
 
 
@@ -21359,7 +21352,6 @@ void main(void)
     IOCCF1_SetInterruptHandler(ENCA_ISR);
     IOCCF2_SetInterruptHandler(ENCB_ISR);
     TMR1_SetInterruptHandler(TIMER_ISR);
-    TMR3_SetInterruptHandler(VELOCITY_ISR);
 
 
 
@@ -21375,36 +21367,33 @@ void main(void)
 
 
     TMR1_StopTimer();
-    TMR3_StopTimer();
     moveMotor(0);
     initialize();
     while (1)
     {
         readMensage(&type, &setPoint, &kp, &ki, &kd);
         TMR1_StartTimer();
-        TMR3_StartTimer();
         moveMotor(100);
-        PID(type, setPoint, kp, ki, kd);
+        PID();
         TMR1_StopTimer();
-        TMR3_StopTimer();
         moveMotor(0);
         sendMensage();
     }
 }
 
-void PID(int TYPE, long SETPOINT, float KP, float KI, float KD){
+void PID(){
     encoder = 0;
     lastPulse = 0;
     index_encoder = 0;
     velPulse_ms = 0;
     while(index_encoder < 2000/10){
-        if(TYPE == 1){
+        if(type == 1){
             vel = getVelocity();
-            Data[index_encoder] = vel * 60000 / nPulseTurn;
+            Data[index_encoder] = vel * 60000.0 / (float) nPulseTurn;
         }
         else{
             pos = getPosition();
-            Data[index_encoder] = pos * 360.0 / nPulseTurn;
+            Data[index_encoder] = pos * 360.0 / (float) nPulseTurn;
         }
         index_encoder++;
         _delay((unsigned long)((10)*(8000000/4000.0)));
@@ -21430,11 +21419,7 @@ void ENCB_ISR(void){
 }
 
 void TIMER_ISR(void){
-     do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
-}
-
-void VELOCITY_ISR(void){
-    velPulse_ms = (encoder - lastPulse)/10.0;
+    velPulse_ms = (encoder - lastPulse)/1.0;
     lastPulse = encoder;
 }
 
@@ -21497,6 +21482,7 @@ void sendMensage(){
         if (index < 2000/10 - 1) {
           printf(",");
         }
+        _delay((unsigned long)((5)*(8000000/4000.0)));
     }
     printf("\n");
 }

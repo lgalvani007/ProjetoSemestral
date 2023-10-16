@@ -55,7 +55,6 @@
   Section: Global Variables Definitions
 */
 volatile uint16_t timer3ReloadVal;
-void (*TMR3_InterruptHandler)(void);
 
 /**
   Section: TMR3 APIs
@@ -80,17 +79,11 @@ void TMR3_Initialize(void)
     //TMR3L 224; 
     TMR3L = 0xE0;
 
-    // Clearing IF flag before enabling the interrupt.
+    // Clearing IF flag.
     PIR4bits.TMR3IF = 0;
-
+	
     // Load the TMR value to reload variable
     timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
-
-    // Enabling TMR3 interrupt.
-    PIE4bits.TMR3IE = 1;
-
-    // Set Default Interrupt Handler
-    TMR3_SetInterruptHandler(TMR3_DefaultInterruptHandler);
 
     // CKPS 1:1; nT3SYNC synchronize; TMR3ON enabled; T3RD16 disabled; 
     T3CON = 0x01;
@@ -161,29 +154,11 @@ uint8_t TMR3_CheckGateValueStatus(void)
     return (T3GCONbits.T3GVAL);
 }
 
-void TMR3_ISR(void)
+bool TMR3_HasOverflowOccured(void)
 {
-
-    // Clear the TMR3 interrupt flag
-    PIR4bits.TMR3IF = 0;
-    TMR3_WriteTimer(timer3ReloadVal);
-
-    if(TMR3_InterruptHandler)
-    {
-        TMR3_InterruptHandler();
-    }
+    // check if  overflow has occurred by checking the TMRIF bit
+    return(PIR4bits.TMR3IF);
 }
-
-
-void TMR3_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR3_InterruptHandler = InterruptHandler;
-}
-
-void TMR3_DefaultInterruptHandler(void){
-    // add your TMR3 interrupt custom code
-    // or set custom function using TMR3_SetInterruptHandler()
-}
-
 /**
   End of File
 */
