@@ -100,29 +100,29 @@ TMR2_CLC4_OUT 17
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "96 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"133
+"134
 [v _PID PID `(v  1 e 1 0 ]
-"163
+"172
 [v _TIMER_ISR TIMER_ISR `(v  1 e 1 0 ]
-"167
+"176
 [v _constrain constrain `(f  1 e 4 0 ]
-"179
+"188
 [v _inicializaControle inicializaControle `(v  1 e 1 0 ]
-"198
+"208
 [v _ENCA_ISR ENCA_ISR `(v  1 e 1 0 ]
-"207
+"217
 [v _ENCB_ISR ENCB_ISR `(v  1 e 1 0 ]
-"216
+"226
 [v _moveMotor moveMotor `(v  1 e 1 0 ]
-"229
+"239
 [v _initialize initialize `(v  1 e 1 0 ]
-"235
+"245
 [v _readMensage readMensage `(v  1 e 1 0 ]
-"268
+"278
 [v _sendMensage sendMensage `(v  1 e 1 0 ]
-"279
+"289
 [v _getVelocity getVelocity `(f  1 e 4 0 ]
-"283
+"293
 [v _getPosition getPosition `(l  1 e 4 0 ]
 "66 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -212,7 +212,7 @@ TMR2_CLC4_OUT 17
 "370 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h
 [u S750 . 1 `S745 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES750  1 e 1 @11 ]
-[s S1182 . 1 `uc 1 RC0 1 0 :1:0 
+[s S1203 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -222,8 +222,8 @@ TMR2_CLC4_OUT 17
 `uc 1 RC7 1 0 :1:7 
 ]
 "531
-[u S1191 . 1 `S1182 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES1191  1 e 1 @14 ]
+[u S1212 . 1 `S1203 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES1212  1 e 1 @14 ]
 "676
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
 "738
@@ -254,7 +254,7 @@ TMR2_CLC4_OUT 17
 [v _LATCbits LATCbits `VES1233  1 e 1 @24 ]
 "1142
 [v _LATD LATD `VEuc  1 e 1 @25 ]
-[s S1203 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S1163 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -264,8 +264,8 @@ TMR2_CLC4_OUT 17
 `uc 1 LATD7 1 0 :1:7 
 ]
 "1159
-[u S1212 . 1 `S1203 1 . 1 0 ]
-[v _LATDbits LATDbits `VES1212  1 e 1 @25 ]
+[u S1172 . 1 `S1163 1 . 1 0 ]
+[v _LATDbits LATDbits `VES1172  1 e 1 @25 ]
 "1204
 [v _LATE LATE `VEuc  1 e 1 @26 ]
 "3764
@@ -750,14 +750,14 @@ TMR2_CLC4_OUT 17
 "96 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"131
+"132
 } 0
-"268
+"278
 [v _sendMensage sendMensage `(v  1 e 1 0 ]
 {
-"269
+"279
 [v sendMensage@index index `i  1 a 2 43 ]
-"277
+"287
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -854,30 +854,30 @@ TMR2_CLC4_OUT 17
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 "41
 } 0
-"235 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"245 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _readMensage readMensage `(v  1 e 1 0 ]
 {
 [v readMensage@TYPE TYPE `*.4i  1 a 1 wreg ]
-"241
+"251
 [v readMensage@receivedChar receivedChar `uc  1 a 1 46 ]
-"237
+"247
 [v readMensage@receivedString receivedString `[30]uc  1 a 30 0 ]
-"238
+"248
 [v readMensage@value value `[5]i  1 a 10 30 ]
-"236
+"246
 [v readMensage@i i `i  1 a 2 43 ]
-"254
+"264
 [v readMensage@j j `i  1 a 2 41 ]
-"252
+"262
 [v readMensage@token token `*.4uc  1 a 1 45 ]
-"235
+"245
 [v readMensage@TYPE TYPE `*.4i  1 a 1 wreg ]
 [v readMensage@SETPOINT SETPOINT `*.4l  1 p 1 70 ]
 [v readMensage@KP KP `*.5f  1 p 1 71 ]
 [v readMensage@KI KI `*.5f  1 p 1 72 ]
 [v readMensage@KD KD `*.5f  1 p 1 73 ]
 [v readMensage@TYPE TYPE `*.4i  1 a 1 40 ]
-"266
+"276
 } 0
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strtok.c
 [v _strtok strtok `(*.4uc  1 e 2 0 ]
@@ -947,12 +947,12 @@ TMR2_CLC4_OUT 17
 {
 "130
 } 0
-"229 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"239 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _initialize initialize `(v  1 e 1 0 ]
 {
-"230
+"240
 [v initialize@index index `i  1 a 2 8 ]
-"233
+"243
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -964,10 +964,10 @@ TMR2_CLC4_OUT 17
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
 "53
 } 0
-"179 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"188 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _inicializaControle inicializaControle `(v  1 e 1 0 ]
 {
-"196
+"206
 } 0
 "99 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
@@ -1060,16 +1060,16 @@ TMR2_CLC4_OUT 17
 [v EUSART_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 2 ]
 "176
 } 0
-"133 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"134 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _PID PID `(v  1 e 1 0 ]
 {
-"162
+"171
 } 0
-"216
+"226
 [v _moveMotor moveMotor `(v  1 e 1 0 ]
 {
 [v moveMotor@m m `i  1 p 2 0 ]
-"227
+"237
 } 0
 "74 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pwm6.c
 [v _PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
@@ -1077,23 +1077,23 @@ TMR2_CLC4_OUT 17
 [v PWM6_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
 "81
 } 0
-"279 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"289 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _getVelocity getVelocity `(f  1 e 4 0 ]
 {
-"281
+"291
 } 0
-"283
+"293
 [v _getPosition getPosition `(l  1 e 4 0 ]
 {
-"286
+"296
 } 0
-"167
+"176
 [v _constrain constrain `(f  1 e 4 0 ]
 {
 [v constrain@VAR VAR `f  1 p 4 4 ]
 [v constrain@MIN MIN `f  1 p 4 8 ]
 [v constrain@MAX MAX `f  1 p 4 12 ]
-"177
+"186
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\flge.c
 [v ___flge __flge `(b  1 e 0 0 ]
@@ -1235,10 +1235,10 @@ TMR2_CLC4_OUT 17
 [v TMR1_WriteTimer@timerVal timerVal `us  1 p 2 0 ]
 "147
 } 0
-"163 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"172 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _TIMER_ISR TIMER_ISR `(v  1 e 1 0 ]
 {
-"165
+"174
 } 0
 "182 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/tmr1.c
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
@@ -1255,10 +1255,10 @@ TMR2_CLC4_OUT 17
 {
 "212
 } 0
-"207 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"217 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _ENCB_ISR ENCB_ISR `(v  1 e 1 0 ]
 {
-"214
+"224
 } 0
 "224 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _IOCCF2_DefaultInterruptHandler IOCCF2_DefaultInterruptHandler `(v  1 e 1 0 ]
@@ -1270,10 +1270,10 @@ TMR2_CLC4_OUT 17
 {
 "182
 } 0
-"198 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
+"208 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\main.c
 [v _ENCA_ISR ENCA_ISR `(v  1 e 1 0 ]
 {
-"205
+"215
 } 0
 "194 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\teste18877.X\mcc_generated_files/pin_manager.c
 [v _IOCCF1_DefaultInterruptHandler IOCCF1_DefaultInterruptHandler `(v  1 e 1 0 ]

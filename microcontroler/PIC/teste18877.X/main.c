@@ -123,10 +123,11 @@ void main(void)
         inicializaControle();
         PID();
         TMR1_StopTimer();
+        LED_Toggle();
         sendMensage();
     }
 //    while(1){
-//        moveMotor(-100);
+//        printf("%i\n",encoder);
 //    }
 }
 
@@ -145,13 +146,21 @@ void PID(){
                 lastPulse = encoder;
             }
             else{
-                pos = getPosition();
-                error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
-                error_integrativo += error;
-                error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
-                lastPos = pos;
-                Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                if(type == 0){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
+                    error_integrativo += error;
+                    error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
+                    lastPos = pos;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+//                else if(type == 3){
+//                    
+//                }
+//                else if(type == 4){
+//                    
+//                }
             }
             index_encoder_anterior = index_encoder;
             correction = constrain(correction,-255.0,255.0);
@@ -192,6 +201,7 @@ void inicializaControle(void){
     pos = 0;
     vel = 0;
     lastVel = 0;
+    LED_Toggle();
     TMR1_StartTimer();
 }
 
