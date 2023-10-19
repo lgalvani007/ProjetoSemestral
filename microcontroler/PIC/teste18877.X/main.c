@@ -56,12 +56,14 @@ void readMensage(int *, long *, float *, float *, float *);
 void PID(void);
 float getVelocity(void);
 long getPosition(void);
+void inicializaControle(void);
+float constrain(float, float, float);
 
 void ENCA_ISR(void);
 void ENCB_ISR(void);
 void TIMER_ISR(void);
 
-#define simulationTime 2000
+#define simulationTime 3000
 #define  deltaT 10
 int Data[simulationTime/deltaT];
 int Time[simulationTime/deltaT];
@@ -78,6 +80,7 @@ long setPoint;
 float kp, ki, kd;
 
 int index_encoder = 0;
+int index_encoder_anterior = 1;
 float error = 0, error_anterior = 0, error_anterior_anterior = 0;
 float error_integrativo = 0;
 float correction = 0, correction_anterior = 0, correction_anterior_anterior = 0 ;
@@ -87,6 +90,8 @@ float vel = 0;
 float lastVel = 0;
 
 float velPulse_ms = 0;
+
+volatile uint16_t timer1ReloadVal=(uint16_t)((0x63 << 8) | 0xC0);
 
 void main(void)
 {
@@ -109,38 +114,85 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    TMR1_StopTimer();
+    TMR1_StartTimer();
     moveMotor(0);
     initialize();
     while (1)
     {
         readMensage(&type, &setPoint, &kp, &ki, &kd);
-        TMR1_StartTimer();
-        moveMotor(100);
+        inicializaControle();
         PID();
         TMR1_StopTimer();
-        moveMotor(0);
         sendMensage();
     }
+//    while(1){
+//        moveMotor(-100);
+//    }
 }
 
 void PID(){
+    while(index_encoder < simulationTime/deltaT){
+        if(index_encoder != index_encoder_anterior){
+            if(type == 1){
+                vel = getVelocity();
+                error = (float) (setPoint*nPulseTurn/60000.0) - vel;
+                correction += kp * error + ki * error_integrativo - kd * (vel - lastVel);
+                error_integrativo += error;
+                error_integrativo = constrain(error_integrativo,-600.0,600.0);
+                lastVel = vel;
+                Data[index_encoder] = vel * 60000.0 / ((float) nPulseTurn);
+                velPulse_ms = (encoder - lastPulse)/10.0;
+                lastPulse = encoder;
+            }
+            else{
+                pos = getPosition();
+                error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
+                error_integrativo += error;
+                error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
+                lastPos = pos;
+                Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+            }
+            index_encoder_anterior = index_encoder;
+            correction = constrain(correction,-255.0,255.0);
+            moveMotor((int) correction);
+        }
+    }
+    moveMotor(0);
+}
+void TIMER_ISR(void){
+    index_encoder++;
+}
+
+float constrain(float VAR, float MIN, float MAX){
+    if(VAR < MIN){
+        return MIN;
+    }
+    else if(VAR > MAX){
+        return MAX;
+    }
+    else{
+        return VAR;
+    }
+}
+
+void inicializaControle(void){
     encoder = 0;
     lastPulse = 0;
     index_encoder = 0;
     velPulse_ms = 0;
-    while(index_encoder < simulationTime/deltaT){
-        if(type == 1){
-            vel = getVelocity();
-            Data[index_encoder] = vel * 60000.0 / (float) nPulseTurn;
-        }
-        else{
-            pos = getPosition();
-            Data[index_encoder] = pos * 360.0 / (float) nPulseTurn;
-        }
-        index_encoder++;
-        __delay_ms(deltaT);
-    }
+    error = 0;
+    error_anterior = 0;
+    error_anterior_anterior = 0;
+    error_integrativo = 0;
+    correction = 0;
+    correction_anterior = 0;
+    correction_anterior_anterior = 0 ;
+    lastPos = 0;
+    pos = 0;
+    vel = 0;
+    lastVel = 0;
+    TMR1_StartTimer();
 }
 
 void ENCA_ISR(void){
@@ -150,7 +202,7 @@ void ENCA_ISR(void){
     else{
         encoder--;
     }
-}
+} 
 
 void ENCB_ISR(void){
     if (ENCA_GetValue() == 0) {
@@ -161,21 +213,17 @@ void ENCB_ISR(void){
     }
 }
 
-void TIMER_ISR(void){
-    velPulse_ms = (encoder - lastPulse)/1.0;
-    lastPulse = encoder;
-}
-
 void moveMotor(int m){
     if(m>0){
         A_SetHigh();
         B_SetLow();
     }
-    else if(m<0){
+    else{
         A_SetLow();
         B_SetHigh();
+        m = -1 * m;
     }
-    PWM6_LoadDutyValue(abs(m));
+    PWM6_LoadDutyValue(m);
 }
 
 void initialize(){
@@ -219,13 +267,11 @@ void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
 
 void sendMensage(){
     for (int index = 0; index < simulationTime/deltaT; index++) {
-        printf("%i",Data[index]);//Posicao
-        printf(",");
-        printf("%i",Time[index]);
+        printf("%i,%i",Data[index],Time[index]);//Posicao
         if (index < simulationTime/deltaT - 1) {
           printf(",");
         }
-        __delay_ms(5);
+        __delay_ms(1);
     }
     printf("\n");
 }

@@ -20966,7 +20966,7 @@ void TMR2_Initialize(void)
     T2RST = 0x00;
 
 
-    T2PR = 0xF9;
+    T2PR = 0x3F;
 
 
     T2TMR = 0x00;
@@ -20975,7 +20975,7 @@ void TMR2_Initialize(void)
     PIR4bits.TMR2IF = 0;
 
 
-    T2CON = 0xB0;
+    T2CON = 0xF0;
 }
 
 void TMR2_ModeSet(TMR2_HLT_MODE mode)

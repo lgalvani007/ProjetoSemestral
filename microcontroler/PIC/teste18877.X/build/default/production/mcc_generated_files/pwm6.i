@@ -20756,7 +20756,7 @@ extern __bank0 __bit __timeout;
     PWM6CON = 0x80;
 
 
-    PWM6DCH = 0x1F;
+    PWM6DCH = 0x3F;
 
 
     PWM6DCL = 0xC0;

@@ -20785,10 +20785,10 @@ void TMR3_Initialize(void)
     T3CLK = 0x01;
 
 
-    TMR3H = 0xB1;
+    TMR3H = 0x02;
 
 
-    TMR3L = 0xE0;
+    TMR3L = 0x18;
 
 
     PIR4bits.TMR3IF = 0;
@@ -20797,7 +20797,7 @@ void TMR3_Initialize(void)
     timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
 
 
-    T3CON = 0x01;
+    T3CON = 0x34;
 }
 
 void TMR3_StartTimer(void)

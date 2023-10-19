@@ -73,11 +73,11 @@ void TMR3_Initialize(void)
     //CS FOSC/4; 
     T3CLK = 0x01;
 
-    //TMR3H 177; 
-    TMR3H = 0xB1;
+    //TMR3H 2; 
+    TMR3H = 0x02;
 
-    //TMR3L 224; 
-    TMR3L = 0xE0;
+    //TMR3L 24; 
+    TMR3L = 0x18;
 
     // Clearing IF flag.
     PIR4bits.TMR3IF = 0;
@@ -85,8 +85,8 @@ void TMR3_Initialize(void)
     // Load the TMR value to reload variable
     timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
 
-    // CKPS 1:1; nT3SYNC synchronize; TMR3ON enabled; T3RD16 disabled; 
-    T3CON = 0x01;
+    // CKPS 1:8; nT3SYNC do_not_synchronize; TMR3ON disabled; T3RD16 disabled; 
+    T3CON = 0x34;
 }
 
 void TMR3_StartTimer(void)

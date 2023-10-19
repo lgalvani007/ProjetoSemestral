@@ -1726,11 +1726,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr3.c: 74:     T3CLK = 0x01;
 [e = _T3CLK -> -> 1 `i `uc ]
 "77
-[; ;mcc_generated_files/tmr3.c: 77:     TMR3H = 0xB1;
-[e = _TMR3H -> -> 177 `i `uc ]
+[; ;mcc_generated_files/tmr3.c: 77:     TMR3H = 0x02;
+[e = _TMR3H -> -> 2 `i `uc ]
 "80
-[; ;mcc_generated_files/tmr3.c: 80:     TMR3L = 0xE0;
-[e = _TMR3L -> -> 224 `i `uc ]
+[; ;mcc_generated_files/tmr3.c: 80:     TMR3L = 0x18;
+[e = _TMR3L -> -> 24 `i `uc ]
 "83
 [; ;mcc_generated_files/tmr3.c: 83:     PIR4bits.TMR3IF = 0;
 [e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
@@ -1738,8 +1738,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr3.c: 86:     timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
 [e = _timer3ReloadVal -> | << -> _TMR3H `i -> 8 `i -> _TMR3L `i `us ]
 "89
-[; ;mcc_generated_files/tmr3.c: 89:     T3CON = 0x01;
-[e = _T3CON -> -> 1 `i `uc ]
+[; ;mcc_generated_files/tmr3.c: 89:     T3CON = 0x34;
+[e = _T3CON -> -> 52 `i `uc ]
 "90
 [; ;mcc_generated_files/tmr3.c: 90: }
 [e :UE 1613 ]
