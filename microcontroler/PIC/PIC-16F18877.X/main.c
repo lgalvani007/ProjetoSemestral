@@ -71,7 +71,7 @@ unsigned long tSimPastEncoder = 0;
 
 unsigned long tPast = 0;
 long lastPulse = 0;
-long nPulseTurn = 600;
+long nPulseTurn = 590;
 
 long encoder = 0;
 
@@ -155,9 +155,10 @@ void PID(){
                     lastPos = pos;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
-//                else if(type == 3){
-//                    
-//                }
+                else if(type == 7){
+                    correction = setPoint;
+                    Data[index_encoder] = getPosition();
+                }
 //                else if(type == 4){
 //                    
 //                }
@@ -277,9 +278,17 @@ void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
 
 void sendMensage(){
     for (int index = 0; index < simulationTime/deltaT; index++) {
-        printf("%i,%i",Data[index],Time[index]);//Posicao
+        if(type == 7){
+            printf("%i\n",Data[index]);//Ensaio
+        }
+        else{
+            printf("%i,%i",Data[index],Time[index]);//Posicao
+        }
+        
         if (index < simulationTime/deltaT - 1) {
-          printf(",");
+            if(type != 7){
+                printf(",");
+            }
         }
         __delay_ms(1);
     }
