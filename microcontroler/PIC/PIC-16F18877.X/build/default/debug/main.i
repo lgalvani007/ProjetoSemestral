@@ -20934,6 +20934,34 @@ char *tempnam(const char *, const char *);
 # 1 "./mcc_generated_files/interrupt_manager.h" 1
 # 55 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/tmr3.h" 1
+# 100 "./mcc_generated_files/tmr3.h"
+void TMR3_Initialize(void);
+# 129 "./mcc_generated_files/tmr3.h"
+void TMR3_StartTimer(void);
+# 161 "./mcc_generated_files/tmr3.h"
+void TMR3_StopTimer(void);
+# 196 "./mcc_generated_files/tmr3.h"
+uint16_t TMR3_ReadTimer(void);
+# 235 "./mcc_generated_files/tmr3.h"
+void TMR3_WriteTimer(uint16_t timerVal);
+# 271 "./mcc_generated_files/tmr3.h"
+void TMR3_Reload(void);
+# 310 "./mcc_generated_files/tmr3.h"
+void TMR3_StartSinglePulseAcquisition(void);
+# 349 "./mcc_generated_files/tmr3.h"
+uint8_t TMR3_CheckGateValueStatus(void);
+# 387 "./mcc_generated_files/tmr3.h"
+_Bool TMR3_HasOverflowOccured(void);
+# 56 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/pwm6.h" 1
+# 102 "./mcc_generated_files/pwm6.h"
+ void PWM6_Initialize(void);
+# 129 "./mcc_generated_files/pwm6.h"
+ void PWM6_LoadDutyValue(uint16_t dutyValue);
+# 57 "./mcc_generated_files/mcc.h" 2
+
 # 1 "./mcc_generated_files/tmr1.h" 1
 # 100 "./mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -20959,14 +20987,7 @@ void TMR1_ISR(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 421 "./mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 56 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pwm6.h" 1
-# 102 "./mcc_generated_files/pwm6.h"
- void PWM6_Initialize(void);
-# 129 "./mcc_generated_files/pwm6.h"
- void PWM6_LoadDutyValue(uint16_t dutyValue);
-# 57 "./mcc_generated_files/mcc.h" 2
+# 58 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr2.h" 1
 # 79 "./mcc_generated_files/tmr2.h"
@@ -21178,7 +21199,7 @@ void TMR2_Period8BitSet(uint8_t periodVal);
 void TMR2_LoadPeriodRegister(uint8_t periodVal);
 # 819 "./mcc_generated_files/tmr2.h"
 _Bool TMR2_HasOverflowOccured(void);
-# 58 "./mcc_generated_files/mcc.h" 2
+# 59 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/eusart.h" 1
 # 76 "./mcc_generated_files/eusart.h"
@@ -21211,12 +21232,12 @@ void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 398 "./mcc_generated_files/eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 59 "./mcc_generated_files/mcc.h" 2
-# 74 "./mcc_generated_files/mcc.h"
+# 60 "./mcc_generated_files/mcc.h" 2
+# 75 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 87 "./mcc_generated_files/mcc.h"
+# 88 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 100 "./mcc_generated_files/mcc.h"
+# 101 "./mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
 # 44 "main.c" 2
 
@@ -21301,8 +21322,8 @@ void TIMER_ISR(void);
 
 
 
-int Data[2000/10];
-int Time[2000/10];
+int Data[3000/10];
+int Time[3000/10];
 unsigned long tSimPastEncoder = 0;
 
 unsigned long tPast = 0;
@@ -21327,6 +21348,7 @@ float lastVel = 0;
 
 float velPulse_ms = 0;
 
+
 void main(void)
 {
 
@@ -21348,7 +21370,7 @@ void main(void)
 
 
 
-    TMR1_StopTimer();
+    TMR1_StartTimer();
     moveMotor(0);
     initialize();
     while (1)
@@ -21357,6 +21379,7 @@ void main(void)
         inicializaControle();
         PID();
         TMR1_StopTimer();
+        do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
         sendMensage();
     }
 
@@ -21365,37 +21388,65 @@ void main(void)
 }
 
 void PID(){
-    while(index_encoder < 2000/10){
+    while(index_encoder < 3000/10){
         if(index_encoder != index_encoder_anterior){
             if(type == 1){
                 vel = getVelocity();
                 error = (float) (setPoint*nPulseTurn/60000.0) - vel;
                 correction += kp * error + ki * error_integrativo - kd * (vel - lastVel);
-
-
+                error_integrativo += error;
+                error_integrativo = constrain(error_integrativo,-600.0,600.0);
                 lastVel = vel;
                 Data[index_encoder] = vel * 60000.0 / ((float) nPulseTurn);
+                velPulse_ms = (encoder - lastPulse)/10.0;
+                lastPulse = encoder;
             }
             else{
-                pos = getPosition();
-                error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
+                if(type == 0){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
+                    error_integrativo += error;
+                    error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
+                    lastPos = pos;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 2){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = 0.136 * error - 0.1307 * error_anterior + 0.9548 * correction;
+                    error_anterior = error;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 5){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = 0.8 * error ;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 6){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = 1.2 * error - 1.101 * error_anterior + 0.8007 * correction;
+                    error_anterior = error;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 7){
+                    correction = setPoint;
+                    Data[index_encoder] = getPosition();
+                }
 
 
-                lastPos = pos;
 
-                Data[index_encoder] = error;
             }
             index_encoder_anterior = index_encoder;
-            correction = constrain(correction,-50.0,50.0);
+            correction = constrain(correction,-255.0,255.0);
             moveMotor((int) correction);
         }
     }
     moveMotor(0);
 }
 void TIMER_ISR(void){
-    velPulse_ms = (encoder - lastPulse)/10.0;
-    lastPulse = encoder;
     index_encoder++;
 }
 
@@ -21403,7 +21454,7 @@ float constrain(float VAR, float MIN, float MAX){
     if(VAR < MIN){
         return MIN;
     }
-    else if(VAR >= MAX){
+    else if(VAR > MAX){
         return MAX;
     }
     else{
@@ -21427,6 +21478,7 @@ void inicializaControle(void){
     pos = 0;
     vel = 0;
     lastVel = 0;
+    do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
     TMR1_StartTimer();
 }
 
@@ -21451,17 +21503,19 @@ void ENCB_ISR(void){
 void moveMotor(int m){
     if(m>0){
         do { LATDbits.LATD0 = 1; } while(0);
-        do { LATCbits.LATC3 = 0; } while(0);
+        do { LATDbits.LATD3 = 0; } while(0);
+        m = constrain(m,20,255);
     }
     else{
         do { LATDbits.LATD0 = 0; } while(0);
-        do { LATCbits.LATC3 = 1; } while(0);
+        do { LATDbits.LATD3 = 1; } while(0);
+        m = constrain(m,-255,-20);
     }
     PWM6_LoadDutyValue(abs(m));
 }
 
 void initialize(){
-    for(int index = 0; index < 2000/10; index++){
+    for(int index = 0; index < 3000/10; index++){
         Time[index] = 10*index;
     }
 }
@@ -21500,12 +21554,20 @@ void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
 }
 
 void sendMensage(){
-    for (int index = 0; index < 2000/10; index++) {
-        printf("%i,%i",Data[index],Time[index]);
-        if (index < 2000/10 - 1) {
-          printf(",");
+    for (int index = 0; index < 3000/10; index++) {
+        if(type == 7){
+            printf("%i\n",Data[index]);
         }
-        _delay((unsigned long)((1)*(8000000/4000.0)));
+        else{
+            printf("%i,%i",Data[index],Time[index]);
+        }
+
+        if (index < 3000/10 - 1) {
+            if(type != 7){
+                printf(",");
+            }
+        }
+        _delay((unsigned long)((1)*(32000000/4000.0)));
     }
     printf("\n");
 }

@@ -114,15 +114,15 @@ TMR2_CLC4_OUT 17
 [v _ENCB_ISR ENCB_ISR `(v  1 e 1 0 ]
 "246
 [v _moveMotor moveMotor `(v  1 e 1 0 ]
-"262
+"260
 [v _initialize initialize `(v  1 e 1 0 ]
-"268
+"266
 [v _readMensage readMensage `(v  1 e 1 0 ]
-"301
+"299
 [v _sendMensage sendMensage `(v  1 e 1 0 ]
-"320
+"318
 [v _getVelocity getVelocity `(f  1 e 4 0 ]
-"324
+"322
 [v _getPosition getPosition `(l  1 e 4 0 ]
 "66 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -740,12 +740,12 @@ TMR2_CLC4_OUT 17
 {
 "131
 } 0
-"301
+"299
 [v _sendMensage sendMensage `(v  1 e 1 0 ]
 {
-"302
+"300
 [v sendMensage@index index `i  1 a 2 43 ]
-"318
+"316
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -836,30 +836,30 @@ TMR2_CLC4_OUT 17
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 "41
 } 0
-"268 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
+"266 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
 [v _readMensage readMensage `(v  1 e 1 0 ]
 {
 [v readMensage@TYPE TYPE `*.1i  1 a 1 wreg ]
-"274
+"272
 [v readMensage@receivedChar receivedChar `uc  1 a 1 46 ]
-"270
-[v readMensage@receivedString receivedString `[30]uc  1 a 30 0 ]
-"271
-[v readMensage@value value `[5]i  1 a 10 30 ]
-"269
-[v readMensage@i i `i  1 a 2 43 ]
-"287
-[v readMensage@j j `i  1 a 2 41 ]
-"285
-[v readMensage@token token `*.4uc  1 a 1 45 ]
 "268
+[v readMensage@receivedString receivedString `[30]uc  1 a 30 0 ]
+"269
+[v readMensage@value value `[5]i  1 a 10 30 ]
+"267
+[v readMensage@i i `i  1 a 2 43 ]
+"285
+[v readMensage@j j `i  1 a 2 41 ]
+"283
+[v readMensage@token token `*.4uc  1 a 1 45 ]
+"266
 [v readMensage@TYPE TYPE `*.1i  1 a 1 wreg ]
 [v readMensage@SETPOINT SETPOINT `*.4l  1 p 1 70 ]
 [v readMensage@KP KP `*.5f  1 p 1 71 ]
 [v readMensage@KI KI `*.5f  1 p 1 72 ]
 [v readMensage@KD KD `*.5f  1 p 1 73 ]
 [v readMensage@TYPE TYPE `*.1i  1 a 1 40 ]
-"299
+"297
 } 0
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strtok.c
 [v _strtok strtok `(*.4uc  1 e 2 0 ]
@@ -929,12 +929,12 @@ TMR2_CLC4_OUT 17
 {
 "130
 } 0
-"262 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
+"260 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
 [v _initialize initialize `(v  1 e 1 0 ]
 {
-"263
+"261
 [v initialize@index index `i  1 a 2 8 ]
-"266
+"264
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -1051,36 +1051,14 @@ TMR2_CLC4_OUT 17
 [v _moveMotor moveMotor `(v  1 e 1 0 ]
 {
 [v moveMotor@m m `i  1 p 2 0 ]
-"260
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 0 ]
-"4
-} 0
-"74 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\mcc_generated_files/pwm6.c
-[v _PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
-{
-[v PWM6_LoadDutyValue@dutyValue dutyValue `us  1 p 2 4 ]
-"81
-} 0
-"320 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
-[v _getVelocity getVelocity `(f  1 e 4 0 ]
-{
-"322
-} 0
-"324
-[v _getPosition getPosition `(l  1 e 4 0 ]
-{
-"327
+"258
 } 0
 "196
 [v _constrain constrain `(f  1 e 4 0 ]
 {
-[v constrain@VAR VAR `f  1 p 4 4 ]
-[v constrain@MIN MIN `f  1 p 4 8 ]
-[v constrain@MAX MAX `f  1 p 4 12 ]
+[v constrain@VAR VAR `f  1 p 4 18 ]
+[v constrain@MIN MIN `f  1 p 4 22 ]
+[v constrain@MAX MAX `f  1 p 4 26 ]
 "206
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\flge.c
@@ -1089,6 +1067,12 @@ TMR2_CLC4_OUT 17
 [v ___flge@ff1 ff1 `d  1 p 4 2 ]
 [v ___flge@ff2 ff2 `d  1 p 4 6 ]
 "19
+} 0
+"1 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 0 ]
+"4
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1105,16 +1089,6 @@ TMR2_CLC4_OUT 17
 [v ___xxtofl@sign sign `uc  1 a 1 12 ]
 "44
 } 0
-"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
-[v ___lmul __lmul `(ul  1 e 4 0 ]
-{
-"17
-[v ___lmul@product product `ul  1 a 4 0 ]
-"15
-[v ___lmul@multiplier multiplier `ul  1 p 4 2 ]
-[v ___lmul@multiplicand multiplicand `ul  1 p 4 6 ]
-"129
-} 0
 "43 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
@@ -1124,6 +1098,32 @@ TMR2_CLC4_OUT 17
 "43
 [v ___fltol@f1 f1 `d  1 p 4 70 ]
 "70
+} 0
+"74 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\mcc_generated_files/pwm6.c
+[v _PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM6_LoadDutyValue@dutyValue dutyValue `us  1 p 2 4 ]
+"81
+} 0
+"318 C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
+[v _getVelocity getVelocity `(f  1 e 4 0 ]
+{
+"320
+} 0
+"322
+[v _getPosition getPosition `(l  1 e 4 0 ]
+{
+"325
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 0 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 2 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 6 ]
+"129
 } 0
 "242 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]

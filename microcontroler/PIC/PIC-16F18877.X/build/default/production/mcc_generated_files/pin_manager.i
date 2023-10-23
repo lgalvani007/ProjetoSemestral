@@ -20774,10 +20774,10 @@ void PIN_MANAGER_Initialize(void)
 
 
     LATE = 0x00;
-    LATD = 0x00;
+    LATD = 0x08;
     LATA = 0x00;
     LATB = 0x00;
-    LATC = 0x00;
+    LATC = 0x09;
 
 
 
@@ -20785,14 +20785,14 @@ void PIN_MANAGER_Initialize(void)
     TRISE = 0x07;
     TRISA = 0xFF;
     TRISB = 0xFF;
-    TRISC = 0xE7;
-    TRISD = 0xF8;
+    TRISC = 0xEF;
+    TRISD = 0xF0;
 
 
 
 
-    ANSELD = 0xF8;
-    ANSELC = 0x91;
+    ANSELD = 0xF0;
+    ANSELC = 0x90;
     ANSELB = 0xFF;
     ANSELE = 0x07;
     ANSELA = 0xFF;

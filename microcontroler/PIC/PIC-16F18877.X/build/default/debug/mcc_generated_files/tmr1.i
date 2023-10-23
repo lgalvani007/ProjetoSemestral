@@ -20792,10 +20792,10 @@ void TMR1_Initialize(void)
     T1CLK = 0x01;
 
 
-    TMR1H = 0xB1;
+    TMR1H = 0x63;
 
 
-    TMR1L = 0xE0;
+    TMR1L = 0xC0;
 
 
     PIR4bits.TMR1IF = 0;
@@ -20810,7 +20810,7 @@ void TMR1_Initialize(void)
     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 
 
-    T1CON = 0x01;
+    T1CON = 0x11;
 }
 
 void TMR1_StartTimer(void)

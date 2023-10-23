@@ -90,20 +90,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "531
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 531: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x00E)));
 [v _PORTCbits `VS36 ~T0 @X0 0 e@14 ]
-"1086
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 1086:     struct {
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"1085
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 1085: typedef union {
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1097
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18877.h: 1097: extern volatile LATCbits_t LATCbits __attribute__((address(0x018)));
-[v _LATCbits `VS56 ~T0 @X0 0 e@24 ]
 "129 ./mcc_generated_files/pwm6.h
 [; ;./mcc_generated_files/pwm6.h: 129:  void PWM6_LoadDutyValue(uint16_t dutyValue);
 [v _PWM6_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"78 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdlib.h: 78: int abs (int);
+[v _abs `(i ~T0 @X0 0 ef1`i ]
 "207 ./mcc_generated_files/eusart.h
 [; ;./mcc_generated_files/eusart.h: 207: _Bool EUSART_is_rx_ready(void);
 [v _EUSART_is_rx_ready `(a ~T0 @X0 0 ef ]
@@ -1783,10 +1775,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `l
 ]
 "74
-[; ;main.c: 74: long nPulseTurn = 590;
+[; ;main.c: 74: long nPulseTurn = 600;
 [v _nPulseTurn `l ~T0 @X0 1 e ]
 [i _nPulseTurn
--> -> 590 `i `l
+-> -> 600 `i `l
 ]
 "76
 [; ;main.c: 76: long encoder = 0;
@@ -1881,232 +1873,298 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _velPulse_ms
 -> -> 0 `i `f
 ]
-"94
-[; ;main.c: 94: volatile uint16_t timer1ReloadVal=(uint16_t)((0x63 << 8) | 0xC0);
-[v _timer1ReloadVal `Vus ~T0 @X0 1 e ]
-[i _timer1ReloadVal
--> | << -> 99 `i -> 8 `i -> 192 `i `us
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"96
-[; ;main.c: 96: void main(void)
+"95
+[; ;main.c: 95: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"97
-[; ;main.c: 97: {
+"96
+[; ;main.c: 96: {
 {
 [e :U _main ]
 [f ]
-"99
-[; ;main.c: 99:     SYSTEM_Initialize();
+"98
+[; ;main.c: 98:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"100
-[; ;main.c: 100:     IOCCF1_SetInterruptHandler(ENCA_ISR);
+"99
+[; ;main.c: 99:     IOCCF1_SetInterruptHandler(ENCA_ISR);
 [e ( _IOCCF1_SetInterruptHandler (1 &U _ENCA_ISR ]
-"101
-[; ;main.c: 101:     IOCCF2_SetInterruptHandler(ENCB_ISR);
+"100
+[; ;main.c: 100:     IOCCF2_SetInterruptHandler(ENCB_ISR);
 [e ( _IOCCF2_SetInterruptHandler (1 &U _ENCB_ISR ]
-"102
-[; ;main.c: 102:     TMR1_SetInterruptHandler(TIMER_ISR);
+"101
+[; ;main.c: 101:     TMR1_SetInterruptHandler(TIMER_ISR);
 [e ( _TMR1_SetInterruptHandler (1 &U _TIMER_ISR ]
-"107
-[; ;main.c: 107:     (INTCONbits.GIE = 1);
+"106
+[; ;main.c: 106:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"110
-[; ;main.c: 110:     (INTCONbits.PEIE = 1);
+"109
+[; ;main.c: 109:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
-"117
-[; ;main.c: 117:     TMR1_StartTimer();
+"116
+[; ;main.c: 116:     TMR1_StartTimer();
 [e ( _TMR1_StartTimer ..  ]
-"118
-[; ;main.c: 118:     moveMotor(0);
+"117
+[; ;main.c: 117:     moveMotor(0);
 [e ( _moveMotor (1 -> 0 `i ]
-"119
-[; ;main.c: 119:     initialize();
+"118
+[; ;main.c: 118:     initialize();
 [e ( _initialize ..  ]
-"120
-[; ;main.c: 120:     while (1)
+"119
+[; ;main.c: 119:     while (1)
 [e :U 1620 ]
-"121
-[; ;main.c: 121:     {
+"120
+[; ;main.c: 120:     {
 {
-"122
-[; ;main.c: 122:         readMensage(&type, &setPoint, &kp, &ki, &kd);
+"121
+[; ;main.c: 121:         readMensage(&type, &setPoint, &kp, &ki, &kd);
 [e ( _readMensage (4 , , , , &U _type &U _setPoint &U _kp &U _ki &U _kd ]
-"123
-[; ;main.c: 123:         inicializaControle();
+"122
+[; ;main.c: 122:         inicializaControle();
 [e ( _inicializaControle ..  ]
-"124
-[; ;main.c: 124:         PID();
+"123
+[; ;main.c: 123:         PID();
 [e ( _PID ..  ]
-"125
-[; ;main.c: 125:         TMR1_StopTimer();
+"124
+[; ;main.c: 124:         TMR1_StopTimer();
 [e ( _TMR1_StopTimer ..  ]
-"126
-[; ;main.c: 126:         do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
+"125
+[; ;main.c: 125:         do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
 [e :U 1624 ]
 {
 [e = . . _LATDbits 0 2 -> ~ -> . . _LATDbits 0 2 `i `uc ]
 }
 [e :U 1623 ]
-"127
-[; ;main.c: 127:         sendMensage();
+"126
+[; ;main.c: 126:         sendMensage();
 [e ( _sendMensage ..  ]
-"128
-[; ;main.c: 128:     }
+"127
+[; ;main.c: 127:     }
 }
 [e :U 1619 ]
 [e $U 1620  ]
 [e :U 1621 ]
-"132
-[; ;main.c: 132: }
+"131
+[; ;main.c: 131: }
 [e :UE 1618 ]
 }
-"134
-[; ;main.c: 134: void PID(){
+"133
+[; ;main.c: 133: void PID(){
 [v _PID `(v ~T0 @X0 1 ef ]
 {
 [e :U _PID ]
 [f ]
-"135
-[; ;main.c: 135:     while(index_encoder < 3000/10){
+"134
+[; ;main.c: 134:     while(index_encoder < 3000/10){
 [e $U 1626  ]
 [e :U 1627 ]
 {
-"136
-[; ;main.c: 136:         if(index_encoder != index_encoder_anterior){
+"135
+[; ;main.c: 135:         if(index_encoder != index_encoder_anterior){
 [e $ ! != _index_encoder _index_encoder_anterior 1629  ]
 {
-"137
-[; ;main.c: 137:             if(type == 1){
+"136
+[; ;main.c: 136:             if(type == 1){
 [e $ ! == _type -> 1 `i 1630  ]
 {
-"138
-[; ;main.c: 138:                 vel = getVelocity();
+"137
+[; ;main.c: 137:                 vel = getVelocity();
 [e = _vel ( _getVelocity ..  ]
-"139
-[; ;main.c: 139:                 error = (float) (setPoint*nPulseTurn/60000.0) - vel;
+"138
+[; ;main.c: 138:                 error = (float) (setPoint*nPulseTurn/60000.0) - vel;
 [e = _error - -> / -> * _setPoint _nPulseTurn `d .60000.0 `f _vel ]
-"140
-[; ;main.c: 140:                 correction += kp * error + ki * error_integrativo - kd * (vel - lastVel);
+"139
+[; ;main.c: 139:                 correction += kp * error + ki * error_integrativo - kd * (vel - lastVel);
 [e =+ _correction - + * _kp _error * _ki _error_integrativo * _kd - _vel _lastVel ]
-"141
-[; ;main.c: 141:                 error_integrativo += error;
+"140
+[; ;main.c: 140:                 error_integrativo += error;
 [e =+ _error_integrativo _error ]
-"142
-[; ;main.c: 142:                 error_integrativo = constrain(error_integrativo,-600.0,600.0);
+"141
+[; ;main.c: 141:                 error_integrativo = constrain(error_integrativo,-600.0,600.0);
 [e = _error_integrativo ( _constrain (3 , , _error_integrativo -> -U .600.0 `f -> .600.0 `f ]
-"143
-[; ;main.c: 143:                 lastVel = vel;
+"142
+[; ;main.c: 142:                 lastVel = vel;
 [e = _lastVel _vel ]
-"144
-[; ;main.c: 144:                 Data[index_encoder] = vel * 60000.0 / ((float) nPulseTurn);
+"143
+[; ;main.c: 143:                 Data[index_encoder] = vel * 60000.0 / ((float) nPulseTurn);
 [e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> / * -> _vel `d .60000.0 -> -> _nPulseTurn `f `d `i ]
-"145
-[; ;main.c: 145:                 velPulse_ms = (encoder - lastPulse)/10.0;
+"144
+[; ;main.c: 144:                 velPulse_ms = (encoder - lastPulse)/10.0;
 [e = _velPulse_ms -> / -> - _encoder _lastPulse `d .10.0 `f ]
-"146
-[; ;main.c: 146:                 lastPulse = encoder;
+"145
+[; ;main.c: 145:                 lastPulse = encoder;
 [e = _lastPulse _encoder ]
-"147
-[; ;main.c: 147:             }
+"146
+[; ;main.c: 146:             }
 }
 [e $U 1631  ]
-"148
-[; ;main.c: 148:             else{
+"147
+[; ;main.c: 147:             else{
 [e :U 1630 ]
 {
-"149
-[; ;main.c: 149:                 if(type == 0){
+"148
+[; ;main.c: 148:                 if(type == 0){
 [e $ ! == _type -> 0 `i 1632  ]
 {
-"150
-[; ;main.c: 150:                     pos = getPosition();
+"149
+[; ;main.c: 149:                     pos = getPosition();
 [e = _pos ( _getPosition ..  ]
-"151
-[; ;main.c: 151:                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+"150
+[; ;main.c: 150:                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
 [e = _error -> - / -> * _setPoint _nPulseTurn `d .360.0 -> _pos `d `f ]
-"152
-[; ;main.c: 152:                     correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
+"151
+[; ;main.c: 151:                     correction = kp * error + ki * error_integrativo - kd * (float) (pos - lastPos);
 [e = _correction - + * _kp _error * _ki _error_integrativo * _kd -> - _pos _lastPos `f ]
-"153
-[; ;main.c: 153:                     error_integrativo += error;
+"152
+[; ;main.c: 152:                     error_integrativo += error;
 [e =+ _error_integrativo _error ]
-"154
-[; ;main.c: 154:                     error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
+"153
+[; ;main.c: 153:                     error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
 [e = _error_integrativo ( _constrain (3 , , _error_integrativo -> / * -U .360.0 -> _nPulseTurn `d .360.0 `f -> / * .360.0 -> _nPulseTurn `d .360.0 `f ]
-"155
-[; ;main.c: 155:                     lastPos = pos;
+"154
+[; ;main.c: 154:                     lastPos = pos;
 [e = _lastPos _pos ]
-"156
-[; ;main.c: 156:                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+"155
+[; ;main.c: 155:                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
 [e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> / * -> _pos `d .360.0 -> -> _nPulseTurn `f `d `i ]
-"157
-[; ;main.c: 157:                 }
+"156
+[; ;main.c: 156:                 }
 }
 [e $U 1633  ]
-"158
-[; ;main.c: 158:                 else if(type == 7){
+"157
+[; ;main.c: 157:                 else if(type == 2){
 [e :U 1632 ]
-[e $ ! == _type -> 7 `i 1634  ]
+[e $ ! == _type -> 2 `i 1634  ]
 {
+"158
+[; ;main.c: 158:                     pos = getPosition();
+[e = _pos ( _getPosition ..  ]
 "159
-[; ;main.c: 159:                     correction = setPoint;
-[e = _correction -> _setPoint `f ]
+[; ;main.c: 159:                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+[e = _error -> - / -> * _setPoint _nPulseTurn `d .360.0 -> _pos `d `f ]
 "160
-[; ;main.c: 160:                     Data[index_encoder] = getPosition();
-[e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> ( _getPosition ..  `i ]
+[; ;main.c: 160:                     correction = 0.136 * error - 0.1307 * error_anterior + 0.9548 * correction;
+[e = _correction -> + - * .0.136 -> _error `d * .0.1307 -> _error_anterior `d * .0.9548 -> _correction `d `f ]
 "161
-[; ;main.c: 161:                 }
+[; ;main.c: 161:                     error_anterior = error;
+[e = _error_anterior _error ]
+"162
+[; ;main.c: 162:                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+[e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> / * -> _pos `d .360.0 -> -> _nPulseTurn `f `d `i ]
+"163
+[; ;main.c: 163:                 }
 }
+[e $U 1635  ]
+"164
+[; ;main.c: 164:                 else if(type == 5){
 [e :U 1634 ]
-[e :U 1633 ]
+[e $ ! == _type -> 5 `i 1636  ]
+{
 "165
-[; ;main.c: 165:             }
+[; ;main.c: 165:                     pos = getPosition();
+[e = _pos ( _getPosition ..  ]
+"166
+[; ;main.c: 166:                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+[e = _error -> - / -> * _setPoint _nPulseTurn `d .360.0 -> _pos `d `f ]
+"167
+[; ;main.c: 167:                     correction = 0.8 * error ;
+[e = _correction -> * .0.8 -> _error `d `f ]
+"168
+[; ;main.c: 168:                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+[e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> / * -> _pos `d .360.0 -> -> _nPulseTurn `f `d `i ]
+"169
+[; ;main.c: 169:                 }
+}
+[e $U 1637  ]
+"170
+[; ;main.c: 170:                 else if(type == 6){
+[e :U 1636 ]
+[e $ ! == _type -> 6 `i 1638  ]
+{
+"171
+[; ;main.c: 171:                     pos = getPosition();
+[e = _pos ( _getPosition ..  ]
+"172
+[; ;main.c: 172:                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+[e = _error -> - / -> * _setPoint _nPulseTurn `d .360.0 -> _pos `d `f ]
+"173
+[; ;main.c: 173:                     correction = 1.171 * error - 1.101 * error_anterior + 0.8007 * correction;
+[e = _correction -> + - * .1.171 -> _error `d * .1.101 -> _error_anterior `d * .0.8007 -> _correction `d `f ]
+"174
+[; ;main.c: 174:                     error_anterior = error;
+[e = _error_anterior _error ]
+"175
+[; ;main.c: 175:                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+[e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> / * -> _pos `d .360.0 -> -> _nPulseTurn `f `d `i ]
+"176
+[; ;main.c: 176:                 }
+}
+[e $U 1639  ]
+"177
+[; ;main.c: 177:                 else if(type == 7){
+[e :U 1638 ]
+[e $ ! == _type -> 7 `i 1640  ]
+{
+"178
+[; ;main.c: 178:                     correction = setPoint;
+[e = _correction -> _setPoint `f ]
+"179
+[; ;main.c: 179:                     Data[index_encoder] = getPosition();
+[e = *U + &U _Data * -> -> _index_encoder `ui `ux -> -> # *U &U _Data `ui `ux -> ( _getPosition ..  `i ]
+"180
+[; ;main.c: 180:                 }
+}
+[e :U 1640 ]
+[e :U 1639 ]
+[e :U 1637 ]
+[e :U 1635 ]
+[e :U 1633 ]
+"184
+[; ;main.c: 184:             }
 }
 [e :U 1631 ]
-"166
-[; ;main.c: 166:             index_encoder_anterior = index_encoder;
+"185
+[; ;main.c: 185:             index_encoder_anterior = index_encoder;
 [e = _index_encoder_anterior _index_encoder ]
-"167
-[; ;main.c: 167:             correction = constrain(correction,-255.0,255.0);
+"186
+[; ;main.c: 186:             correction = constrain(correction,-255.0,255.0);
 [e = _correction ( _constrain (3 , , _correction -> -U .255.0 `f -> .255.0 `f ]
-"168
-[; ;main.c: 168:             moveMotor((int) correction);
+"187
+[; ;main.c: 187:             moveMotor((int) correction);
 [e ( _moveMotor (1 -> _correction `i ]
-"169
-[; ;main.c: 169:         }
+"188
+[; ;main.c: 188:         }
 }
 [e :U 1629 ]
-"170
-[; ;main.c: 170:     }
+"189
+[; ;main.c: 189:     }
 }
 [e :U 1626 ]
-"135
-[; ;main.c: 135:     while(index_encoder < 3000/10){
+"134
+[; ;main.c: 134:     while(index_encoder < 3000/10){
 [e $ < _index_encoder / -> 3000 `i -> 10 `i 1627  ]
 [e :U 1628 ]
-"171
-[; ;main.c: 171:     moveMotor(0);
+"190
+[; ;main.c: 190:     moveMotor(0);
 [e ( _moveMotor (1 -> 0 `i ]
-"172
-[; ;main.c: 172: }
+"191
+[; ;main.c: 191: }
 [e :UE 1625 ]
 }
-"173
-[; ;main.c: 173: void TIMER_ISR(void){
+"192
+[; ;main.c: 192: void TIMER_ISR(void){
 [v _TIMER_ISR `(v ~T0 @X0 1 ef ]
 {
 [e :U _TIMER_ISR ]
 [f ]
-"174
-[; ;main.c: 174:     index_encoder++;
+"193
+[; ;main.c: 193:     index_encoder++;
 [e ++ _index_encoder -> 1 `i ]
-"175
-[; ;main.c: 175: }
-[e :UE 1635 ]
+"194
+[; ;main.c: 194: }
+[e :UE 1641 ]
 }
-"177
-[; ;main.c: 177: float constrain(float VAR, float MIN, float MAX){
+"196
+[; ;main.c: 196: float constrain(float VAR, float MIN, float MAX){
 [v _constrain `(f ~T0 @X0 1 ef3`f`f`f ]
 {
 [e :U _constrain ]
@@ -2114,269 +2172,274 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _MIN `f ~T0 @X0 1 r2 ]
 [v _MAX `f ~T0 @X0 1 r3 ]
 [f ]
-"178
-[; ;main.c: 178:     if(VAR < MIN){
-[e $ ! < _VAR _MIN 1637  ]
+"197
+[; ;main.c: 197:     if(VAR < MIN){
+[e $ ! < _VAR _MIN 1643  ]
 {
-"179
-[; ;main.c: 179:         return MIN;
+"198
+[; ;main.c: 198:         return MIN;
 [e ) _MIN ]
-[e $UE 1636  ]
-"180
-[; ;main.c: 180:     }
+[e $UE 1642  ]
+"199
+[; ;main.c: 199:     }
 }
-[e $U 1638  ]
-"181
-[; ;main.c: 181:     else if(VAR > MAX){
-[e :U 1637 ]
-[e $ ! > _VAR _MAX 1639  ]
+[e $U 1644  ]
+"200
+[; ;main.c: 200:     else if(VAR > MAX){
+[e :U 1643 ]
+[e $ ! > _VAR _MAX 1645  ]
 {
-"182
-[; ;main.c: 182:         return MAX;
+"201
+[; ;main.c: 201:         return MAX;
 [e ) _MAX ]
-[e $UE 1636  ]
-"183
-[; ;main.c: 183:     }
+[e $UE 1642  ]
+"202
+[; ;main.c: 202:     }
 }
-[e $U 1640  ]
-"184
-[; ;main.c: 184:     else{
-[e :U 1639 ]
+[e $U 1646  ]
+"203
+[; ;main.c: 203:     else{
+[e :U 1645 ]
 {
-"185
-[; ;main.c: 185:         return VAR;
+"204
+[; ;main.c: 204:         return VAR;
 [e ) _VAR ]
-[e $UE 1636  ]
-"186
-[; ;main.c: 186:     }
+[e $UE 1642  ]
+"205
+[; ;main.c: 205:     }
 }
-[e :U 1640 ]
-[e :U 1638 ]
-"187
-[; ;main.c: 187: }
-[e :UE 1636 ]
+[e :U 1646 ]
+[e :U 1644 ]
+"206
+[; ;main.c: 206: }
+[e :UE 1642 ]
 }
-"189
-[; ;main.c: 189: void inicializaControle(void){
+"208
+[; ;main.c: 208: void inicializaControle(void){
 [v _inicializaControle `(v ~T0 @X0 1 ef ]
 {
 [e :U _inicializaControle ]
 [f ]
-"190
-[; ;main.c: 190:     encoder = 0;
+"209
+[; ;main.c: 209:     encoder = 0;
 [e = _encoder -> -> 0 `i `l ]
-"191
-[; ;main.c: 191:     lastPulse = 0;
+"210
+[; ;main.c: 210:     lastPulse = 0;
 [e = _lastPulse -> -> 0 `i `l ]
-"192
-[; ;main.c: 192:     index_encoder = 0;
+"211
+[; ;main.c: 211:     index_encoder = 0;
 [e = _index_encoder -> 0 `i ]
-"193
-[; ;main.c: 193:     velPulse_ms = 0;
+"212
+[; ;main.c: 212:     velPulse_ms = 0;
 [e = _velPulse_ms -> -> 0 `i `f ]
-"194
-[; ;main.c: 194:     error = 0;
+"213
+[; ;main.c: 213:     error = 0;
 [e = _error -> -> 0 `i `f ]
-"195
-[; ;main.c: 195:     error_anterior = 0;
+"214
+[; ;main.c: 214:     error_anterior = 0;
 [e = _error_anterior -> -> 0 `i `f ]
-"196
-[; ;main.c: 196:     error_anterior_anterior = 0;
+"215
+[; ;main.c: 215:     error_anterior_anterior = 0;
 [e = _error_anterior_anterior -> -> 0 `i `f ]
-"197
-[; ;main.c: 197:     error_integrativo = 0;
+"216
+[; ;main.c: 216:     error_integrativo = 0;
 [e = _error_integrativo -> -> 0 `i `f ]
-"198
-[; ;main.c: 198:     correction = 0;
+"217
+[; ;main.c: 217:     correction = 0;
 [e = _correction -> -> 0 `i `f ]
-"199
-[; ;main.c: 199:     correction_anterior = 0;
+"218
+[; ;main.c: 218:     correction_anterior = 0;
 [e = _correction_anterior -> -> 0 `i `f ]
-"200
-[; ;main.c: 200:     correction_anterior_anterior = 0 ;
+"219
+[; ;main.c: 219:     correction_anterior_anterior = 0 ;
 [e = _correction_anterior_anterior -> -> 0 `i `f ]
-"201
-[; ;main.c: 201:     lastPos = 0;
+"220
+[; ;main.c: 220:     lastPos = 0;
 [e = _lastPos -> -> 0 `i `l ]
-"202
-[; ;main.c: 202:     pos = 0;
+"221
+[; ;main.c: 221:     pos = 0;
 [e = _pos -> -> 0 `i `l ]
-"203
-[; ;main.c: 203:     vel = 0;
+"222
+[; ;main.c: 222:     vel = 0;
 [e = _vel -> -> 0 `i `f ]
-"204
-[; ;main.c: 204:     lastVel = 0;
+"223
+[; ;main.c: 223:     lastVel = 0;
 [e = _lastVel -> -> 0 `i `f ]
-"205
-[; ;main.c: 205:     do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
-[e :U 1644 ]
+"224
+[; ;main.c: 224:     do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0);
+[e :U 1650 ]
 {
 [e = . . _LATDbits 0 2 -> ~ -> . . _LATDbits 0 2 `i `uc ]
 }
-[e :U 1643 ]
-"206
-[; ;main.c: 206:     TMR1_StartTimer();
+[e :U 1649 ]
+"225
+[; ;main.c: 225:     TMR1_StartTimer();
 [e ( _TMR1_StartTimer ..  ]
-"207
-[; ;main.c: 207: }
-[e :UE 1641 ]
+"226
+[; ;main.c: 226: }
+[e :UE 1647 ]
 }
-"209
-[; ;main.c: 209: void ENCA_ISR(void){
+"228
+[; ;main.c: 228: void ENCA_ISR(void){
 [v _ENCA_ISR `(v ~T0 @X0 1 ef ]
 {
 [e :U _ENCA_ISR ]
 [f ]
-"210
-[; ;main.c: 210:     if (PORTCbits.RC2 == 1) {
-[e $ ! == -> . . _PORTCbits 0 2 `i -> 1 `i 1646  ]
-{
-"211
-[; ;main.c: 211:         encoder++;
-[e ++ _encoder -> -> 1 `i `l ]
-"212
-[; ;main.c: 212:     }
-}
-[e $U 1647  ]
-"213
-[; ;main.c: 213:     else{
-[e :U 1646 ]
-{
-"214
-[; ;main.c: 214:         encoder--;
-[e -- _encoder -> -> 1 `i `l ]
-"215
-[; ;main.c: 215:     }
-}
-[e :U 1647 ]
-"216
-[; ;main.c: 216: }
-[e :UE 1645 ]
-}
-"218
-[; ;main.c: 218: void ENCB_ISR(void){
-[v _ENCB_ISR `(v ~T0 @X0 1 ef ]
-{
-[e :U _ENCB_ISR ]
-[f ]
-"219
-[; ;main.c: 219:     if (PORTCbits.RC1 == 0) {
-[e $ ! == -> . . _PORTCbits 0 1 `i -> 0 `i 1649  ]
-{
-"220
-[; ;main.c: 220:         encoder++;
-[e ++ _encoder -> -> 1 `i `l ]
-"221
-[; ;main.c: 221:     }
-}
-[e $U 1650  ]
-"222
-[; ;main.c: 222:     else{
-[e :U 1649 ]
-{
-"223
-[; ;main.c: 223:         encoder--;
-[e -- _encoder -> -> 1 `i `l ]
-"224
-[; ;main.c: 224:     }
-}
-[e :U 1650 ]
-"225
-[; ;main.c: 225: }
-[e :UE 1648 ]
-}
-"227
-[; ;main.c: 227: void moveMotor(int m){
-[v _moveMotor `(v ~T0 @X0 1 ef1`i ]
-{
-[e :U _moveMotor ]
-[v _m `i ~T0 @X0 1 r1 ]
-[f ]
-"228
-[; ;main.c: 228:     if(m>0){
-[e $ ! > _m -> 0 `i 1652  ]
-{
 "229
-[; ;main.c: 229:         do { LATDbits.LATD0 = 1; } while(0);
-[e :U 1655 ]
+[; ;main.c: 229:     if (PORTCbits.RC2 == 1) {
+[e $ ! == -> . . _PORTCbits 0 2 `i -> 1 `i 1652  ]
 {
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-}
-[e :U 1654 ]
 "230
-[; ;main.c: 230:         do { LATCbits.LATC3 = 0; } while(0);
-[e :U 1658 ]
-{
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 1657 ]
+[; ;main.c: 230:         encoder++;
+[e ++ _encoder -> -> 1 `i `l ]
 "231
 [; ;main.c: 231:     }
 }
-[e $U 1659  ]
+[e $U 1653  ]
 "232
 [; ;main.c: 232:     else{
 [e :U 1652 ]
 {
 "233
-[; ;main.c: 233:         do { LATDbits.LATD0 = 0; } while(0);
-[e :U 1662 ]
+[; ;main.c: 233:         encoder--;
+[e -- _encoder -> -> 1 `i `l ]
+"234
+[; ;main.c: 234:     }
+}
+[e :U 1653 ]
+"235
+[; ;main.c: 235: }
+[e :UE 1651 ]
+}
+"237
+[; ;main.c: 237: void ENCB_ISR(void){
+[v _ENCB_ISR `(v ~T0 @X0 1 ef ]
+{
+[e :U _ENCB_ISR ]
+[f ]
+"238
+[; ;main.c: 238:     if (PORTCbits.RC1 == 0) {
+[e $ ! == -> . . _PORTCbits 0 1 `i -> 0 `i 1655  ]
+{
+"239
+[; ;main.c: 239:         encoder++;
+[e ++ _encoder -> -> 1 `i `l ]
+"240
+[; ;main.c: 240:     }
+}
+[e $U 1656  ]
+"241
+[; ;main.c: 241:     else{
+[e :U 1655 ]
+{
+"242
+[; ;main.c: 242:         encoder--;
+[e -- _encoder -> -> 1 `i `l ]
+"243
+[; ;main.c: 243:     }
+}
+[e :U 1656 ]
+"244
+[; ;main.c: 244: }
+[e :UE 1654 ]
+}
+"246
+[; ;main.c: 246: void moveMotor(int m){
+[v _moveMotor `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _moveMotor ]
+[v _m `i ~T0 @X0 1 r1 ]
+[f ]
+"247
+[; ;main.c: 247:     if(m > 0){
+[e $ ! > _m -> 0 `i 1658  ]
+{
+"248
+[; ;main.c: 248:         do { LATDbits.LATD0 = 1; } while(0);
+[e :U 1661 ]
+{
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+}
+[e :U 1660 ]
+"249
+[; ;main.c: 249:         do { LATDbits.LATD3 = 0; } while(0);
+[e :U 1664 ]
+{
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+}
+[e :U 1663 ]
+"250
+[; ;main.c: 250:         m += 20;
+[e =+ _m -> 20 `i ]
+"252
+[; ;main.c: 252:     }
+}
+[e $U 1665  ]
+"253
+[; ;main.c: 253:     else if (m < 0){
+[e :U 1658 ]
+[e $ ! < _m -> 0 `i 1666  ]
+{
+"254
+[; ;main.c: 254:         do { LATDbits.LATD0 = 0; } while(0);
+[e :U 1669 ]
 {
 [e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 1661 ]
-"234
-[; ;main.c: 234:         do { LATCbits.LATC3 = 1; } while(0);
-[e :U 1665 ]
+[e :U 1668 ]
+"255
+[; ;main.c: 255:         do { LATDbits.LATD3 = 1; } while(0);
+[e :U 1672 ]
 {
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 1664 ]
-"235
-[; ;main.c: 235:         m = -1 * m;
-[e = _m * -U -> 1 `i _m ]
-"236
-[; ;main.c: 236:     }
+[e :U 1671 ]
+"256
+[; ;main.c: 256:         m -= 20;
+[e =- _m -> 20 `i ]
+"258
+[; ;main.c: 258:     }
 }
-[e :U 1659 ]
-"237
-[; ;main.c: 237:     PWM6_LoadDutyValue(m);
-[e ( _PWM6_LoadDutyValue (1 -> _m `us ]
-"238
-[; ;main.c: 238: }
-[e :UE 1651 ]
+[e :U 1666 ]
+[e :U 1665 ]
+"259
+[; ;main.c: 259:     PWM6_LoadDutyValue(abs(m));
+[e ( _PWM6_LoadDutyValue (1 -> ( _abs (1 _m `us ]
+"260
+[; ;main.c: 260: }
+[e :UE 1657 ]
 }
-"240
-[; ;main.c: 240: void initialize(){
+"262
+[; ;main.c: 262: void initialize(){
 [v _initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _initialize ]
 [f ]
-"241
-[; ;main.c: 241:     for(int index = 0; index < 3000/10; index++){
+"263
+[; ;main.c: 263:     for(int index = 0; index < 3000/10; index++){
 {
 [v _index `i ~T0 @X0 1 a ]
 [e = _index -> 0 `i ]
-[e $ < _index / -> 3000 `i -> 10 `i 1667  ]
-[e $U 1668  ]
-[e :U 1667 ]
+[e $ < _index / -> 3000 `i -> 10 `i 1674  ]
+[e $U 1675  ]
+[e :U 1674 ]
 {
-"242
-[; ;main.c: 242:         Time[index] = 10*index;
+"264
+[; ;main.c: 264:         Time[index] = 10*index;
 [e = *U + &U _Time * -> -> _index `ui `ux -> -> # *U &U _Time `ui `ux * -> 10 `i _index ]
-"243
-[; ;main.c: 243:     }
+"265
+[; ;main.c: 265:     }
 }
 [e ++ _index -> 1 `i ]
-[e $ < _index / -> 3000 `i -> 10 `i 1667  ]
-[e :U 1668 ]
+[e $ < _index / -> 3000 `i -> 10 `i 1674  ]
+[e :U 1675 ]
 }
-"244
-[; ;main.c: 244: }
-[e :UE 1666 ]
+"266
+[; ;main.c: 266: }
+[e :UE 1673 ]
 }
-"246
-[; ;main.c: 246: void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
+"268
+[; ;main.c: 268: void readMensage(int *TYPE, long *SETPOINT, float *KP, float *KI, float *KD){
 [v _readMensage `(v ~T0 @X0 1 ef5`*i`*l`*f`*f`*f ]
 {
 [e :U _readMensage ]
@@ -2386,220 +2449,220 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _KI `*f ~T0 @X0 1 r4 ]
 [v _KD `*f ~T0 @X0 1 r5 ]
 [f ]
-"247
-[; ;main.c: 247:     int i = 0;
+"269
+[; ;main.c: 269:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"248
-[; ;main.c: 248:     unsigned char receivedString[30];
+"270
+[; ;main.c: 270:     unsigned char receivedString[30];
 [v _receivedString `uc ~T0 @X0 -> 30 `i a ]
-"249
-[; ;main.c: 249:     int value[5];
+"271
+[; ;main.c: 271:     int value[5];
 [v _value `i ~T0 @X0 -> 5 `i a ]
-"250
-[; ;main.c: 250:     while(1){
-[e :U 1672 ]
+"272
+[; ;main.c: 272:     while(1){
+[e :U 1679 ]
 {
-"251
-[; ;main.c: 251:         if(EUSART_is_rx_ready()){
-[e $ ! != -> ( _EUSART_is_rx_ready ..  `i -> 0 `i 1674  ]
+"273
+[; ;main.c: 273:         if(EUSART_is_rx_ready()){
+[e $ ! != -> ( _EUSART_is_rx_ready ..  `i -> 0 `i 1681  ]
 {
-"252
-[; ;main.c: 252:             unsigned char receivedChar = EUSART_Read();
+"274
+[; ;main.c: 274:             unsigned char receivedChar = EUSART_Read();
 [v _receivedChar `uc ~T0 @X0 1 a ]
 [e = _receivedChar ( _EUSART_Read ..  ]
-"253
-[; ;main.c: 253:             if(receivedChar == '\n' || receivedChar == '\r'){
-[e $ ! || == -> _receivedChar `ui -> 10 `ui == -> _receivedChar `ui -> 13 `ui 1675  ]
+"275
+[; ;main.c: 275:             if(receivedChar == '\n' || receivedChar == '\r'){
+[e $ ! || == -> _receivedChar `ui -> 10 `ui == -> _receivedChar `ui -> 13 `ui 1682  ]
 {
-"254
-[; ;main.c: 254:                 receivedString[i] = '\0';
+"276
+[; ;main.c: 276:                 receivedString[i] = '\0';
 [e = *U + &U _receivedString * -> -> _i `ui `ux -> -> # *U &U _receivedString `ui `ux -> -> 0 `ui `uc ]
-"255
-[; ;main.c: 255:                 break;
-[e $U 1673  ]
-"256
-[; ;main.c: 256:             }
+"277
+[; ;main.c: 277:                 break;
+[e $U 1680  ]
+"278
+[; ;main.c: 278:             }
 }
-[e $U 1676  ]
-"257
-[; ;main.c: 257:             else{
-[e :U 1675 ]
+[e $U 1683  ]
+"279
+[; ;main.c: 279:             else{
+[e :U 1682 ]
 {
-"258
-[; ;main.c: 258:                 receivedString[i] = receivedChar;
+"280
+[; ;main.c: 280:                 receivedString[i] = receivedChar;
 [e = *U + &U _receivedString * -> -> _i `ui `ux -> -> # *U &U _receivedString `ui `ux _receivedChar ]
-"259
-[; ;main.c: 259:                 i++;
+"281
+[; ;main.c: 281:                 i++;
 [e ++ _i -> 1 `i ]
-"260
-[; ;main.c: 260:             }
+"282
+[; ;main.c: 282:             }
 }
-[e :U 1676 ]
-"261
-[; ;main.c: 261:         }
+[e :U 1683 ]
+"283
+[; ;main.c: 283:         }
 }
-[e :U 1674 ]
-"262
-[; ;main.c: 262:     }
+[e :U 1681 ]
+"284
+[; ;main.c: 284:     }
 }
-[e :U 1671 ]
-[e $U 1672  ]
-[e :U 1673 ]
-"263
-[; ;main.c: 263:     char *token;
+[e :U 1678 ]
+[e $U 1679  ]
+[e :U 1680 ]
+"285
+[; ;main.c: 285:     char *token;
 [v _token `*uc ~T0 @X0 1 a ]
-"264
-[; ;main.c: 264:     token = strtok(receivedString,",");
+"286
+[; ;main.c: 286:     token = strtok(receivedString,",");
 [e = _token ( _strtok (2 , -> &U _receivedString `*uc :s 1C ]
-"265
-[; ;main.c: 265:     int j = 0;
+"287
+[; ;main.c: 287:     int j = 0;
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-"266
-[; ;main.c: 266:     while(token != ((void*)0)){
-[e $U 1677  ]
-[e :U 1678 ]
+"288
+[; ;main.c: 288:     while(token != ((void*)0)){
+[e $U 1684  ]
+[e :U 1685 ]
 {
-"267
-[; ;main.c: 267:         value[j] = atoi(token);
+"289
+[; ;main.c: 289:         value[j] = atoi(token);
 [e = *U + &U _value * -> -> _j `ui `ux -> -> # *U &U _value `ui `ux ( _atoi (1 -> _token `*Cuc ]
-"268
-[; ;main.c: 268:         token = strtok(((void*)0),",");
+"290
+[; ;main.c: 290:         token = strtok(((void*)0),",");
 [e = _token ( _strtok (2 , -> -> -> 0 `i `*v `*uc :s 2C ]
-"269
-[; ;main.c: 269:         j++;
+"291
+[; ;main.c: 291:         j++;
 [e ++ _j -> 1 `i ]
-"270
-[; ;main.c: 270:     }
+"292
+[; ;main.c: 292:     }
 }
-[e :U 1677 ]
-"266
-[; ;main.c: 266:     while(token != ((void*)0)){
-[e $ != _token -> -> -> 0 `i `*v `*uc 1678  ]
-[e :U 1679 ]
-"271
-[; ;main.c: 271:     *TYPE = value[0];
+[e :U 1684 ]
+"288
+[; ;main.c: 288:     while(token != ((void*)0)){
+[e $ != _token -> -> -> 0 `i `*v `*uc 1685  ]
+[e :U 1686 ]
+"293
+[; ;main.c: 293:     *TYPE = value[0];
 [e = *U _TYPE *U + &U _value * -> -> -> 0 `i `ui `ux -> -> # *U &U _value `ui `ux ]
-"272
-[; ;main.c: 272:     *SETPOINT = value[1];
+"294
+[; ;main.c: 294:     *SETPOINT = value[1];
 [e = *U _SETPOINT -> *U + &U _value * -> -> -> 1 `i `ui `ux -> -> # *U &U _value `ui `ux `l ]
-"273
-[; ;main.c: 273:     *KP = value[2]/1000.0;
+"295
+[; ;main.c: 295:     *KP = value[2]/1000.0;
 [e = *U _KP -> / -> *U + &U _value * -> -> -> 2 `i `ui `ux -> -> # *U &U _value `ui `ux `d .1000.0 `f ]
-"274
-[; ;main.c: 274:     *KI = value[3]/1000.0;
+"296
+[; ;main.c: 296:     *KI = value[3]/1000.0;
 [e = *U _KI -> / -> *U + &U _value * -> -> -> 3 `i `ui `ux -> -> # *U &U _value `ui `ux `d .1000.0 `f ]
-"275
-[; ;main.c: 275:     *KD = value[4]/1000.0;
+"297
+[; ;main.c: 297:     *KD = value[4]/1000.0;
 [e = *U _KD -> / -> *U + &U _value * -> -> -> 4 `i `ui `ux -> -> # *U &U _value `ui `ux `d .1000.0 `f ]
-"276
-[; ;main.c: 276:     receivedString[0] = '\0';
+"298
+[; ;main.c: 298:     receivedString[0] = '\0';
 [e = *U + &U _receivedString * -> -> -> 0 `i `ui `ux -> -> # *U &U _receivedString `ui `ux -> -> 0 `ui `uc ]
-"277
-[; ;main.c: 277: }
-[e :UE 1670 ]
+"299
+[; ;main.c: 299: }
+[e :UE 1677 ]
 }
-"279
-[; ;main.c: 279: void sendMensage(){
+"301
+[; ;main.c: 301: void sendMensage(){
 [v _sendMensage `(v ~T0 @X0 1 ef ]
 {
 [e :U _sendMensage ]
 [f ]
-"280
-[; ;main.c: 280:     for (int index = 0; index < 3000/10; index++) {
+"302
+[; ;main.c: 302:     for (int index = 0; index < 3000/10; index++) {
 {
 [v _index `i ~T0 @X0 1 a ]
 [e = _index -> 0 `i ]
-[e $ < _index / -> 3000 `i -> 10 `i 1681  ]
-[e $U 1682  ]
-[e :U 1681 ]
+[e $ < _index / -> 3000 `i -> 10 `i 1688  ]
+[e $U 1689  ]
+[e :U 1688 ]
 {
-"281
-[; ;main.c: 281:         if(type == 7){
-[e $ ! == _type -> 7 `i 1684  ]
+"303
+[; ;main.c: 303:         if(type == 7){
+[e $ ! == _type -> 7 `i 1691  ]
 {
-"282
-[; ;main.c: 282:             printf("%i\n",Data[index]);
+"304
+[; ;main.c: 304:             printf("%i\n",Data[index]);
 [e ( _printf , (. :s 3C *U + &U _Data * -> -> _index `ui `ux -> -> # *U &U _Data `ui `ux ]
-"283
-[; ;main.c: 283:         }
+"305
+[; ;main.c: 305:         }
 }
-[e $U 1685  ]
-"284
-[; ;main.c: 284:         else{
-[e :U 1684 ]
+[e $U 1692  ]
+"306
+[; ;main.c: 306:         else{
+[e :U 1691 ]
 {
-"285
-[; ;main.c: 285:             printf("%i,%i",Data[index],Time[index]);
+"307
+[; ;main.c: 307:             printf("%i,%i",Data[index],Time[index]);
 [e ( _printf , , (. :s 4C *U + &U _Data * -> -> _index `ui `ux -> -> # *U &U _Data `ui `ux *U + &U _Time * -> -> _index `ui `ux -> -> # *U &U _Time `ui `ux ]
-"286
-[; ;main.c: 286:         }
+"308
+[; ;main.c: 308:         }
 }
-[e :U 1685 ]
-"288
-[; ;main.c: 288:         if (index < 3000/10 - 1) {
-[e $ ! < _index - / -> 3000 `i -> 10 `i -> 1 `i 1686  ]
+[e :U 1692 ]
+"310
+[; ;main.c: 310:         if (index < 3000/10 - 1) {
+[e $ ! < _index - / -> 3000 `i -> 10 `i -> 1 `i 1693  ]
 {
-"289
-[; ;main.c: 289:             if(type != 7){
-[e $ ! != _type -> 7 `i 1687  ]
+"311
+[; ;main.c: 311:             if(type != 7){
+[e $ ! != _type -> 7 `i 1694  ]
 {
-"290
-[; ;main.c: 290:                 printf(",");
+"312
+[; ;main.c: 312:                 printf(",");
 [e ( _printf :s 5C ]
-"291
-[; ;main.c: 291:             }
+"313
+[; ;main.c: 313:             }
 }
-[e :U 1687 ]
-"292
-[; ;main.c: 292:         }
+[e :U 1694 ]
+"314
+[; ;main.c: 314:         }
 }
-[e :U 1686 ]
-"293
-[; ;main.c: 293:         _delay((unsigned long)((1)*(32000000/4000.0)));
+[e :U 1693 ]
+"315
+[; ;main.c: 315:         _delay((unsigned long)((1)*(32000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"294
-[; ;main.c: 294:     }
+"316
+[; ;main.c: 316:     }
 }
 [e ++ _index -> 1 `i ]
-[e $ < _index / -> 3000 `i -> 10 `i 1681  ]
-[e :U 1682 ]
+[e $ < _index / -> 3000 `i -> 10 `i 1688  ]
+[e :U 1689 ]
 }
-"295
-[; ;main.c: 295:     printf("\n");
+"317
+[; ;main.c: 317:     printf("\n");
 [e ( _printf :s 6C ]
-"296
-[; ;main.c: 296: }
-[e :UE 1680 ]
+"318
+[; ;main.c: 318: }
+[e :UE 1687 ]
 }
-"298
-[; ;main.c: 298: float getVelocity(){
+"320
+[; ;main.c: 320: float getVelocity(){
 [v _getVelocity `(f ~T0 @X0 1 ef ]
 {
 [e :U _getVelocity ]
 [f ]
-"299
-[; ;main.c: 299:   return velPulse_ms;
+"321
+[; ;main.c: 321:   return velPulse_ms;
 [e ) _velPulse_ms ]
-[e $UE 1688  ]
-"300
-[; ;main.c: 300: }
-[e :UE 1688 ]
+[e $UE 1695  ]
+"322
+[; ;main.c: 322: }
+[e :UE 1695 ]
 }
-"302
-[; ;main.c: 302: long getPosition(){
+"324
+[; ;main.c: 324: long getPosition(){
 [v _getPosition `(l ~T0 @X0 1 ef ]
 {
 [e :U _getPosition ]
 [f ]
-"304
-[; ;main.c: 304:   return encoder;
+"326
+[; ;main.c: 326:   return encoder;
 [e ) _encoder ]
-[e $UE 1689  ]
-"305
-[; ;main.c: 305: }
-[e :UE 1689 ]
+[e $UE 1696  ]
+"327
+[; ;main.c: 327: }
+[e :UE 1696 ]
 }
 [p f _printf 8388736 ]
 [a 4C 37 105 44 37 105 0 ]

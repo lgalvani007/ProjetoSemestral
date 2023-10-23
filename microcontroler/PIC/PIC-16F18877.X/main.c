@@ -71,7 +71,7 @@ unsigned long tSimPastEncoder = 0;
 
 unsigned long tPast = 0;
 long lastPulse = 0;
-long nPulseTurn = 590;
+long nPulseTurn = 600;
 
 long encoder = 0;
 
@@ -91,7 +91,6 @@ float lastVel = 0;
 
 float velPulse_ms = 0;
 
-volatile uint16_t timer1ReloadVal=(uint16_t)((0x63 << 8) | 0xC0);
 
 void main(void)
 {
@@ -153,6 +152,26 @@ void PID(){
                     error_integrativo += error;
                     error_integrativo = constrain(error_integrativo,-360.0*nPulseTurn/360.0,360.0*nPulseTurn/360.0);
                     lastPos = pos;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 2){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = 0.136 * error - 0.1307 * error_anterior + 0.9548 * correction;
+                    error_anterior = error;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 5){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = 0.8 * error ;
+                    Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
+                }
+                else if(type == 6){
+                    pos = getPosition();
+                    error = (float) ((setPoint*nPulseTurn/360.0) - pos);
+                    correction = 1.171 * error - 1.101 * error_anterior + 0.8007 * correction;
+                    error_anterior = error;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
                 else if(type == 7){
@@ -225,16 +244,19 @@ void ENCB_ISR(void){
 }
 
 void moveMotor(int m){
-    if(m>0){
+    if(m > 0){
         A_SetHigh();
         B_SetLow();
+        m += 20;
+//        m = constrain(m,20,255);
     }
-    else{
+    else if (m < 0){
         A_SetLow();
         B_SetHigh();
-        m = -1 * m;
+        m -= 20;
+//        m = constrain(m,-255,-20);
     }
-    PWM6_LoadDutyValue(m);
+    PWM6_LoadDutyValue(abs(m));
 }
 
 void initialize(){
