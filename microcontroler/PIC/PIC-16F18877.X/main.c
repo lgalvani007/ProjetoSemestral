@@ -154,20 +154,24 @@ void PID(){
                     lastPos = pos;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
-                else if(type == 2){
+                else if(type == 2){//AF
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
                     correction = 0.136 * error - 0.1307 * error_anterior + 0.9548 * correction;
                     error_anterior = error;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
-                else if(type == 5){
+                else if(type == 5){//P-ML
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                    correction = 0.8 * error ;
+                    correction = 1.509 * error - 2.94 * error_anterior + 1.431 * error_anterior_anterior + 1.607 * correction_anterior - 0.6065 * correction_anterior_anterior;
+                    error_anterior_anterior = error_anterior;
+                    error_anterior = error;
+                    correction_anterior_anterior = correction_anterior;
+                    correction_anterior = correction;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
-                else if(type == 6){
+                else if(type == 6){//PD-ML
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
                     correction = 1.171 * error - 1.101 * error_anterior + 0.8007 * correction;

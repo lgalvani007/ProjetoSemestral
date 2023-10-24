@@ -133,10 +133,8 @@ class controller():
         self.ui_controladores.InfoAnterior.setText("Anterior")
         self.ui_controladores.statusbar.showMessage('Pronto!')
         self.ui_controladores.avanco.clicked.connect(self.simulaControladores)
-        self.ui_controladores.Pmao.clicked.connect(self.simulaControladores)
-        self.ui_controladores.PDmao.clicked.connect(self.simulaControladores)
-        self.ui_controladores.PMatLab.clicked.connect(self.simulaControladores)
-        self.ui_controladores.PDMatLab.clicked.connect(self.simulaControladores)
+        self.ui_controladores.PID.clicked.connect(self.simulaControladores)
+        self.ui_controladores.PD.clicked.connect(self.simulaControladores)
         
         self.ui_velocidade.GraficoAtual.setBackground('w')
         self.ui_velocidade.GraficoAnterior.setBackground('w')
@@ -302,13 +300,9 @@ class controller():
         self.controlador_atual = sender.text()
         if(self.controlador_atual == "Avanço de fase"):
             self.tipo_atual_controladores = 2
-        elif(self.controlador_atual == "P"):
-            self.tipo_atual_controladores = 3
-        elif(self.controlador_atual == "PD"):
-            self.tipo_atual_controladores = 4
-        elif(self.controlador_atual == "P - MatLab"):
+        elif(self.controlador_atual == "PID"):
             self.tipo_atual_controladores = 5
-        elif(self.controlador_atual == "PD - MatLab"):
+        elif(self.controlador_atual == "PD"):
             self.tipo_atual_controladores = 6
         self.setpoint_atual_controladores = self.ui_controladores.Setpoint.value()
         self.serial.enviarSerial(self.tipo_atual_controladores, self.setpoint_atual_controladores, 0, 0, 0)
