@@ -11,11 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Menu(object):
     def setupUi(self, Menu):
         Menu.setObjectName("Menu")
-        Menu.resize(1200, 840)
+        Menu.resize(1366, 768)
         Menu.setWindowOpacity(1.0)
         Menu.setAutoFillBackground(False)
         self.label = QtWidgets.QLabel(Menu)
-        self.label.setGeometry(QtCore.QRect(50, 20, 1091, 361))
+        self.label.setGeometry(QtCore.QRect(130, 10, 1091, 361))
         font = QtGui.QFont()
         font.setPointSize(33)
         self.label.setFont(font)
@@ -27,7 +27,7 @@ class Ui_Menu(object):
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.splitter = QtWidgets.QSplitter(Menu)
-        self.splitter.setGeometry(QtCore.QRect(310, 360, 591, 301))
+        self.splitter.setGeometry(QtCore.QRect(380, 360, 591, 301))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)

@@ -216,25 +216,25 @@ class controller():
         return valores
 
     def abre_menu(self):
-        self.Dialog_menu.show()
+        self.Dialog_menu.showMaximized()
         self.Dialog_velocidade.close()
         self.Dialog_posicao.close()
         self.Dialog_controladores.close()
     
     def abre_velocidade(self):
-        self.Dialog_velocidade.show()
+        self.Dialog_velocidade.showMaximized()
         self.Dialog_posicao.close()
         self.Dialog_menu.close()
         self.Dialog_controladores.close()
     
     def abre_posicao(self):
-        self.Dialog_posicao.show()
+        self.Dialog_posicao.showMaximized()
         self.Dialog_velocidade.close()
         self.Dialog_menu.close()
         self.Dialog_controladores.close()
 
     def abre_controladores(self):
-        self.Dialog_controladores.show()
+        self.Dialog_controladores.showMaximized()
         self.Dialog_posicao.close()
         self.Dialog_velocidade.close()
         self.Dialog_menu.close()
