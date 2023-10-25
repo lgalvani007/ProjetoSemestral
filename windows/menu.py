@@ -73,7 +73,7 @@ class Ui_Menu(object):
     def retranslateUi(self, Menu):
         _translate = QtCore.QCoreApplication.translate
         Menu.setWindowTitle(_translate("Menu", "Menu"))
-        self.label.setText(_translate("Menu", "Simulação de controle de posição e velocidade de um motor DC com parametros interativos e pré-calculados"))
+        self.label.setText(_translate("Menu", "Simulação de controle de posição e velocidade de um motor DC com parâmetros interativos e pré-calculados"))
         self.Posicao.setText(_translate("Menu", "Posição"))
         self.Velocidade.setText(_translate("Menu", "Velocidade"))
         self.Controladores.setText(_translate("Menu", "Controladores"))

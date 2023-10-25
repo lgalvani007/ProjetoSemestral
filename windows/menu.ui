@@ -43,7 +43,7 @@
     <number>0</number>
    </property>
    <property name="text">
-    <string>Simulação de controle de posição e velocidade de um motor DC com parametros interativos e pré-calculados</string>
+    <string>Simulação de controle de posição e velocidade de um motor DC com parâmetros interativos e pré-calculados</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
