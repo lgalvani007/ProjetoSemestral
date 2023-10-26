@@ -59,5 +59,29 @@ Simulador de controle de velocidade e posição de uma roda de inércia.
 ## Comando pyqt5
 * pyuic5 "[name].ui" -o "[name].py" -x
 
+## Comando MatLab
+t = 0:0.001:1; % Vetor de tempo
+
+% Criar várias entradas
+u1 = 50 * ones(size(t)); % Degrau unitário 50
+u2 = 100 * ones(size(t)); % Degrau unitário com amplitude 100
+u3 = 150 * ones(size(t)); % Degrau unitário com amplitude 150
+u4 = 200 * ones(size(t)); % Degrau unitário com amplitude 200
+u5 = 255 * ones(size(t)); % Degrau unitário com amplitude 255
+
+% Plotar as entradas
+plot(t, u1, 'r', 'LineWidth', 3)
+hold on
+plot(t, u2, 'g', 'LineWidth', 3)
+plot(t, u3, 'b', 'LineWidth', 3)
+plot(t, u4, 'm', 'LineWidth', 3)
+plot(t, u5, 'y', 'LineWidth', 3);
+title('Entradas do Sistema');
+xlabel('Tempo (s)');
+ylabel('Amplitude');
+legend('Entrada: 50', 'Entrada: 100', 'Entrada: 150', 'Entrada: 200', 'Entrada: 255');
+ylim([0,350])
+
+
 ## Links e Referências
 *   (graficos no pyqt5)
