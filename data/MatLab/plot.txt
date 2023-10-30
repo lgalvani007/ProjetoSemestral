@@ -1,0 +1,11 @@
+step(GMpos*50)
+hold on
+plot(t,pos50)
+step(GMpos*100)
+plot(t,pos100)
+step(GMpos*150)
+plot(t,pos150)
+step(GMpos*200)
+plot(t,pos200)
+step(GMpos*255)
+plot(t,pos255)
