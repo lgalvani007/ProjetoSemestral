@@ -161,7 +161,7 @@ void PID(){
                     error_anterior = error;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
-                else if(type == 5){//P-ML
+                else if(type == 5){//PID
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
                     correction = 1.509 * error - 2.94 * error_anterior + 1.431 * error_anterior_anterior + 1.607 * correction_anterior - 0.6065 * correction_anterior_anterior;
@@ -174,7 +174,7 @@ void PID(){
                 else if(type == 6){//PD-ML
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                    correction = 1.171 * error - 1.101 * error_anterior + 0.8007 * correction;
+                    correction = 1.772 * error - 1.715 * error_anterior + 0.6592 * correction;
                     error_anterior = error;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
@@ -251,13 +251,13 @@ void moveMotor(int m){
     if(m > 0){
         A_SetHigh();
         B_SetLow();
-        m += 20;
+        m += 25;
 //        m = constrain(m,20,255);
     }
     else if (m < 0){
         A_SetLow();
         B_SetHigh();
-        m -= 20;
+        m -= 25;
 //        m = constrain(m,-255,-20);
     }
     PWM6_LoadDutyValue(abs(m));

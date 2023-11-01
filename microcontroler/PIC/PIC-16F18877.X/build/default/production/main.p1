@@ -2099,8 +2099,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 176:                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
 [e = _error -> - / -> * _setPoint _nPulseTurn `d .360.0 -> _pos `d `f ]
 "177
-[; ;main.c: 177:                     correction = 1.171 * error - 1.101 * error_anterior + 0.8007 * correction;
-[e = _correction -> + - * .1.171 -> _error `d * .1.101 -> _error_anterior `d * .0.8007 -> _correction `d `f ]
+[; ;main.c: 177:                     correction = 1.772 * error - 1.715 * error_anterior + 0.6592 * correction;
+[e = _correction -> + - * .1.772 -> _error `d * .1.715 -> _error_anterior `d * .0.6592 -> _correction `d `f ]
 "178
 [; ;main.c: 178:                     error_anterior = error;
 [e = _error_anterior _error ]
@@ -2381,8 +2381,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 1663 ]
 "254
-[; ;main.c: 254:         m += 20;
-[e =+ _m -> 20 `i ]
+[; ;main.c: 254:         m += 25;
+[e =+ _m -> 25 `i ]
 "256
 [; ;main.c: 256:     }
 }
@@ -2407,8 +2407,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 1671 ]
 "260
-[; ;main.c: 260:         m -= 20;
-[e =- _m -> 20 `i ]
+[; ;main.c: 260:         m -= 25;
+[e =- _m -> 25 `i ]
 "262
 [; ;main.c: 262:     }
 }

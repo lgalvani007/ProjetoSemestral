@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Tue Oct 24 08:34:39 2023
+                                                                                               Wed Nov 01 11:10:37 2023
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	16F18877
@@ -12590,8 +12590,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  11931     1E6A  1199               	bcf	25,3	;volatile
  11932     1E6B                     l4592:
  11933                           
- 11934                           ;main.c: 254:         m += 20;
- 11935     1E6B  3014               	movlw	20
+ 11934                           ;main.c: 254:         m += 25;
+ 11935     1E6B  3019               	movlw	25
  11936     1E6C  0141               	movlb	1	; select bank1
  11937     1E6D  07A0               	addwf	moveMotor@m^(0+128),f
  11938     1E6E  3000               	movlw	0
@@ -12620,8 +12620,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  11961     1E78  1599               	bsf	25,3	;volatile
  11962     1E79                     l4594:
  11963                           
- 11964                           ;main.c: 260:         m -= 20;
- 11965     1E79  30EC               	movlw	236
+ 11964                           ;main.c: 260:         m -= 25;
+ 11965     1E79  30E7               	movlw	231
  11966     1E7A  0141               	movlb	1	; select bank1
  11967     1E7B  07A0               	addwf	moveMotor@m^(0+128),f
  11968     1E7C  30FF               	movlw	255
@@ -18970,16 +18970,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  17889     04B7  00E8               	movwf	_error^(0+128)
  17890     04B8                     l4952:
  17891                           
- 17892                           ;main.c: 177:                     correction = 1.171 * error - 1.101 * error_anterior + 
-      +                          0.8007 * correction;
+ 17892                           ;main.c: 177:                     correction = 1.772 * error - 1.715 * error_anterior + 
+      +                          0.6592 * correction;
  17893     04B8  303F               	movlw	63
  17894     04B9  0140               	movlb	0	; select bank0
  17895     04BA  00B5               	movwf	___flmul@b+3
- 17896     04BB  308C               	movlw	140
+ 17896     04BB  30DB               	movlw	219
  17897     04BC  00B4               	movwf	___flmul@b+2
- 17898     04BD  30ED               	movlw	237
+ 17898     04BD  3085               	movlw	133
  17899     04BE  00B3               	movwf	___flmul@b+1
- 17900     04BF  3091               	movlw	145
+ 17900     04BF  301F               	movlw	31
  17901     04C0  00B2               	movwf	___flmul@b
  17902     04C1  0141               	movlb	1	; select bank1
  17903     04C2  0862               	movf	(_error_anterior+3)^(0+128),w
@@ -19009,11 +19009,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  17927     04DC  00E6               	movwf	___flsub@a
  17928     04DD  303F               	movlw	63
  17929     04DE  00B5               	movwf	___flmul@b+3
- 17930     04DF  3095               	movlw	149
+ 17930     04DF  30E2               	movlw	226
  17931     04E0  00B4               	movwf	___flmul@b+2
- 17932     04E1  30E3               	movlw	227
+ 17932     04E1  30D0               	movlw	208
  17933     04E2  00B3               	movwf	___flmul@b+1
- 17934     04E3  3054               	movlw	84
+ 17934     04E3  30E5               	movlw	229
  17935     04E4  00B2               	movwf	___flmul@b
  17936     04E5  0141               	movlb	1	; select bank1
  17937     04E6  086B               	movf	(_error+3)^(0+128),w
@@ -19060,16 +19060,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  17978     0513  00BB               	movwf	_PID$2197^(0+128)
  17979     0514                     l4954:
  17980                           
- 17981                           ;main.c: 177:                     correction = 1.171 * error - 1.101 * error_anterior + 
-      +                          0.8007 * correction;
+ 17981                           ;main.c: 177:                     correction = 1.772 * error - 1.715 * error_anterior + 
+      +                          0.6592 * correction;
  17982     0514  303F               	movlw	63
  17983     0515  0140               	movlb	0	; select bank0
  17984     0516  00B5               	movwf	___flmul@b+3
- 17985     0517  304C               	movlw	76
+ 17985     0517  3028               	movlw	40
  17986     0518  00B4               	movwf	___flmul@b+2
- 17987     0519  30FA               	movlw	250
+ 17987     0519  30C1               	movlw	193
  17988     051A  00B3               	movwf	___flmul@b+1
- 17989     051B  30AD               	movlw	173
+ 17989     051B  3055               	movlw	85
  17990     051C  00B2               	movwf	___flmul@b
  17991     051D  0141               	movlb	1	; select bank1
  17992     051E  085A               	movf	(_correction+3)^(0+128),w
@@ -20712,7 +20712,7 @@ BANK50               0      0       0     107        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Tue Oct 24 08:34:39 2023
+Symbol Table                                                                                   Wed Nov 01 11:10:37 2023
 
                                  ___fldiv@aexp 0065                                   ___fldiv@bexp 0064  
                                  ___fldiv@sign 005D                                _tSimPastEncoder 0144  

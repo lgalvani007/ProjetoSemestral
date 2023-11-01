@@ -21431,7 +21431,7 @@ void PID(){
                 else if(type == 6){
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                    correction = 1.171 * error - 1.101 * error_anterior + 0.8007 * correction;
+                    correction = 1.772 * error - 1.715 * error_anterior + 0.6592 * correction;
                     error_anterior = error;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
@@ -21508,13 +21508,13 @@ void moveMotor(int m){
     if(m > 0){
         do { LATDbits.LATD0 = 1; } while(0);
         do { LATDbits.LATD3 = 0; } while(0);
-        m += 20;
+        m += 25;
 
     }
     else if (m < 0){
         do { LATDbits.LATD0 = 0; } while(0);
         do { LATDbits.LATD3 = 1; } while(0);
-        m -= 20;
+        m -= 25;
 
     }
     PWM6_LoadDutyValue(abs(m));
