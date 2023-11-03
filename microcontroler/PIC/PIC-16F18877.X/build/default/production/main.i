@@ -21508,13 +21508,13 @@ void moveMotor(int m){
     if(m > 0){
         do { LATDbits.LATD0 = 1; } while(0);
         do { LATDbits.LATD3 = 0; } while(0);
-        m += 25;
+        m += 30;
 
     }
     else if (m < 0){
         do { LATDbits.LATD0 = 0; } while(0);
         do { LATDbits.LATD3 = 1; } while(0);
-        m -= 25;
+        m -= 30;
 
     }
     PWM6_LoadDutyValue(abs(m));

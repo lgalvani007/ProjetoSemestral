@@ -251,13 +251,13 @@ void moveMotor(int m){
     if(m > 0){
         A_SetHigh();
         B_SetLow();
-        m += 25;
+        m += 30;
 //        m = constrain(m,20,255);
     }
     else if (m < 0){
         A_SetLow();
         B_SetHigh();
-        m -= 25;
+        m -= 30;
 //        m = constrain(m,-255,-20);
     }
     PWM6_LoadDutyValue(abs(m));

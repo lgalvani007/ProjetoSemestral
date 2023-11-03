@@ -96,7 +96,7 @@ dataBANK2 BANK2 1 168 168 6 1 1
 clrtext CODE 0 1C05 1C05 C 2 1
 bssCOMMON COMMON 1 7A 7A 2 1 1
 config CONFIG 4 8007 8007 5 2 1
-$C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+$C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 reset_vec CODE 0 0 0 2 2 1
 end_init CODE 0 25 25 2 2 1
 config CONFIG 4 8007 8007 5 2 1
@@ -271,67 +271,67 @@ STRING 200C-7FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PIC-16F18877.X.production.o
-27 cinit CODE >11441:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-27 cinit CODE >11444:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-27 cinit CODE >11568:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-28 cinit CODE >11569:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-29 cinit CODE >11570:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-2A cinit CODE >11571:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-2B cinit CODE >11572:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-2C cinit CODE >11573:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-2D cinit CODE >11574:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-2E cinit CODE >11575:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-2F cinit CODE >11576:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-30 cinit CODE >11577:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-31 cinit CODE >11578:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-32 cinit CODE >11579:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-33 cinit CODE >11580:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-34 cinit CODE >11581:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-35 cinit CODE >11582:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-36 cinit CODE >11583:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-37 cinit CODE >11584:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-38 cinit CODE >11607:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-39 cinit CODE >11608:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-3A cinit CODE >11609:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-3B cinit CODE >11610:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-3C cinit CODE >11611:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-3D cinit CODE >11612:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-3E cinit CODE >11613:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-3F cinit CODE >11614:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-40 cinit CODE >11615:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-43 cinit CODE >11619:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-44 cinit CODE >11620:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-45 cinit CODE >11624:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-46 cinit CODE >11625:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-47 cinit CODE >11626:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-48 cinit CODE >11627:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-49 cinit CODE >11628:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-4A cinit CODE >11629:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-4B cinit CODE >11630:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-4C cinit CODE >11631:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-4D cinit CODE >11632:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-50 cinit CODE >11636:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-51 cinit CODE >11637:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-52 cinit CODE >11638:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-53 cinit CODE >11639:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-54 cinit CODE >11640:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-55 cinit CODE >11641:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-56 cinit CODE >11642:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-57 cinit CODE >11643:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-58 cinit CODE >11644:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-5B cinit CODE >11648:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-5C cinit CODE >11649:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-5D cinit CODE >11650:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-5E cinit CODE >11651:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-5F cinit CODE >11652:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-60 cinit CODE >11653:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-61 cinit CODE >11654:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-62 cinit CODE >11655:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-63 cinit CODE >11656:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-66 cinit CODE >11662:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-66 cinit CODE >11664:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-67 cinit CODE >11665:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-68 cinit CODE >11666:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
+27 cinit CODE >11441:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+27 cinit CODE >11444:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+27 cinit CODE >11568:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+28 cinit CODE >11569:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+29 cinit CODE >11570:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+2A cinit CODE >11571:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+2B cinit CODE >11572:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+2C cinit CODE >11573:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+2D cinit CODE >11574:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+2E cinit CODE >11575:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+2F cinit CODE >11576:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+30 cinit CODE >11577:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+31 cinit CODE >11578:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+32 cinit CODE >11579:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+33 cinit CODE >11580:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+34 cinit CODE >11581:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+35 cinit CODE >11582:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+36 cinit CODE >11583:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+37 cinit CODE >11584:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+38 cinit CODE >11607:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+39 cinit CODE >11608:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+3A cinit CODE >11609:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+3B cinit CODE >11610:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+3C cinit CODE >11611:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+3D cinit CODE >11612:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+3E cinit CODE >11613:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+3F cinit CODE >11614:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+40 cinit CODE >11615:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+43 cinit CODE >11619:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+44 cinit CODE >11620:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+45 cinit CODE >11624:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+46 cinit CODE >11625:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+47 cinit CODE >11626:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+48 cinit CODE >11627:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+49 cinit CODE >11628:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+4A cinit CODE >11629:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+4B cinit CODE >11630:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+4C cinit CODE >11631:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+4D cinit CODE >11632:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+50 cinit CODE >11636:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+51 cinit CODE >11637:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+52 cinit CODE >11638:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+53 cinit CODE >11639:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+54 cinit CODE >11640:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+55 cinit CODE >11641:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+56 cinit CODE >11642:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+57 cinit CODE >11643:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+58 cinit CODE >11644:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+5B cinit CODE >11648:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+5C cinit CODE >11649:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+5D cinit CODE >11650:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+5E cinit CODE >11651:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+5F cinit CODE >11652:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+60 cinit CODE >11653:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+61 cinit CODE >11654:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+62 cinit CODE >11655:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+63 cinit CODE >11656:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+66 cinit CODE >11662:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+66 cinit CODE >11664:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+67 cinit CODE >11665:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+68 cinit CODE >11666:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
 4 intentry CODE >52:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\mcc_generated_files/interrupt_manager.c
 6 intentry CODE >55:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\mcc_generated_files/interrupt_manager.c
 F intentry CODE >57:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\mcc_generated_files/interrupt_manager.c
@@ -1334,20 +1334,20 @@ FFE text38 CODE >146:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSe
 1F4A maintext CODE >125:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
 1F4D maintext CODE >125:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
 1F56 maintext CODE >126:C:\Users\Leonardo\Desktop\4 ano\Orientada a obeto\ProjetoSemestral\microcontroler\PIC\PIC-16F18877.X\main.c
-1C05 clrtext CODE >11590:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C05 clrtext CODE >11591:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C06 clrtext CODE >11592:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C06 clrtext CODE >11593:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C07 clrtext CODE >11594:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C08 clrtext CODE >11595:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C09 clrtext CODE >11596:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C0A clrtext CODE >11597:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C0B clrtext CODE >11598:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C0C clrtext CODE >11599:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C0D clrtext CODE >11600:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C0E clrtext CODE >11601:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C0F clrtext CODE >11602:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
-1C10 clrtext CODE >11603:C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_1.s
+1C05 clrtext CODE >11590:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C05 clrtext CODE >11591:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C06 clrtext CODE >11592:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C06 clrtext CODE >11593:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C07 clrtext CODE >11594:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C08 clrtext CODE >11595:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C09 clrtext CODE >11596:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C0A clrtext CODE >11597:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C0B clrtext CODE >11598:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C0C clrtext CODE >11599:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C0D clrtext CODE >11600:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C0E clrtext CODE >11601:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C0F clrtext CODE >11602:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
+1C10 clrtext CODE >11603:C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1411,7 +1411,7 @@ _WPUB 1F44 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _WPUC 1F4F 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _WPUD 1F5A 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _WPUE 1F65 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+___sp 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 _atoi F10 0 CODE 0 text15 dist/default/production\PIC-16F18877.X.production.o
 _dbuf 1A0 0 BANK3 1 bssBANK3 dist/default/production\PIC-16F18877.X.production.o
 _main 3E1A 0 CODE 0 maintext dist/default/production\PIC-16F18877.X.production.o
@@ -1419,9 +1419,9 @@ _prec 14A 0 BANK2 1 bssBANK2 dist/default/production\PIC-16F18877.X.production.o
 _type 7A 0 COMMON 1 bssCOMMON dist/default/production\PIC-16F18877.X.production.o
 abs@a 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-___stack_lo 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-start 4A 0 CODE 0 init C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+start 4A 0 CODE 0 init C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 _PWM6_LoadDutyValue 39FA 0 CODE 0 text41 dist/default/production\PIC-16F18877.X.production.o
 ___flmul@aexp 40 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
 ___flmul@bexp 45 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
@@ -1445,12 +1445,12 @@ __end_of_vfpfcnvrt 289C 0 CODE 0 text4 dist/default/production\PIC-16F18877.X.pr
 ___awmod@sign 78 0 COMMON 1 cstackCOMMON dist/default/production\PIC-16F18877.X.production.o
 _TMR2_Initialize 383C 0 CODE 0 text25 dist/default/production\PIC-16F18877.X.production.o
 _error_anterior_anterior 134 0 BANK2 1 bssBANK2 dist/default/production\PIC-16F18877.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _IOCCF1_ISR 3858 0 CODE 0 text63 dist/default/production\PIC-16F18877.X.production.o
 _IOCCF2_ISR 3876 0 CODE 0 text60 dist/default/production\PIC-16F18877.X.production.o
@@ -1514,8 +1514,8 @@ _INLVLE 1F68 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 __Umul8_16@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC-16F18877.X.production.o
 __end_of_IOCCF1_ISR 3876 0 CODE 0 text63 dist/default/production\PIC-16F18877.X.production.o
 __end_of_IOCCF2_ISR 3894 0 CODE 0 text60 dist/default/production\PIC-16F18877.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-___stacklo 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+___stackhi 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+___stacklo 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 pnum$text38_split_1 55 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 pnum$text38_split_2 56 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _EUSART_Initialize 3B54 0 CODE 0 text34 dist/default/production\PIC-16F18877.X.production.o
@@ -1561,7 +1561,7 @@ _TX1STA 11E 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 __end_of_printf 38D2 0 CODE 0 text2 dist/default/production\PIC-16F18877.X.production.o
 __end_of_TMR1_SetInterruptHandler 3794 0 CODE 0 text27 dist/default/production\PIC-16F18877.X.production.o
 fputc@fp 76 0 COMMON 1 cstackCOMMON dist/default/production\PIC-16F18877.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+___int_sp 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 __end_of_EUSART_Read 38B2 0 CODE 0 text17 dist/default/production\PIC-16F18877.X.production.o
 vfpfcnvrt@done 2D 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
@@ -1844,7 +1844,7 @@ moveMotor@m A0 0 BANK1 1 cstackBANK1 dist/default/production\PIC-16F18877.X.prod
 _encoder 138 0 BANK2 1 bssBANK2 dist/default/production\PIC-16F18877.X.production.o
 strchr@c 74 0 COMMON 1 cstackCOMMON dist/default/production\PIC-16F18877.X.production.o
 strchr@s 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC-16F18877.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 strspn@c 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
 strspn@i 24 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
 strspn@s 26 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
@@ -2123,8 +2123,8 @@ _SLRCONB 1F46 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _SLRCONC 1F51 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _SLRCOND 1F5C 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
 _SLRCONE 1F67 0 ABS 0 - dist/default/production\PIC-16F18877.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-___heap_lo 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+___heap_hi 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+___heap_lo 0 0 ABS 0 - C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 _getPosition 37CE 0 CODE 0 text43 dist/default/production\PIC-16F18877.X.production.o
 ___fltol@f1 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC-16F18877.X.production.o
 EUSART_Write@txData 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC-16F18877.X.production.o
@@ -2214,8 +2214,8 @@ __end_of_PWM6_Initialize 383C 0 CODE 0 text28 dist/default/production\PIC-16F188
 _TMR1_SetInterruptHandler 3788 0 CODE 0 text27 dist/default/production\PIC-16F18877.X.production.o
 __end_of_PWM6_LoadDutyValue 3A2C 0 CODE 0 text41 dist/default/production\PIC-16F18877.X.production.o
 _index_encoder E3 0 BANK1 1 bssBANK1 dist/default/production\PIC-16F18877.X.production.o
-___int_stack_hi 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
-___int_stack_lo 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsid4.\driver_tmp_20.o
+___int_stack_hi 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
+___int_stack_lo 0 0 STACK 2 stack C:\Users\Leonardo\AppData\Local\Temp\xcAsuec.\driver_tmp_20.o
 _TMR1_InterruptHandler 15C 0 BANK2 1 nvBANK2 dist/default/production\PIC-16F18877.X.production.o
 _OSCILLATOR_Initialize 37BC 0 CODE 0 text33 dist/default/production\PIC-16F18877.X.production.o
 __end_of_TMR2_Initialize 3858 0 CODE 0 text25 dist/default/production\PIC-16F18877.X.production.o

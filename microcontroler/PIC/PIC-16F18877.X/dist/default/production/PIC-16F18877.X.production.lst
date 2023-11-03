@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Wed Nov 01 11:10:37 2023
+                                                                                               Fri Nov 03 10:46:23 2023
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	16F18877
@@ -12590,8 +12590,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  11931     1E6A  1199               	bcf	25,3	;volatile
  11932     1E6B                     l4592:
  11933                           
- 11934                           ;main.c: 254:         m += 25;
- 11935     1E6B  3019               	movlw	25
+ 11934                           ;main.c: 254:         m += 30;
+ 11935     1E6B  301E               	movlw	30
  11936     1E6C  0141               	movlb	1	; select bank1
  11937     1E6D  07A0               	addwf	moveMotor@m^(0+128),f
  11938     1E6E  3000               	movlw	0
@@ -12620,8 +12620,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  11961     1E78  1599               	bsf	25,3	;volatile
  11962     1E79                     l4594:
  11963                           
- 11964                           ;main.c: 260:         m -= 25;
- 11965     1E79  30E7               	movlw	231
+ 11964                           ;main.c: 260:         m -= 30;
+ 11965     1E79  30E2               	movlw	226
  11966     1E7A  0141               	movlb	1	; select bank1
  11967     1E7B  07A0               	addwf	moveMotor@m^(0+128),f
  11968     1E7C  30FF               	movlw	255
@@ -20712,7 +20712,7 @@ BANK50               0      0       0     107        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Wed Nov 01 11:10:37 2023
+Symbol Table                                                                                   Fri Nov 03 10:46:23 2023
 
                                  ___fldiv@aexp 0065                                   ___fldiv@bexp 0064  
                                  ___fldiv@sign 005D                                _tSimPastEncoder 0144  
