@@ -24,6 +24,8 @@ class ComunicacaoSerial:
             dados = mensagem.split(",")
             data = [float(dados[i]) for i in range(0, len(dados), 2)]
             time = [float(dados[i])/1000.0 for i in range(1, len(dados), 2)]
+        # for i in data:
+        #     print(f"{int(i)}")
         return time, data
         
     def fechaPorta(self):
