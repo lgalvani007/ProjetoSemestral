@@ -1,0 +1,11 @@
+Paul-l-Hai Lin, Sentai Hwang and J. Chou, "Comparison on fuzzy logic and PID controls for a DC motor position controller," Proceedings of 1994 IEEE Industry Applications Society Annual Meeting, Denver, CO, USA, 1994, pp. 1930-1935 vol.3, doi: 10.1109/IAS.1994.377695.
+
+I. Bar-Kana, R. Fischl and P. Kalata, "Direct position plus velocity feedback control of large flexible space structures," in IEEE Transactions on Automatic Control, vol. 36, no. 10, pp. 1186-1188, Oct. 1991, doi: 10.1109/9.90232.
+
+M. Mahmud, S. M. A. Motakabber, A. H. M. Zahirul Alam and A. N. Nordin, "Adaptive PID Controller Using for Speed Control of the BLDC Motor," 2020 IEEE International Conference on Semiconductor Electronics (ICSE), Kuala Lumpur, Malaysia, 2020, pp. 168-171, doi: 10.1109/ICSE49846.2020.9166883.
+
+S. Balamurugan and A. Umarani, "Study of Discrete PID Controller for DC Motor Speed Control Using MATLAB," 2020 International Conference on Computing and Information Technology (ICCIT-1441), Tabuk, Saudi Arabia, 2020, pp. 1-6, doi: 10.1109/ICCIT-144147971.2020.9213780.
+
+
+https://www.researchgate.net/profile/Valdemir-Carrara/publication/274039045_Comparacao_experimental_entre_formas_de_controle_de_atitude_com_rodas_de_reacao/links/5512c63e0cf270fd7e3373a2/Comparacao-experimental-entre-formas-de-controle-de-atitude-com-rodas-de-reacao.pdf
+https://repositorio.utfpr.edu.br/jspui/bitstream/1/32024/1/desenvolvimentokitsdidaticos.pdf
