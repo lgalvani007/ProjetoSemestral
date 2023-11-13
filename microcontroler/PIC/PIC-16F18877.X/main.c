@@ -182,9 +182,6 @@ void PID(){
                     correction = setPoint;
                     Data[index_encoder] = getPosition();
                 }
-//                else if(type == 4){
-//                    
-//                }
             }
             index_encoder_anterior = index_encoder;
             correction = constrain(correction,-255.0,255.0);
