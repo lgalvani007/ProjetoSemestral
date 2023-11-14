@@ -1,4 +1,4 @@
-# Projeto Semestral Orientada a Objeto
+# Projeto Semestral
 
 Simulador de controle de velocidade e posição de uma roda de inércia.
 
