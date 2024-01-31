@@ -305,7 +305,7 @@ void sendMensage(){
             printf("%i\n",Data[index]);//Ensaio
         }
         else{
-            printf("%i,%i",Data[index],Time[index]);//Posicao
+            printf("%i,%i",Data[index],Time[index]);//Posicao e velocidade
         }
         
         if (index < simulationTime/deltaT - 1) {

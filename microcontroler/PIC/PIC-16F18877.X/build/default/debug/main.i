@@ -21421,13 +21421,17 @@ void PID(){
                 else if(type == 5){
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                    correction = 0.8 * error ;
+                    correction = 1.509 * error - 2.94 * error_anterior + 1.431 * error_anterior_anterior + 1.607 * correction_anterior - 0.6065 * correction_anterior_anterior;
+                    error_anterior_anterior = error_anterior;
+                    error_anterior = error;
+                    correction_anterior_anterior = correction_anterior;
+                    correction_anterior = correction;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
                 else if(type == 6){
                     pos = getPosition();
                     error = (float) ((setPoint*nPulseTurn/360.0) - pos);
-                    correction = 1.2 * error - 1.101 * error_anterior + 0.8007 * correction;
+                    correction = 1.772 * error - 1.715 * error_anterior + 0.6592 * correction;
                     error_anterior = error;
                     Data[index_encoder] = pos * 360.0 / ((float) nPulseTurn);
                 }
@@ -21435,9 +21439,6 @@ void PID(){
                     correction = setPoint;
                     Data[index_encoder] = getPosition();
                 }
-
-
-
             }
             index_encoder_anterior = index_encoder;
             correction = constrain(correction,-255.0,255.0);
@@ -21501,15 +21502,17 @@ void ENCB_ISR(void){
 }
 
 void moveMotor(int m){
-    if(m>0){
+    if(m > 0){
         do { LATDbits.LATD0 = 1; } while(0);
         do { LATDbits.LATD3 = 0; } while(0);
-        m = constrain(m,20,255);
+        m += 30;
+
     }
-    else{
+    else if (m < 0){
         do { LATDbits.LATD0 = 0; } while(0);
         do { LATDbits.LATD3 = 1; } while(0);
-        m = constrain(m,-255,-20);
+        m -= 30;
+
     }
     PWM6_LoadDutyValue(abs(m));
 }
